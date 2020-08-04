@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet">
     <title>MBIS</title>
 </head>
 <body>
@@ -22,16 +22,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="loginPage.php">Sign In</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ipsum</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Lorem</a>
+                    <a class="nav-link" href="registerMember.html">Register</a>
                 </li>
 
             </ul>
@@ -53,30 +49,27 @@
         <div class="carousel-item active">
             <img src="img/bg1.jpg" width="800px" height="600px">
             <div class="carousel-caption">
-                <h1 class="display-2">Lorem Ipsum</h1>
-                <h3>Inilah Barisan Kita</h3>
-                <button type="button" class="btn btn-outline-light btn-lg">LOGIN</button>
-                <button type="button" class="btn btn-primary btn-lg">SIGN UP</button>
+                <h1 class="display-2">#ROOM_NAME#</h1>
+                <h3>#ROOM_DETAILS#</h3>
+                <button type="button" class="btn btn-primary btn-lg">Explore</button>
             </div>
         </div>
 
         <div class="carousel-item">
             <img src="img/bg2.jpg" width="800px" height="600px">
             <div class="carousel-caption">
-                <h1 class="display-2">Lorem Ipsum</h1>
-                <h3>Inilah Barisan Kita</h3>
-                <button type="button" class="btn btn-outline-light btn-lg">LOGIN</button>
-                <button type="button" class="btn btn-primary btn-lg">SIGN UP</button>
+                <h1 class="display-2">#ROOM_NAME#</h1>
+                <h3>#ROOM_DETAILS#</h3>
+                <button type="button" class="btn btn-primary btn-lg">Explore</button>
             </div>
         </div>
 
         <div class="carousel-item">
             <img src="img/bg3.jpg" width="800px" height="600px">
             <div class="carousel-caption">
-                <h1 class="display-2">Lorem Ipsum</h1>
-                <h3>Inilah Barisan Kita</h3>
-                <button type="button" class="btn btn-outline-light btn-lg">LOGIN</button>
-                <button type="button" class="btn btn-primary btn-lg">SIGN UP</button>
+                <h1 class="display-2">#ROOM_NAME#</h1>
+                <h3>#ROOM_DETAILS#</h3>
+                <button type="button" class="btn btn-primary btn-lg">Explore</button>
             </div>
         </div>
 
@@ -88,7 +81,7 @@
 <div class="container-fluid">
     <div class="row jumbotron">
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-            <p class="lead">착한 얼굴에 그렇지 못한 태도
+            <p class="lead">#PLACEHOLDER_착한 얼굴에 그렇지 못한 태도
                 가녀린 몸매 속 가려진 volume은 두 배로
                 거침없이 직진 굳이 보진 않지 눈치
                 Black 하면 Pink 우린 예쁘장한 savage (Blackpink)
@@ -103,7 +96,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
             <a href="#">
-                <button type="button" class="btn btn-outline-secondary btn-lg">Testing</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg">#FULL_ROOM_LIST#</button>
             </a>
         </div>
     </div>
@@ -113,13 +106,13 @@
 <div class="container-fluid padding">
     <div class="row welcome text-center">
         <div class="col-12">
-            <h1 class="display-4">Ayy Lmao.</h1>
+            <h1 class="display-4">#SIGNATURE_ROOMS#</h1>
         </div>
 
         <hr>
 
         <div class="col-12">
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            <p class="lead">#SIGNATURE_ROOM_DETAILS#_階段のそのまた向こう 全然良いこともないし、ねえ その手を引いてみようか？</p>
         </div>
     </div>
 </div>
@@ -129,19 +122,19 @@
 
         <div class="col-xs-12 col-sm-6 col-md-4">
             <i class="fas fa-code"></i>
-            <h3>LOREM</h3>
+            <h3>#SIGNATURE_ROOM1#</h3>
             <p>Lorem ipsum dolor sit amet.</p>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-4">
             <i class="fas fa-bold"></i>
-            <h3>LOREM</h3>
+            <h3>#SIGNATURE_ROOM1#</h3>
             <p>Lorem ipsum dolor sit amet.</p>
         </div>
 
         <div class="col-sm-12 col-md-4">
             <i class="fab fa-css3"></i>
-            <h3>LOREM</h3>
+            <h3>#SIGNATURE_ROOM1#</h3>
             <p>Lorem ipsum dolor sit amet.</p>
         </div>
 
@@ -152,10 +145,10 @@
 <div class="container-fluid padding">
     <div class="row padding">
         <div class="col-lg-6">
-            <h2>Lorem ipsum...</h2>
+            <h2>#MONTHLY_EVENT#</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
             <br>
-            <a href="#" class="btn btn-primary">Ayy lmao.</a>
+            <a href="#" class="btn btn-primary">#MORE_DETAILS#</a>
         </div>
 
         <div class="col-lg-6">
@@ -187,40 +180,55 @@
 <div class="container-fluid padding">
     <div class="row-padding">
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
                 <img class="card-img-top" src="img/logo.png">
                 <div class="card-body">
-                    <h4 class="card-title">Lorem Ipsum</h4>
+                    <h4 class="card-title">ALIFF</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                     <a href="#" class="btn btn-outline-secondary">See Profile</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
                 <img class="card-img-top" src="img/logo.png">
                 <div class="card-body">
-                    <h4 class="card-title">Lorem Ipsum 2</h4>
+                    <h4 class="card-title">ADAM</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                     <a href="#" class="btn btn-outline-secondary">See Profile</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
                 <img class="card-img-top" src="img/logo.png">
                 <div class="card-body">
-                    <h4 class="card-title">Lorem Ipsum 3</h4>
+                    <h4 class="card-title">REDZUAN</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                     <a href="#" class="btn btn-outline-secondary">See Profile</a>
                 </div>
             </div>
         </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img class="card-img-top" src="img/logo.png">
+                <div class="card-body">
+                    <h4 class="card-title">ARIFF</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <a href="#" class="btn btn-outline-secondary">See Profile</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+
+<!-- Footer -->
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

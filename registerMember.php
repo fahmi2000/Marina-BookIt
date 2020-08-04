@@ -12,17 +12,23 @@
 </head>
 <body>
 <h1>Register</h1>
-<form action="Process/loginProcess.php" method="post">
+<form action="Handler/registerHandler.php" method="post">
     username:
-    <input type="text" name="username">
+    <input type="text" name="userName">
+    <br>
+    email:
+    <input type="text" name="userEmail">
     <br>
     password:
-    <input type="password" name="password">
+    <input type="password" name="userPwd">
+    <br>
+    password:
+    <input type="password" name="userPwdRepeat">
     <br>
     usertype:
     <input type="text" name="userType">
 
-    <input type="submit" name="registerButton">
+    <input type="submit" name="registerSubmitBtn">
 </form>
 
 <!-- Optional JavaScript -->

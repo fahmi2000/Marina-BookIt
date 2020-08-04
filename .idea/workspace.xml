@@ -3,8 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="368517c7-b87b-4914-b111-43c6c2450776" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WEH TOLONG.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Function/loginFunction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Function/staffFunction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Process/loginProcess.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addNewStaff.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminDashboard.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kuno.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginPage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/memberDashboard.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registerMember.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staffDashboard.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +84,9 @@
       <workItem from="1596281600482" duration="15317000" />
       <workItem from="1596384981685" duration="10347000" />
       <workItem from="1596418481384" duration="3276000" />
+      <workItem from="1596432504317" duration="11551000" />
+      <workItem from="1596502543791" duration="2138000" />
+      <workItem from="1596504727033" duration="24314000" />
     </task>
     <servers />
   </component>
@@ -90,19 +102,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596249094339" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596421315890">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596509241962">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596421315890" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596509241962" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596388649519">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596388649519" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596249413237" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1596424739199">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1596541659688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596424739199" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596541659688" />
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596272243606" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1596535908666">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596535908666" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1596443143275">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596443143275" />
   </component>
 </project>

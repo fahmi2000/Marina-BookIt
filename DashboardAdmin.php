@@ -1,9 +1,12 @@
 <?php
 session_start();
-if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
+
+if ($_SESSION['userType'] != 1)
 {
-	header ("loginPage.html");
+	header("Location: ../index.html?login=noaccess");
+	exit();
 }
+
 ?>
 
 <!doctype html>
@@ -16,26 +19,21 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-	<title>Add New Staff</title>
+	<title>Admin Dashboard</title>
 </head>
 <body>
-<h1>Add New Staff</h1>
+<p>Manage Staff</p>
+<a href="addNewStaff.php">Add New Staff</a>
+<a href="viewStaff.php">Add New Staff</a>
+<a href="editCurrentStaff.php">Edit Staff</a>
 
-<form action="Process/loginProcess.php" method="post">
-	username:
-	<input type="text" name="username">
+<p>Manage Facility</p>
+<a href="manageFacility.php">Manage Rooms & Facilities</a>
 
-	password:
-	<input type="password" name="password">
+<p>Manage Report</p>
+<a href="manageReport.php">Manage Report</a>
 
-	user type:
-	<input type="text" name="userType">
-
-	<input type="submit" name="registerButton">
-</form>
-
-
-
+<a href="Handler/signoutHandler.php">sign out</a>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
