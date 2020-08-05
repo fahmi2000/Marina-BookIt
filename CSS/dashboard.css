@@ -28,10 +28,6 @@ a:focus {
     margin: 40px 0;
 }
 
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
-
 #sidebar {
     width: 250px;
     position: fixed;
@@ -39,8 +35,8 @@ a:focus {
     left: -250px;
     height: 100vh;
     z-index: 999;
-    background: #000000;
-    color: #fff;
+    background: #fff;
+    color: #000000;
     transition: all 0.3s;
     overflow-y: scroll;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
@@ -55,7 +51,7 @@ a:focus {
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: #7386D5;
+    background: #FFFFFF;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -66,8 +62,8 @@ a:focus {
 }
 
 #dismiss:hover {
-    background: #fff;
-    color: #7386D5;
+    background: #000000;
+    color: #FFFFFF;
 }
 
 .overlay {
@@ -87,7 +83,7 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #FFFFFF;
 }
 
 #sidebar ul.components {
@@ -107,14 +103,14 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color: #000000;
+    background: #dddddd;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: #000000;
+    background: #dddddd;
 }
 
 a[data-toggle="collapse"] {
@@ -132,7 +128,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #FFFFFF;
 }
 
 ul.CTAs {
@@ -147,20 +143,10 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
-a.download {
+a.unlistBtn {
     background: #fff;
-    color: #7386D5;
+    color: #000000;
 }
-
-a.article,
-a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
-}
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
 
 #content {
     width: 100%;
