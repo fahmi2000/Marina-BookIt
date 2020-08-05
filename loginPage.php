@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="forgotLink"><a href="#">Forgot username?</a></div>
                                 <br><br>
-                                <a href="#">Create account</a>
+                                <a href="registerMember.php">Create account</a>
                                 <a class="btn btn-primary float-right" id="nextButton" href="#">Next</a>
 
                             </div>
@@ -83,6 +83,7 @@
                                     </div>
                                     <div class="forgotLink"><a href="#">Forgot password?</a></div>
                                     <br><br>
+                                    <a href="registerMember.php">Create account</a>
                                     <button type="submit" class="btn btn-primary float-right" name="loginSubmitBtn">Next</button>
                                 </div>
 

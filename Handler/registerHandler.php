@@ -82,7 +82,7 @@ if (isset($_POST['registerSubmitBtn']))
 					mysqli_stmt_bind_param($stmt, "ssss", $userName,$userEmail, $hashedPwd, $userType);
 					mysqli_stmt_execute($stmt);
 
-					header("Location: ../registerMember.html?register=success");
+					header("Location: ../registerMember.php?register=success");
 					exit();
 				}
 

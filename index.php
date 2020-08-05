@@ -29,7 +29,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="registerMember.html">Register</a>
+                    <a class="nav-link" href="registerMember.php">Register</a>
                 </li>
 
             </ul>

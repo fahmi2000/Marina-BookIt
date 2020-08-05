@@ -45,13 +45,13 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Staff Management<i class="fas fa-chevron-circle-down fa-lg float-right"></i></a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Add Staff</a>
+                            <a href="registerStaff.php">Add Staff</a>
                         </li>
                         <li>
-                            <a href="#">List of Staff</a>
+                            <a href="listStaff.php">List of Staff</a>
                         </li>
                         <li>
-                            <a href="#">Staff Account Edit</a>
+                            <a href="listStaff.php">Staff Account Edit</a>
                         </li>
                     </ul>
                 </li>
@@ -59,13 +59,13 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Facility Management<i class="fas fa-chevron-circle-down fa-lg float-right"></i></a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Add Facility</a>
+                            <a href="registerFacility.php">Add Facility</a>
                         </li>
                         <li>
-                            <a href="#">List of Facilities</a>
+                            <a href="listFacility.php">List of Facilities</a>
                         </li>
                         <li>
-                            <a href="#">Facility Information Edit</a>
+                            <a href="listFacility.php">Facility Information Edit</a>
                         </li>
                     </ul>
                 </li>

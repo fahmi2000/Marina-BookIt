@@ -46,6 +46,7 @@ if (isset($_POST['loginSubmitBtn']))
 					$_SESSION['userID'] = $row['userID'];
 					$_SESSION['userName'] = $row['userName'];
 					$_SESSION['userType'] = $row['userType'];
+					$_SESSION['emailVerify'] = $row['emailVerify'];
 
 					switch ($_SESSION['userType'])
 					{
@@ -58,8 +59,17 @@ if (isset($_POST['loginSubmitBtn']))
 							exit();
 
 						case 3:
-							header("Location: ../MemberDashboard.php?login=success");
-							exit();
+							if($_SESSION['emailVerify'] == 0)
+							{
+								header("Location: ../loginPage.php?error=notverified");
+								exit();
+							}
+							else
+							{
+								header("Location: ../DashboardMember.php?login=success");
+								exit();
+							}
+
 					}
 
 				}
