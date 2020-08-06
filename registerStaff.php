@@ -31,7 +31,7 @@
             padding-top: 2rem;
         }
     </style>
-    <title>Register - Marina BookIt</title>
+    <title>Staff Register - Marina BookIt</title>
 </head>
 
 <body>
@@ -45,8 +45,8 @@
                     <div class="card-body">
                         <div class="text-center">
                             <img src="img/logo.png" style="padding: 20px">
-                            <h4 class="card-title" style="padding-top: 20px">Register</h4>
-                            <p style="padding-bottom: 10px">Create a new account</p>
+                            <h4 class="card-title" style="padding-top: 20px">Staff Register</h4>
+                            <p style="padding-bottom: 10px">Add new staff account</p>
                         </div>
                         <div class="form-group">
                             <div class="text-center" id="txtBox">
@@ -69,7 +69,10 @@
                             </div>
 
                             <div class="text-center" id="txtBox">
-                                <input type="text" class="form-class form-control w-100 border border-primary" name="userType" value="3" readonly hidden>
+                                <select class="form-control w-100 border border-primary" name="userType" required>
+                                    <option value="2">Staff</option>
+                                    <option value="1">Admin</option>
+                                </select>
                             </div>
 
                             <div style="padding-top: 5rem">
