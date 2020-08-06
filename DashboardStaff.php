@@ -43,10 +43,10 @@
                     <a href="#">Menu</a>
                 </li>
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Booking Management<i class="fas fa-chevron-circle-down fa-lg float-right"></i></a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Member Management<i class="fas fa-chevron-circle-down fa-lg float-right"></i></a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">View Pending Booking</a>
+                            <a href="#">List of Members</a>
                         </li>
                         <li>
                             <a href="#">Change Booking Status</a>
