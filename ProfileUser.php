@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
+{
+	header ("loginPage.html");
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -52,6 +59,13 @@
         </form>
     </div>
 </div>
+<form action="Handler/profileHandler.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button class="btn btn-primary" name="userPicBtn" type="submit">
+        <i class="fas fa-camera"></i>
+    </button>
+</form>
+<?php print_r($_SESSION)?>
 
 <!-- Local JavaScript -->
 <!-- Optional CDN -->
