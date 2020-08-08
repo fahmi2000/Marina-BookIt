@@ -3,6 +3,37 @@
 */
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body, html
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0
+}
+.row-container
+{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+.first-row
+{
+
+}
+
+.second-row
+{
+    flex-grow: 1;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -193,4 +224,17 @@ a.download {
 #moreInfo
 {
     padding-top: 80%;
+}
+
+iframe
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#icontent
+{
+    height: 100vh;
 }

@@ -25,7 +25,6 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 
         $result = mysqli_stmt_get_result($stmt);
         $row = mysqli_fetch_assoc($result);
-        echo $row['userName'];
 
 	    $fName = $row['fName'];
 	    $lName = $row['lName'];
@@ -33,7 +32,6 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 	    $phoneNumber = $row['phoneNumber'];
 	    $userGender = $row['userGender'];
     }
-
 ?>
 
 <!doctype html>
@@ -70,40 +68,62 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
         <div id="swapper-first">
-            <div class="card" style="width: 70rem;">
+            <div class="card" style="width: 70rem; padding: 5px">
                 <div class="card-body">
-                    <div class="text-left" style="padding-left: 50px; padding-top: 50px">
+                    <div class="text-center">
+                        <h4 class="card-title"><?php echo $_SESSION['userName'];?>'s Profile</h4>
                         <img class="d-inline" src="img/profilepic/<?= $userID ; ?>.jpg?<?= mt_rand() ; ?>" id="userPic"/>
-                        <p class="px-4" style="padding-top: 20px">
-                            <a class="btn btn-outline-secondary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-camera"></i> Change Picture </a>
-                        </p>
-                        <div class="row">
-                            <div class="col">
-                                <div class="collapse multi-collapse" id="multiCollapseExample1">
-                                    <div class="card card-body">
-                                        <form action="Handler/profileHandler.php" method="post" enctype="multipart/form-data">
-                                            <input type="file" name="file">
-                                            <button class="btn btn-primary" name="userPicBtn" type="submit">
-                                                Upload
-                                            </button>
-                                        </form>
-                                    </div>
+                    </div>
+
+                    <p class="px-4 text-center" style="padding-top: 20px">
+                        <a class="btn btn-outline-secondary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-camera"></i> Change Picture </a>
+                    </p>
+                    <div class="row" style="padding-bottom: 20px">
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                <div class="card card-body text-center">
+                                    <form action="Handler/profileHandler.php" method="post" enctype="multipart/form-data">
+                                        <input type="file" name="file">
+                                        <button class="btn btn-primary" name="userPicBtn" type="submit">
+                                            Upload
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <h4 class="card-title" style="padding-top: 20px"><?php echo $_SESSION['userName'];?></h4>
-                        <p  class=""><?php echo $userEmail;?></p>
+                    <form action="Handler/profileHandler.php" method="post" class="text-center">
+                        <div class="btn-group dropdown" style="padding-bottom: 20px">
+                            <button type="button" class="btn btn-outline-warning dropdown-toggle text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Change Password
+                            </button>
+                            <div class="dropdown-menu p-4" style="min-width: 20rem">
+                                <label for="userPwd">Current Password</label>
+                                <input type="password" class="form-control" name="userPwd" placeholder="Password" required>
+                                <br>
+                                <label for="userPwd">New Password</label>
+                                <input type="password" class="form-control" name="userPwdNew" placeholder="Password" required>
+                                <br>
+                                <label for="userPwdNewRepeat">Repeat New Password</label>
+                                <input type="password" class="form-control" name="userPwdNewRepeat" placeholder="Password" required>
+                                <div class="dropdown-divider"></div>
+                                <button type="submit" class="btn btn-primary float-right" name="pwdUpdateBtn">Save</button>
+                            </div>
+                        </div>
+                    </form>
+
+
 
                     <form action="Handler/profileHandler.php" method="post">
                         <div class="row">
                             <div class="col">
                                 <label for="fName">First Name</label>
-                                <input type="text" class="form-control"  value="<?= $fName ?>" id="fName" name="fName">
+                                <input type="text" class="form-control"  value="<?= $fName ?>" id="fName" name="fName" required>
                             </div>
                             <div class="col">
                                 <label for="lName">Last Name</label>
-                                <input type="text" class="form-control"  value="<?= $lName ?>" id="lName" name="lName">
+                                <input type="text" class="form-control"  value="<?= $lName ?>" id="lName" name="lName" required>
                             </div>
                             <div class="col">
                                 <label for="userID">User ID</label>
@@ -113,37 +133,23 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                         <div class="row" style="padding-top: 3rem">
                             <div class="col">
                                 <label for="userEmail">Email Address</label>
-                                <input type="text" class="form-control"  value="<?= $userEmail ?>" id="userEmail" name="userEmail">
+                                <input type="email" class="form-control"  value="<?= $userEmail ?>" id="userEmail" name="userEmail" required>
                             </div>
                             <div class="col">
                                 <label for="phoneNumber">Phone Number</label>
-                                <input type="text" class="form-control"  value="<?= $phoneNumber ?>" id="phoneNumber" name="phoneNumber">
+                                <input type="text" class="form-control"  value="<?= $phoneNumber ?>" id="phoneNumber" name="phoneNumber" required>
                             </div>
                             <div class="col">
                                 <label for="userGender">Gender</label>
-                                <select class="form-control" id="userGender" name="userGender">
+                                <select class="form-control" id="userGender" name="userGender" required>
                                     <option value="maleGender">Male</option>
                                     <option value="femaleGender">Female</option>
                                     <option value="shyGender">Prefer not to say</option>
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary float-right" name="profileUpdateBtn" style="padding-top: 10px">Save</button>
-                    </form>
-                    <form action="Handler/profileHandler.php" method="post">
-                        <div class="btn-group dropup">
-                            <button type="button" class="btn btn-outline-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Change Password
-                            </button>
-                            <div class="dropdown-menu p-4" style="min-width: 20rem">
-                                <input type="password" class="form-control" name="userPwd" placeholder="Current Password">
-                                <div class="dropdown-divider"></div>
-                                <input type="password" class="form-control" name="userPwdNew" placeholder="New Password">
-                                <br>
-                                <input type="password" class="form-control" name="userPwdNewRepeat" placeholder="Repeat New Password">
-                                <div class="dropdown-divider"></div>
-                                <button type="submit" class="btn btn-primary float-right" name="pwdUpdateBtn">Save</button>
-                            </div>
+                        <div style="padding-top: 20px">
+                            <button type="submit" class="btn btn-primary float-right" name="profileUpdateBtn">Save Changes</button>
                         </div>
                     </form>
                 </div>

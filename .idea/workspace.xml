@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="368517c7-b87b-4914-b111-43c6c2450776" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/profilepic/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/profilepic/3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DashboardAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/DashboardAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/profileHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/profileHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/signinHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/signinHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/profilepic/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/profilepic/1.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +85,7 @@
       <workItem from="1596746587100" duration="15151000" />
       <workItem from="1596794256556" duration="3842000" />
       <workItem from="1596859659771" duration="25469000" />
+      <workItem from="1596907333531" duration="7557000" />
     </task>
     <servers />
   </component>
@@ -109,15 +106,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596509241962" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596883708523">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1596913471508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596883708523" />
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596913471508" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596913604427">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596913604427" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596249413237" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1596769129509">
+    <state x="750" y="431" key="NewPhpFileDialog" timestamp="1596913730457">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596769129509" />
+    <state x="750" y="431" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596913730457" />
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596272243606" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1596535908666">
       <screen x="0" y="0" width="1920" height="1040" />

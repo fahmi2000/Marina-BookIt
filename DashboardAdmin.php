@@ -66,7 +66,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
         <ul class="list-unstyled components">
             <p>Dummy Heading</p>
             <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Booking</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
                         <a href="#">Home 1</a>
@@ -80,9 +80,22 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                 </ul>
             </li>
             <li>
-                <a href="#">About</a>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Staff</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a onclick="document.getElementById('contentFrame').src='listOfStaff.php'">List of Staff</a>
+                    </li>
+                    <li>
+                        <a onclick="document.getElementById('contentFrame').src='listOfStaff.php'">Edit Staff's Account</a>
+                    </li>
+                    <li>
+                        <a onclick="document.getElementById('contentFrame').src='registerStaff.php'">Register Staff</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#facilitySubmenu" data-toggle="collapse" aria-expanded="false">Facility</a>
+                <ul class="collapse list-unstyled" id="facilitySubmenu">
                     <li>
                         <a href="#">Page 1</a>
                     </li>
@@ -113,35 +126,20 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
     </nav>
 
     <!-- Page Content  -->
-    <div id="content">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <span class="navbar-brand mb-0 h1" id="sysTitle">Marina BookIt</span>
-            <div class="container-fluid">
-                <button type="button" id="sidebarCollapse" class="btn btn-dark btn-lg">
-                    <i class="fas fa-align-left"></i>
-                </button>
-            </div>
-        </nav>
-
-        <h2>Hello, <span><?php echo $_SESSION['userName']; ?>!</span></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <div class="line"></div>
-
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <div class="line"></div>
-
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <div class="line"></div>
-
-        <h3>Lorem Ipsum Dolor</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="row-container" id="content">
+        <div class="first-row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <span class="navbar-brand mb-0 h1" id="sysTitle">Marina BookIt</span>
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-dark btn-lg">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        <div class="second-row">
+            <iframe id="contentFrame" src="ProfileUser.php"></iframe>
+        </div>
     </div>
 </div>
 
