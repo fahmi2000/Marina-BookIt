@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
+{
+	header ("loginPage.html");
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -39,10 +46,10 @@
             <h3 style="padding-bottom: 2rem">Admin Dashboard</h3>
             <div class="dropdown">
                 <button class="btn btn-outline-dark btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-address-card" style="padding-right: 5px"></i>#USERNAME#
+                    <i class="fas fa-address-card" style="padding-right: 5px"></i><span><?php echo $_SESSION['userName']; ?></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <p class="text-center">#USER_EMAIL#</p>
+                    <p class="text-center"><?php $_SESSION['userEmail']; ?></p>
 
                     <div class="container">
                         <a href="ProfileUser.php" type="button" class="btn btn-outline-secondary btn-block text-center">View Profile</a>
@@ -117,7 +124,7 @@
             </div>
         </nav>
 
-        <h2>Hello, #USERNAME#</h2>
+        <h2>Hello, <span><?php echo $_SESSION['userName']; ?>!</span></h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 

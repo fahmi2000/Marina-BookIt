@@ -45,8 +45,8 @@ if (isset($_POST['loginSubmitBtn']))
 					session_start();
 					$_SESSION['userID'] = $row['userID'];
 					$_SESSION['userName'] = $row['userName'];
+					$_SESSION['userEmail'] = $row['userEmail'];
 					$_SESSION['userType'] = $row['userType'];
-					$_SESSION['emailVerify'] = $row['emailVerify'];
 
 					switch ($_SESSION['userType'])
 					{

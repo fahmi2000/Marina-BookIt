@@ -4,14 +4,44 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 {
 	header ("loginPage.html");
 }
+
+    require 'Handler/databaseConnect.php';
+
+    $userID = $_SESSION['userID'];
+
+    $sql = "SELECT * FROM users WHERE userID = ?;";
+    $stmt = mysqli_stmt_init($con);
+
+    if (!mysqli_stmt_prepare($stmt, $sql))
+    {
+        header("Location: ../loginPage.php?error=sqlerror");
+        exit();
+    }
+
+    else
+    {
+        mysqli_stmt_bind_param($stmt, "s" , $userID);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+        $row = mysqli_fetch_assoc($result);
+        echo $row['userName'];
+
+	    $fName = $row['fName'];
+	    $lName = $row['lName'];
+	    $userEmail = $row['userEmail'];
+	    $phoneNumber = $row['phoneNumber'];
+	    $userGender = $row['userGender'];
+    }
+
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
 
@@ -22,51 +52,105 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
         {
             height: 100vh;
         }
+
+        #userPic
+        {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
     </style>
     <!-- Icon CDN -->
     <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
-    <title>#PLACEHOLDER_USERNAME#'s Profile - Marina BookIt</title>
+    <title><?php echo $_SESSION['userName'];?>'s Profile - Marina BookIt</title>
 </head>
 <body>
 <!-- Profile Card -->
 <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
-        <form method="post" action="Handler/signinHandler.php">
-
-            <!-- Username Card -->
-            <div id="swapper-first">
-                <div class="card" style="width: 25rem;">
-                    <div class="card-body">
-                        <div class="text-center">
-                            <img src="img/logo.png" style="padding: 20px">
-                            <h4 class="card-title" style="padding-top: 20px">Sign in</h4>
-                            <p style="padding-bottom: 30px">Use your existing account</p>
-                        </div>
-                        <div class="form-group">
-                            <div class="text-center">
-                                <input type="text" class="form-class form-control w-100 border border-primary" name="userName" placeholder="Username">
+        <div id="swapper-first">
+            <div class="card" style="width: 70rem;">
+                <div class="card-body">
+                    <div class="text-left" style="padding-left: 50px; padding-top: 50px">
+                        <img class="d-inline" src="img/profilepic/<?= $userID ; ?>.jpg?<?= mt_rand() ; ?>" id="userPic"/>
+                        <p class="px-4" style="padding-top: 20px">
+                            <a class="btn btn-outline-secondary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-camera"></i> Change Picture </a>
+                        </p>
+                        <div class="row">
+                            <div class="col">
+                                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                    <div class="card card-body">
+                                        <form action="Handler/profileHandler.php" method="post" enctype="multipart/form-data">
+                                            <input type="file" name="file">
+                                            <button class="btn btn-primary" name="userPicBtn" type="submit">
+                                                Upload
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="forgotLink"><a href="#">Forgot username?</a></div>
-                            <br><br>
-                            <a href="registerMember.php">Create account</a>
-                            <a class="btn btn-primary float-right" id="nextButton" href="#">Next</a>
-
                         </div>
-                    </div>
+
+                        <h4 class="card-title" style="padding-top: 20px"><?php echo $_SESSION['userName'];?></h4>
+                        <p  class=""><?php echo $userEmail;?></p>
+
+                    <form action="Handler/profileHandler.php" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <label for="fName">First Name</label>
+                                <input type="text" class="form-control"  value="<?= $fName ?>" id="fName" name="fName">
+                            </div>
+                            <div class="col">
+                                <label for="lName">Last Name</label>
+                                <input type="text" class="form-control"  value="<?= $lName ?>" id="lName" name="lName">
+                            </div>
+                            <div class="col">
+                                <label for="userID">User ID</label>
+                                <input type="text" class="form-control"  value="<?= $userID ?>" id="userID" readonly>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 3rem">
+                            <div class="col">
+                                <label for="userEmail">Email Address</label>
+                                <input type="text" class="form-control"  value="<?= $userEmail ?>" id="userEmail" name="userEmail">
+                            </div>
+                            <div class="col">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="text" class="form-control"  value="<?= $phoneNumber ?>" id="phoneNumber" name="phoneNumber">
+                            </div>
+                            <div class="col">
+                                <label for="userGender">Gender</label>
+                                <select class="form-control" id="userGender" name="userGender">
+                                    <option value="maleGender">Male</option>
+                                    <option value="femaleGender">Female</option>
+                                    <option value="shyGender">Prefer not to say</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary float-right" name="profileUpdateBtn" style="padding-top: 10px">Save</button>
+                    </form>
+                    <form action="Handler/profileHandler.php" method="post">
+                        <div class="btn-group dropup">
+                            <button type="button" class="btn btn-outline-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Change Password
+                            </button>
+                            <div class="dropdown-menu p-4" style="min-width: 20rem">
+                                <input type="password" class="form-control" name="userPwd" placeholder="Current Password">
+                                <div class="dropdown-divider"></div>
+                                <input type="password" class="form-control" name="userPwdNew" placeholder="New Password">
+                                <br>
+                                <input type="password" class="form-control" name="userPwdNewRepeat" placeholder="Repeat New Password">
+                                <div class="dropdown-divider"></div>
+                                <button type="submit" class="btn btn-primary float-right" name="pwdUpdateBtn">Save</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
-<form action="Handler/profileHandler.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="file">
-    <button class="btn btn-primary" name="userPicBtn" type="submit">
-        <i class="fas fa-camera"></i>
-    </button>
-</form>
-<?php print_r($_SESSION)?>
-
 <!-- Local JavaScript -->
 <!-- Optional CDN -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
