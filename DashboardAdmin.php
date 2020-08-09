@@ -64,12 +64,11 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
         </div>
 
         <ul class="list-unstyled components">
-            <p>Dummy Heading</p>
-            <li class="active">
+            <li>
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Booking</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="#">Home 1</a>
+                        <a href="#">Pending Booking</a>
                     </li>
                     <li>
                         <a href="#">Home 2</a>
@@ -83,13 +82,10 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Staff</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a onclick="document.getElementById('contentFrame').src='listOfStaff.php'">List of Staff</a>
+                        <a href="listOfStaff.php">List of Staff</a>
                     </li>
                     <li>
-                        <a onclick="document.getElementById('contentFrame').src='listOfStaff.php'">Edit Staff's Account</a>
-                    </li>
-                    <li>
-                        <a onclick="document.getElementById('contentFrame').src='registerStaff.php'">Register Staff</a>
+                        <a href="registerStaff.php">Register Staff</a>
                     </li>
                 </ul>
             </li>
@@ -97,30 +93,24 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                 <a href="#facilitySubmenu" data-toggle="collapse" aria-expanded="false">Facility</a>
                 <ul class="collapse list-unstyled" id="facilitySubmenu">
                     <li>
-                        <a href="#">Page 1</a>
+                        <a href="#">List of Facility</a>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
+                        <a href="#">Edit Facility</a>
                     </li>
                     <li>
-                        <a href="#">Page 3</a>
+                        <a href="#">Add New Facility</a>
                     </li>
                 </ul>
-            </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
             </li>
         </ul>
 
         <ul class="list-unstyled CTAs" id="moreInfo">
             <li>
-                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">About Us</a>
+                <a href="#">About Us</a>
             </li>
             <li>
-                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Contact Us</a>
+                <a href="#">Contact Us</a>
             </li>
         </ul>
     </nav>
@@ -138,7 +128,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
             </nav>
         </div>
         <div class="second-row">
-            <iframe id="contentFrame" src="ProfileUser.php"></iframe>
+            <h1>PLACE CONTENT HERE</h1>
         </div>
     </div>
 </div>

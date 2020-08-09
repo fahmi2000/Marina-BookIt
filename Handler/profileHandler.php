@@ -92,65 +92,74 @@ if (isset($_POST['pwdUpdateBtn']))
 	$sql1 = "SELECT * FROM users WHERE userID = ?";
 	$stmt1 = mysqli_stmt_init($con);
 
-	if (!mysqli_stmt_prepare($stmt1, $sql1))
+	if ($userPwdNew !== $userPwdNewRepeat)
 	{
-		header("Location: ../ProfilePage.php?error=sqlerror");
+		header("Location: ../ProfilePage.php?error=passwordnotmatch");
 		exit();
 	}
 
 	else
 	{
-		mysqli_stmt_bind_param($stmt1, "s" , $userID);
-		mysqli_stmt_execute($stmt1);
-
-		$result = mysqli_stmt_get_result($stmt1);
-
-		if ($row = mysqli_fetch_assoc($result))
+		if (!mysqli_stmt_prepare($stmt1, $sql1))
 		{
-			$pwdVerify = password_verify($userPwd, $row['userPwd']);
+			header("Location: ../ProfilePage.php?error=sqlerror");
+			exit();
+		}
 
-			if ($pwdVerify == false)
+		else
+		{
+			mysqli_stmt_bind_param($stmt1, "s" , $userID);
+			mysqli_stmt_execute($stmt1);
+
+			$result = mysqli_stmt_get_result($stmt1);
+
+			if ($row = mysqli_fetch_assoc($result))
 			{
-				header("Location: ../ProfilePage.php?error=wrongpassword");
-				exit();
-			}
+				$pwdVerify = password_verify($userPwd, $row['userPwd']);
 
-			elseif ($pwdVerify == true)
-			{
-				$sql2 = "UPDATE users SET userPwd = ? WHERE userID = '".$userID."'";
-				$stmt2 = mysqli_stmt_init($con);
-
-				if (!mysqli_stmt_prepare($stmt2, $sql2))
+				if ($pwdVerify == false)
 				{
-					header("Location: ../ProfileUser.php?error=SQLError");
+					header("Location: ../ProfilePage.php?error=wrongpassword");
 					exit();
+				}
+
+				elseif ($pwdVerify == true)
+				{
+					$sql2 = "UPDATE users SET userPwd = ? WHERE userID = '".$userID."'";
+					$stmt2 = mysqli_stmt_init($con);
+
+					if (!mysqli_stmt_prepare($stmt2, $sql2))
+					{
+						header("Location: ../ProfileUser.php?error=SQLError");
+						exit();
+					}
+
+					else
+					{
+						$hashedPwd = password_hash($userPwdNew, PASSWORD_DEFAULT);
+
+						mysqli_stmt_bind_param($stmt2, "s", $hashedPwd);
+						mysqli_stmt_execute($stmt2);
+
+						header("Location: ../ProfileUser.php?update=success");
+						exit();
+					}
 				}
 
 				else
 				{
-					$hashedPwd = password_hash($userPwdNew, PASSWORD_DEFAULT);
-					
-					mysqli_stmt_bind_param($stmt2, "s", $hashedPwd);
-					mysqli_stmt_execute($stmt2);
-
-					header("Location: ../ProfileUser.php?update=success");
+					header("Location: ../ProfileUser.php?error=wrongpassword");
 					exit();
 				}
 			}
 
 			else
 			{
-				header("Location: ../ProfileUser.php?error=wrongpassword");
+				header("Location: ../ProfileUser.php?error=usernotfound");
 				exit();
 			}
-		}
 
-		else
-		{
-			header("Location: ../ProfileUser.php?error=usernotfound");
-			exit();
 		}
-
 	}
 }
 

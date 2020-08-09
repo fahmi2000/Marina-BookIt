@@ -9,6 +9,10 @@ if (isset($_POST['registerSubmitBtn']))
 	$userPwd = $_POST['userPwd'];
 	$userPwdRepeat = $_POST['userPwdRepeat'];
 	$userType = $_POST['userType'];
+	$fName = $_POST['fName'];
+	$lName = $_POST['lName'];
+	$phoneNumber = $_POST['phoneNumber'];
+	$userGender = $_POST['userGender'];
 
 	if (empty($userName) || empty($userEmail) || empty($userPwd) || empty($userPwdRepeat)) //Check if fields are filled
 	{
@@ -66,7 +70,7 @@ if (isset($_POST['registerSubmitBtn']))
 
 			else
 			{
-				$sql = "INSERT INTO users (userName, userEmail, userPwd, userType) VALUES (?, ?, ?, ?)";
+				$sql = "INSERT INTO users (userName, userEmail, userPwd, userType, fName, lName, phoneNumber, userGender) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 				$stmt = mysqli_stmt_init($con);
 
 				if (!mysqli_stmt_prepare($stmt, $sql))
@@ -79,11 +83,21 @@ if (isset($_POST['registerSubmitBtn']))
 				{
 					$hashedPwd = password_hash($userPwd, PASSWORD_DEFAULT);
 
-					mysqli_stmt_bind_param($stmt, "ssss", $userName,$userEmail, $hashedPwd, $userType);
+					mysqli_stmt_bind_param($stmt, "ssssssss", $userName,$userEmail, $hashedPwd, $userType, $fName, $lName, $phoneNumber, $userGender);
 					mysqli_stmt_execute($stmt);
 
-					header("Location: ../index.php?register=success");
-					exit();
+					switch ($userType)
+					{
+						case 1:
+						case 2:
+							header("Location: ../DashboardAdmin.php?registerstaff=success");
+							exit();
+
+						case 3:
+							header("Location: ../index.php?register=success");
+							exit();
+					}
+
 				}
 
 			}

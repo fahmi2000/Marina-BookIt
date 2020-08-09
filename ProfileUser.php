@@ -31,6 +31,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 	    $userEmail = $row['userEmail'];
 	    $phoneNumber = $row['phoneNumber'];
 	    $userGender = $row['userGender'];
+	    $userType = $row['userType'];
     }
 ?>
 
@@ -56,6 +57,13 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
             width: 200px;
             height: 200px;
             border-radius: 50%;
+        }
+
+        #backBtn
+        {
+            position: fixed;
+            top: 10px;
+            left: 10px;
         }
     </style>
     <!-- Icon CDN -->
@@ -92,27 +100,27 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                             </div>
                         </div>
                     </div>
-
-                    <form action="Handler/profileHandler.php" method="post" class="text-center">
-                        <div class="btn-group dropdown" style="padding-bottom: 20px">
-                            <button type="button" class="btn btn-outline-warning dropdown-toggle text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Change Password
-                            </button>
-                            <div class="dropdown-menu p-4" style="min-width: 20rem">
-                                <label for="userPwd">Current Password</label>
-                                <input type="password" class="form-control" name="userPwd" placeholder="Password" required>
-                                <br>
-                                <label for="userPwd">New Password</label>
-                                <input type="password" class="form-control" name="userPwdNew" placeholder="Password" required>
-                                <br>
-                                <label for="userPwdNewRepeat">Repeat New Password</label>
-                                <input type="password" class="form-control" name="userPwdNewRepeat" placeholder="Password" required>
-                                <div class="dropdown-divider"></div>
-                                <button type="submit" class="btn btn-primary float-right" name="pwdUpdateBtn">Save</button>
+                    <div<?php if ($userType == 2) echo " style='display: none';"; ?>>
+                        <form action="Handler/profileHandler.php" method="post" class="text-center">
+                            <div class="btn-group dropdown" style="padding-bottom: 20px">
+                                <button type="button" class="btn btn-outline-warning dropdown-toggle text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Change Password
+                                </button>
+                                <div class="dropdown-menu p-4" style="min-width: 20rem">
+                                    <label for="userPwd">Current Password</label>
+                                    <input type="password" class="form-control" name="userPwd" placeholder="Password" required>
+                                    <br>
+                                    <label for="userPwd">New Password</label>
+                                    <input type="password" class="form-control" name="userPwdNew" placeholder="Password" required>
+                                    <br>
+                                    <label for="userPwdNewRepeat">Repeat New Password</label>
+                                    <input type="password" class="form-control" name="userPwdNewRepeat" placeholder="Password" required>
+                                    <div class="dropdown-divider"></div>
+                                    <button type="submit" class="btn btn-primary float-right" name="pwdUpdateBtn">Save</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-
+                        </form>
+                    </div>
 
 
                     <form action="Handler/profileHandler.php" method="post">
@@ -158,6 +166,14 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
     </div>
 </div>
 <!-- Local JavaScript -->
+<?php
+    if ($userType == 1)
+        echo '<a href="DashboardAdmin.php" class="btn btn-dark" type="button" id="backBtn">Back to Dashboard</a>';
+    elseif ($userType == 2)
+        echo '<a href="DashboardStaff.php" class="btn btn-dark" type="button" id="backBtn">Back to Dashboard</a>';
+    elseif ($userType == 3)
+        echo '<a href="DashboardMember.php" class="btn btn-dark" type="button" id="backBtn">Back to Dashboard</a>';
+?>
 <!-- Optional CDN -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

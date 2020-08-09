@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
+{
+	header ("loginPage.html");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -38,55 +46,62 @@
         </div>
 
         <div class="sidebar-header">
-            <h3 style="padding-bottom: 2rem">Admin Dashboard</h3>
-            <a href="ProfileUser.php" type="button" class="btn btn-outline-dark btn-block">Profile</a>
+            <h3 >Staff</h3>
+            <h3 style="padding-bottom: 2rem">Dashboard</h3>
+            <div class="dropdown">
+                <button class="btn btn-outline-dark btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-address-card" style="padding-right: 5px"></i><span><?php echo $_SESSION['userName']; ?></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <p class="text-center"><?php $_SESSION['userEmail']; ?></p>
+
+                    <div class="container">
+                        <a href="ProfileUser.php" type="button" class="btn btn-outline-secondary btn-block text-center">View Profile</a>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="container">
+                        <a href="Handler/signoutHandler.php" type="button" class="btn btn-outline-danger btn-block">Sign Out</a>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </div>
         </div>
 
         <ul class="list-unstyled components">
-            <p>Dummy Heading</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+            <li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="true">Booking</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="#">Home 1</a>
+                        <a href="#">Pending Booking</a>
                     </li>
                     <li>
-                        <a href="#">Home 2</a>
+                        <a href="#">List of Booking</a>
                     </li>
                     <li>
                         <a href="#">Home 3</a>
                     </li>
                 </ul>
             </li>
+
             <li>
-                <a href="#">About</a>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
+                <a href="#facilitySubmenu" data-toggle="collapse" aria-expanded="false">Facility</a>
+                <ul class="collapse list-unstyled" id="facilitySubmenu">
                     <li>
-                        <a href="#">Page 1</a>
+                        <a href="#">List of Facility</a>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
+                        <a href="#">Edit Facility</a>
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
         </ul>
 
-        <ul class="list-unstyled CTAs">
+        <ul class="list-unstyled CTAs" id="moreInfo">
             <li>
-                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                <a href="#">About Us</a>
             </li>
             <li>
-                <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                <a href="#">Contact Us</a>
             </li>
         </ul>
     </nav>
@@ -103,7 +118,7 @@
             </div>
         </nav>
 
-        <h2>Hello, #USERNAME#</h2>
+        <h2>Hello, <?php echo $_SESSION['userName']?></h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
