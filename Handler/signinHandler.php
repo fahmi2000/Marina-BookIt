@@ -59,9 +59,10 @@ if (isset($_POST['loginSubmitBtn']))
 							exit();
 
 						case 3:
-							if($_SESSION['emailVerify'] == 0)
+							if($row['emailVerify'] == 0)
 							{
-								header("Location: ../loginPage.php?error=notverified");
+								//header("Location: ../loginPage.php?error=notverified");
+								header("Location: ../DashboardMember.php?login=success");
 								exit();
 							}
 							else
@@ -92,6 +93,6 @@ if (isset($_POST['loginSubmitBtn']))
 
 else
 {
-	header("Location: ../index.html");
+	header("Location: ../index.php");
 	exit();
 }

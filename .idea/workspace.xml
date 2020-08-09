@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="368517c7-b87b-4914-b111-43c6c2450776" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashboardAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/DashboardAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashboardStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/DashboardStaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/profileHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/profileHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/registerHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/registerHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/staffHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/staffHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listOfStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/listOfStaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registerStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/registerStaff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DashboardMember.php" beforeDir="false" afterPath="$PROJECT_DIR$/DashboardMember.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Handler/signinHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/signinHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +52,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PRS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
@@ -92,6 +86,8 @@
       <workItem from="1596794256556" duration="3842000" />
       <workItem from="1596859659771" duration="25469000" />
       <workItem from="1596907333531" duration="21479000" />
+      <workItem from="1596973524497" duration="26000" />
+      <workItem from="1596978967032" duration="1521000" />
     </task>
     <servers />
   </component>
@@ -116,10 +112,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596913471508" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596913604427">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596973547052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596913604427" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596973547052" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596249413237" />
     <state x="750" y="431" key="NewPhpFileDialog" timestamp="1596952288706">
       <screen x="0" y="0" width="1920" height="1040" />
