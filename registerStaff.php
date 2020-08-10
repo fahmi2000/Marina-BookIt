@@ -35,7 +35,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
     <!-- Icon CDN -->
     <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
-    <title>Dashboard - Marina BookIt System</title>
+    <title>Register Staff - Marina BookIt System</title>
 </head>
 
 <body>

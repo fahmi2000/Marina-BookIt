@@ -76,16 +76,15 @@
                                 <p style="padding-bottom: 30px">Use your existing account</p>
                             </div>
 
-
-                                <div class="form-group">
-                                    <div class="text-center">
-                                        <input type="password" class="form-class form-control w-100 border border-primary" name="userPwd" placeholder="Password">
-                                    </div>
-                                    <div class="forgotLink"><a href="#">Forgot password?</a></div>
-                                    <br><br>
-                                    <a href="registerMember.php">Create account</a>
-                                    <button type="submit" class="btn btn-primary float-right" name="loginSubmitBtn">Next</button>
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <input type="password" class="form-class form-control w-100 border border-primary" name="userPwd" placeholder="Password">
                                 </div>
+                                <div class="forgotLink"><a href="#">Forgot password?</a></div>
+                                <br><br>
+                                <a href="registerMember.php">Create account</a>
+                                <button type="submit" class="btn btn-primary float-right" name="loginSubmitBtn">Next</button>
+                            </div>
 
                         </div>
                     </div>

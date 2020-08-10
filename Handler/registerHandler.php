@@ -3,6 +3,7 @@
 if (isset($_POST['registerSubmitBtn']))
 {
 	require 'databaseConnect.php';
+	require 'emailHandler.php';
 
 	$userName = $_POST['userName'];
 	$userEmail = $_POST['userEmail'];
@@ -94,7 +95,7 @@ if (isset($_POST['registerSubmitBtn']))
 							exit();
 
 						case 3:
-							header("Location: ../index.php?register=success");
+							sendVerify();
 							exit();
 					}
 
