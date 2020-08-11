@@ -39,8 +39,8 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 <body>
 
 <div class="wrapper">
-    <!-- Sidebar  -->
-    <nav id="sidebar">
+
+    <nav id="sidebar"> <!-- Sidebar  -->
         <div id="dismiss">
             <i class="fas fa-arrow-left"></i>
         </div>
@@ -50,7 +50,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
             <h3 style="padding-bottom: 2rem">Dashboard</h3>
             <div class="dropdown">
                 <button class="btn btn-outline-dark btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-address-card" style="padding-right: 5px"></i><span><?php echo $_SESSION['userName']; ?></span>
+                    <i class="fas fa-address-card" style="padding-right: 5px"></i><span style="padding-left: 5px"><?php echo $_SESSION['userName']; ?></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <p class="text-center"><?php $_SESSION['userEmail']; ?></p>
@@ -106,8 +106,8 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
         </ul>
     </nav>
 
-    <!-- Page Content  -->
-    <div id="content">
+
+    <div id="content"><!-- Page Content  -->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <span class="navbar-brand mb-0 h1" id="sysTitle">Marina BookIt</span>

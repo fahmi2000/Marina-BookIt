@@ -2,7 +2,18 @@
 session_start();
 if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 {
-	header ("loginPage.html");
+
+	header ("loginPage.php");
+}
+
+if($_SESSION['userType'] == 1)
+{
+	header ("DashboardAdmin.php");
+}
+
+elseif ($_SESSION['userType'] == 2)
+{
+	header ("DashboardStaff.php");
 }
 ?>
 <!DOCTYPE html>
@@ -36,19 +47,18 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 <body>
 
 <div class="wrapper">
-    <!-- Sidebar  -->
-    <nav id="sidebar">
+    <nav id="sidebar"><!-- Sidebar  -->
         <div id="dismiss">
             <i class="fas fa-arrow-left"></i>
         </div>
 
         <div class="sidebar-header">
-            <h3 style="padding-bottom: 2rem">MEMBER Dashboard</h3>
+            <h3 style="padding-bottom: 2rem">Member Dashboard</h3>
             <div class="dropdown">
                 <button class="btn btn-outline-dark btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-address-card" style="padding-right: 5px"></i><span><?php echo $_SESSION['userName']; ?></span>
+                    <i class="fas fa-address-card"></i><span style="padding-left: 10px"><?php echo $_SESSION['userName']; ?></span>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 210px">
                     <p class="text-center"><?php $_SESSION['userEmail']; ?></p>
 
                     <div class="container">
@@ -115,11 +125,10 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
         </ul>
     </nav>
 
-    <!-- Page Content  -->
-    <div class="row-container" id="content">
+    <div class="row-container" id="content"><!-- Page Content  -->
         <div class="first-row">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <span class="navbar-brand mb-0 h1" id="sysTitle">Marina BookIt</span>
+                <span class="navbar-brand mb-0 h1" id="sysTitle"><img src="img/logo.png"></span>
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-dark btn-lg">
                         <i class="fas fa-align-left"></i>
@@ -163,8 +172,6 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
         });
     });
 </script>
-
-
 
 </body>
 
