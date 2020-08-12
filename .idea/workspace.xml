@@ -6,19 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="368517c7-b87b-4914-b111-43c6c2450776" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashboardAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/DashboardAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashboardStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/DashboardStaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/forgotHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/forgotHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/signinHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/signinHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileStaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listOfStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/listOfStaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginForgot.php" beforeDir="false" afterPath="$PROJECT_DIR$/loginForgot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginOTP.php" beforeDir="false" afterPath="$PROJECT_DIR$/loginOTP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/loginPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/loginReset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registerMember.php" beforeDir="false" afterPath="$PROJECT_DIR$/registerMember.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registerStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/registerStaff.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +93,7 @@
       <workItem from="1597031267057" duration="10215000" />
       <workItem from="1597063246374" duration="938000" />
       <workItem from="1597078576158" duration="30134000" />
-      <workItem from="1597197878393" duration="1884000" />
+      <workItem from="1597197878393" duration="2617000" />
     </task>
     <servers />
   </component>
