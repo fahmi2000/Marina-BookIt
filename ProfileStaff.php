@@ -33,11 +33,23 @@ $userType = $row['userType'];
 	<!-- Local CSS -->
     <link rel="stylesheet" href="CSS/master.css">
     <style>
+        body
+        {
+            height: 100vh;
+        }
+
         #userPic
         {
             width: 200px;
             height: 200px;
             border-radius: 50%;
+        }
+
+        #backBtn
+        {
+            position: fixed;
+            top: 10px;
+            left: 10px;
         }
     </style>
 
@@ -125,6 +137,14 @@ $userType = $row['userType'];
 </div>
 
 <!-- Local JavaScript -->
+<?php
+if ($userType == 1)
+	echo '<a href="DashboardAdmin.php" class="btn btn-dark" type="button" id="backBtn">Back to Dashboard</a>';
+elseif ($userType == 2)
+	echo '<a href="DashboardStaff.php" class="btn btn-dark" type="button" id="backBtn">Back to Dashboard</a>';
+elseif ($userType == 3)
+	echo '<a href="DashboardMember.php" class="btn btn-dark" type="button" id="backBtn">Back to Dashboard</a>';
+?>
 <!-- Optional CDN -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

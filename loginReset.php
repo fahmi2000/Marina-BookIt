@@ -23,8 +23,24 @@ if (empty($selector) || empty($validator)) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/master.css">
 
     <!-- Local CSS -->
+    <style>
+        body
+        {
+            font-family: "Roboto", sans-serif;
+            height: 100vh;
+        }
+
+        .container
+        {
+            -webkit-animation: slide 0.5s forwards;
+            -webkit-animation-delay: 2s;
+            animation: slide 0.5s forwards;
+            animation-delay: 2s;
+        }
+    </style>
     <!-- Icon CDN -->
     <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 

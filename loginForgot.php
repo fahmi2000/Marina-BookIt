@@ -7,6 +7,7 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/master.css">
 
 	<!-- Local CSS -->
 	<style>
@@ -50,7 +51,7 @@
 					<br>
 					<button type="submit" class="btn btn-primary float-right" name="resetPwdBtn">Next</button>
 				</form>
-				<button type="" class="btn btn-outline-primary float-left" name="">¯\_(ツ)_/¯</button>
+				<button type="" class="btn btn-outline-primary float-left" name="">Resend Link</button>
 			</div>
 		</div>
 	</div>

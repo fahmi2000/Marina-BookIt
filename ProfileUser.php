@@ -79,7 +79,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
             <div class="card" style="width: 70rem; padding: 5px">
                 <div class="card-body">
                     <div class="text-center">
-                        <h4 class="card-title"><?php echo $_SESSION['userName'];?>'s Profile</h4>
+                        <h4 class="card-title"><?php echo $_SESSION['userName'];?></h4>
                         <img class="d-inline" src="img/profilepic/<?= $userID ; ?>.jpg?<?= mt_rand() ; ?>" id="userPic"/>
                     </div>
 
@@ -91,7 +91,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                             <div class="collapse multi-collapse" id="multiCollapseExample1">
                                 <div class="card card-body text-center">
                                     <form action="Handler/profileHandler.php" method="post" enctype="multipart/form-data">
-                                        <input type="file" name="file">
+                                        <input type="file" name="file" accept=".jpg">
                                         <button class="btn btn-primary" name="userPicBtn" type="submit">
                                             Upload
                                         </button>

@@ -64,8 +64,11 @@
                                 </div>
                             </div>
 
-                            <div class="text-center" id="txtBox">
-                                <input type="password" class="form-class form-control w-100 border border-primary" name="userPwdRepeat" placeholder="Repeat Password" required>
+                            <div class="input-group" id="txtBox">
+                                <input type="password" class="form-class form-control border border-primary" name="userPwdRepeat" placeholder="Repeat Password" id="pwdBox2" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary" type="button" onclick="showPwd2()"><i class="fas fa-eye-slash"></i></button>
+                                </div>
                             </div>
 
                             <div class="text-center" id="txtBox">
@@ -89,6 +92,15 @@
 <script>
     function showPwd() {
         var x = document.getElementById("pwdBox");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+    function showPwd2() {
+        var x = document.getElementById("pwdBox2");
         if (x.type === "password") {
             x.type = "text";
         } else {

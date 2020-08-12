@@ -58,5 +58,5 @@ $headers = "From: Marina BookIt <adelaidemeyrin12343@gmail.com>\r\n";
 $headers .= "Content-type: text/html\r\n";
 
 mail($to, $subject, $message, $headers);
-header("Location: ../loginForgot.php?reset=succcess");
+header("Location: ../index.php?reset=succcess");
 

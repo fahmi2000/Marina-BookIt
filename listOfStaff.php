@@ -123,7 +123,7 @@ $loop = 1;
 	<div class="row-container" id="content">
 		<div class="first-row">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<span class="navbar-brand mb-0 h1" id="sysTitle">Marina BookIt</span>
+				<span class="navbar-brand mb-0 h1" id="sysTitle"><img src="img/logo.png"></span>
 				<div class="container-fluid">
 					<button type="button" id="sidebarCollapse" class="btn btn-dark btn-lg">
 						<i class="fas fa-align-left"></i>
@@ -140,6 +140,7 @@ $loop = 1;
 			echo '<th scope="col">User ID</th>';
 			echo '<th scope="col">User Name</th>';
 			echo '<th scope="col">User Type</th>';
+			echo '<th scope="col"></th>';
 			echo '</tr>';
 			echo '</thead>';
 

@@ -4,8 +4,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 {
 	header ("loginPage.php");
 }
-print_r($_POST);
-print_r($_SESSION);
+
 ?>
 
 <!doctype html>
@@ -60,7 +59,7 @@ print_r($_SESSION);
                     <br>
                     <button type="submit" class="btn btn-primary float-right" name="OTPSubmitBtn">Next</button>
                 </form>
-                <button type="" class="btn btn-outline-primary float-left" name="">¯\_(ツ)_/¯</button>
+                <button type="" class="btn btn-outline-primary float-left" name="">Resend Code</button>
             </div>
         </div>
     </div>

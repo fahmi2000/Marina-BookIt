@@ -142,7 +142,20 @@ if (isset($_POST['OTPSubmitBtn']))
 					mysqli_stmt_bind_param($stmt1, "s", $emailVerify);
 					mysqli_stmt_execute($stmt1);
 
+					$oneTimePwd = 0;
+					$sql = "UPDATE users SET oneTimePwd = '".$oneTimePwd."' WHERE userName = '".$userName."'";
+					$stmt = mysqli_stmt_init($con);
 
+					if (!mysqli_stmt_prepare($stmt, $sql))
+					{
+						header("Location: ../loginOTP.php?error=sql");
+						exit();
+					}
+
+					else
+					{
+						mysqli_stmt_execute($stmt);
+					}
 
 					header("Location: ../DashboardMember.php?OTPsuccess");
 				}
