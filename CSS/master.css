@@ -8,23 +8,31 @@ html, body
     color: #222222;
 }
 
-body
+.container-signin
 {
-    animation: transitionIn 1s;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes transitionIn
-{
-    from
-    {
-        opacity: 0;
-        transform: rotateX(-10deg);
-    }
+/*body*/
+/*{*/
+/*    animation: transitionIn 1s;*/
+/*}*/
 
-    to
-    {
-        opacity: 1;
-        transform: rotateX(0);
-    }
+/*@keyframes transitionIn*/
+/*{*/
+/*    from*/
+/*    {*/
+/*        opacity: 0;*/
+/*        transform: rotateX(-10deg);*/
+/*    }*/
 
-}
+/*    to*/
+/*    {*/
+/*        opacity: 1;*/
+/*        transform: rotateX(0);*/
+/*    }*/
+
+/*}*/

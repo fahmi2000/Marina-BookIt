@@ -1,19 +1,19 @@
 <?php
-session_start();
-if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
-{
-	header ("loginPage.php");
-}
+    session_start();
+    if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
+    {
+        header ("loginPage.php");
+    }
 
-if($_SESSION['userType'] == 2)
-{
-	header ("DashboardStaff.php");
-}
+    if($_SESSION['userType'] == 2)
+    {
+        header ("DashboardStaff.php");
+    }
 
-elseif ($_SESSION['userType'] == 3)
-{
-	header ("DashboardMember.php");
-}
+    elseif ($_SESSION['userType'] == 3)
+    {
+        header ("DashboardMember.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,22 +23,19 @@ elseif ($_SESSION['userType'] == 3)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/bootstrap.css">    <!-- All pages -->
+    <link rel="stylesheet" href="CSS/dashboard.css">    <!-- For pages that uses side navbar -->
+    <link rel="stylesheet" href="CSS/master.css">   <!-- All pages  -->
 
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="CSS/dashboard.css">
-    <link rel="stylesheet" href="CSS/master.css">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="JavaScript/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="JavaScript/popper.min.js" crossorigin="anonymous"></script>
+    <script src="JavaScript/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
-    <!-- Icon CDN -->
-    <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
     <title>Dashboard - Marina BookIt System</title>
 </head>
@@ -46,8 +43,8 @@ elseif ($_SESSION['userType'] == 3)
 <body>
 
 <div class="wrapper">
-    <!-- Sidebar  -->
-    <nav id="sidebar">
+
+    <nav id="sidebar"><!-- Sidebar  -->
         <div id="dismiss">
             <i class="fas fa-arrow-left"></i>
         </div>
@@ -58,7 +55,7 @@ elseif ($_SESSION['userType'] == 3)
                 <button class="btn btn-outline-dark btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-address-card" style="padding-right: 5px"></i><span><?php echo $_SESSION['userName']; ?></span>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 210px">
                     <p class="text-center"><?php $_SESSION['userEmail']; ?></p>
 
                     <div class="container">
@@ -68,7 +65,6 @@ elseif ($_SESSION['userType'] == 3)
                     <div class="container">
                         <a href="Handler/signoutHandler.php" type="button" class="btn btn-outline-danger btn-block">Sign Out</a>
                     </div>
-                    <div class="dropdown-divider"></div>
                 </div>
             </div>
         </div>
@@ -125,8 +121,7 @@ elseif ($_SESSION['userType'] == 3)
         </ul>
     </nav>
 
-    <!-- Page Content  -->
-    <div class="row-container" id="content">
+    <div class="row-container" id="content"><!-- Page Content  -->
         <div class="first-row">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <span class="navbar-brand mb-0 h1" id="sysTitle"><img src="img/logo.png"></span>
@@ -144,14 +139,6 @@ elseif ($_SESSION['userType'] == 3)
 </div>
 
 <div class="overlay"></div>
-
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
-
-<!-- jQuery Custom Scroller CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
 <!-- Local JavaScript -->
 <script type="text/javascript">
@@ -175,6 +162,9 @@ elseif ($_SESSION['userType'] == 3)
 </script>
 
 
+
+<!-- jQuery Custom Scroller CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
 </body>
 
