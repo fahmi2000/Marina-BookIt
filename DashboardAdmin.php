@@ -32,6 +32,7 @@
     <script src="JavaScript/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="JavaScript/popper.min.js" crossorigin="anonymous"></script>
     <script src="JavaScript/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <script src="JavaScript/sweetalert2.all.min.js"></script>
     <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
     <!-- Scrollbar Custom CSS -->
@@ -161,7 +162,24 @@
     });
 </script>
 
+<script>
+let url = new URL(window.location.href);
+let searchParams = new URLSearchParams(url.search);
 
+var error = searchParams.get('error');
+var success = searchParams.get('success');
+
+if(success === 'login')
+{
+    Swal.fire
+    (
+        'Signed In!',
+        'You have successfully signed in.',
+        'success'
+    )
+}
+
+</script>
 
 <!-- jQuery Custom Scroller CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>

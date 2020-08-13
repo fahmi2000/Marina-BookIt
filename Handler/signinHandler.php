@@ -8,7 +8,7 @@ if (isset($_POST['loginSubmitBtn']))
 
 	if (empty($userName) || empty($userPwd))
 	{
-		header("Location: ../loginPage.php?error=emptyfields");
+		header("Location: ../signinPage.html?error=emptyfields");
 		exit();
 	}
 
@@ -19,7 +19,7 @@ if (isset($_POST['loginSubmitBtn']))
 
 		if (!mysqli_stmt_prepare($stmt, $sql))
 		{
-			header("Location: ../loginPage.php?error=sqlerror");
+			header("Location: ../signinPage.html?error=sql");
 			exit();
 		}
 
@@ -36,7 +36,7 @@ if (isset($_POST['loginSubmitBtn']))
 
 				if ($pwdVerify == false)
 				{
-					header("Location: ../loginPage.php?error=wrongpassword");
+					header("Location: ../signinPage.html?error=credentials");
 					exit();
 				}
 
@@ -51,22 +51,22 @@ if (isset($_POST['loginSubmitBtn']))
 					switch ($_SESSION['userType'])
 					{
 						case 1:
-							header("Location: ../DashboardAdmin.php?login=success");
+							header("Location: ../DashboardAdmin.php?success=login");
 							exit();
 
 						case 2:
-							header("Location: ../DashboardStaff.php?login=success");
+							header("Location: ../DashboardStaff.php?success=login");
 							exit();
 
 						case 3:
 							if($row['emailVerify'] == 0)
 							{
-								header("Location: ../loginOTP.php?errorusernotverified");
+								header("Location: ../signinOTP.php?info=notverified");
 								exit();
 							}
 							else
 							{
-								header("Location: ../DashboardMember.php?login=success");
+								header("Location: ../DashboardMember.php?success=login");
 								exit();
 							}
 
@@ -76,14 +76,14 @@ if (isset($_POST['loginSubmitBtn']))
 
 				else
 				{
-					header("Location: ../loginPage.php?error=wrongpassword");
+					header("Location: ../signinPage.html?error=credentials");
 					exit();
 				}
 			}
 
 			else
 			{
-				header("Location: ../loginPage.php?error=usernotfound");
+				header("Location: ../signinPage.html?error=credentials");
 				exit();
 			}
 		}
@@ -104,7 +104,7 @@ if (isset($_POST['OTPSubmitBtn']))
 
 	if (!mysqli_stmt_prepare($stmt, $sql))
 	{
-		header("Location: ../loginOTP.php?error=sqlerror");
+		header("Location: ../signinOTP.php?error=sql");
 		exit();
 	}
 
@@ -121,7 +121,7 @@ if (isset($_POST['OTPSubmitBtn']))
 
 			if ($pwdVerify == false)
 			{
-				header("Location: ../loginOTP.php?error=wrongOTP");
+				header("Location: ../signinOTP.php?error=wrongOTP");
 				exit();
 			}
 
@@ -133,7 +133,7 @@ if (isset($_POST['OTPSubmitBtn']))
 
 				if (!mysqli_stmt_prepare($stmt1, $sql1))
 				{
-					header("Location: ../loginOTP.php?error=sql");
+					header("Location: ../signinOTP.php?error=sql");
 					exit();
 				}
 
@@ -148,7 +148,7 @@ if (isset($_POST['OTPSubmitBtn']))
 
 					if (!mysqli_stmt_prepare($stmt, $sql))
 					{
-						header("Location: ../loginOTP.php?error=sql");
+						header("Location: ../signinOTP.php?error=sql");
 						exit();
 					}
 
@@ -157,13 +157,13 @@ if (isset($_POST['OTPSubmitBtn']))
 						mysqli_stmt_execute($stmt);
 					}
 
-					header("Location: ../DashboardMember.php?OTPsuccess");
+					header("Location: ../DashboardMember.php?success=OTP");
 				}
 			}
 
 			else
 			{
-				header("Location: ../loginOTP.php?error=wrongOTP");
+				header("Location: ../signinOTP.php?error=wrongOTP");
 				exit();
 			}
 

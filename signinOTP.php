@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
+{
+	header ("loginPage.php?error=credentials");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +27,6 @@
 
         #signinBox1
         {
-            padding: 20px;
             height: 60vh;
             width: 40vh;
             display: flex;
@@ -29,13 +36,13 @@
 
         #signinBox2
         {
-            border-left: solid dimgrey;
             padding: 20px;
             height: 60vh;
             width: 40vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            border-left: solid dimgrey;
         }
     </style>
 
@@ -46,72 +53,74 @@
     <script src="JavaScript/sweetalert2.all.min.js"></script>
     <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
-    <title>Sign In - Marina BookIt</title>
+    <title>Email Verification - Marina BookIt</title>
 </head>
 <body>
 <div class="container-signin">
 
     <div class="box" id="signinBox1">
-        <div class="text-center">
-            <a href="index.php"><img src="img/logo.png" alt=""></a>
-        </div>
+        <a href="index.php"><img src="img/logo.png" alt=""></a>
     </div>
 
     <div class="box" id="signinBox2">
         <div class="text-center">
-            <h3>Sign In</h3>
-            <p>Use your existing Marina BookIt account</p>
+            <h3>Email Verification</h3>
+            <p>A 10-digit OTP was sent to your e-mail</p>
             <form class="form-group" action="Handler/signinHandler.php" method="post">
                 <div class="form-group">
-                    <input class="form-class form-control text-center" type="text" name="userName" placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <input class="form-class form-control text-center" type="password" name="userPwd" placeholder="Password">
+                    <input class="form-class form-control text-center" type="password" name="oneTimePwd" placeholder="One Time Password">
                 </div>
                 <div class="form-group" style="padding-top: 20px">
-                    <button class="btn btn-primary btn-block" type="submit" name="loginSubmitBtn">Next</button>
+                    <button class="btn btn-outline-primary btn-block" type="submit" name="OTPResendBtn">Resend OTP</button>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit" name="OTPSubmitBtn">Next</button>
                 </div>
             </form>
         </div>
     </div>
+
 </div>
 
-<!-- Optional CDN -->
+<!-- Local JavaScript -->
 <script>
-let url = new URL(window.location.href);
-let searchParams = new URLSearchParams(url.search);
-var error = searchParams.get('error');
+    let url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+    var info = searchParams.get('info');
+    var error = searchParams.get('error');
 
-if(error === 'emptyfields')
-{
-    Swal.fire
-    (
-        'Error',
-        'All fields must not be empty.',
-        'error'
-    )
-}
+    if(info === 'notverified')
+    {
+        Swal.fire
+        (
+            'Info',
+            'Your account is not verified!',
+            'info'
+        )
+    }
+    else if(error === 'sql')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Database connection could not be established.',
+            'error'
+        )
+    }
 
-else if (error === 'sql')
-{
-    Swal.fire
-    (
-        'Error',
-        'Database connection could not be established.',
-        'error'
-    )
-}
-
-else if (error === 'credentials')
-{
-    Swal.fire
-    (
-        'Error',
-        'Incorrect credentials!',
-        'error'
-    )
-}
+    else if(error === 'wrongOTP')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Your OTP was invalid!',
+            'error'
+        )
+    }
 
 </script>
+
+<!-- Optional CDN -->
+
 </body>
 </html>

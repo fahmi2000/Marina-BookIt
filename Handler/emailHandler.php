@@ -45,7 +45,7 @@ function sendVerify()
 
 	if (!mysqli_stmt_prepare($stmt, $sql))
 	{
-		header("Location: ../loginPage.php?error=SQLError");
+		header("Location: ../signinPage.php?error=sql");
 		exit();
 	}
 
@@ -55,7 +55,7 @@ function sendVerify()
 		mysqli_stmt_bind_param($stmt, "ss",$hashedOTP, $userEmail);
 		mysqli_stmt_execute($stmt);
 		mail($mailTo, $subject, $txt, $headers);
-		header("Location: ../index.php?register=success&mail=sent");
+		header("Location: ../index.php?register=success");
 	}
 
 }

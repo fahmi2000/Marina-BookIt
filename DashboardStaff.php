@@ -32,6 +32,7 @@
     <script src="JavaScript/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="JavaScript/popper.min.js" crossorigin="anonymous"></script>
     <script src="JavaScript/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <script src="JavaScript/sweetalert2.all.min.js"></script>
     <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
     <!-- Scrollbar Custom CSS -->
@@ -163,6 +164,24 @@
             $('a[aria-expanded=true]').attr('aria-expanded', 'false');
         });
     });
+</script>
+
+<script>
+    let url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+
+    var error = searchParams.get('error');
+    var success = searchParams.get('success');
+
+    if(success === 'login')
+    {
+        Swal.fire
+        (
+            'Success!',
+            'You have successfully signed in.',
+            'success'
+        )
+    }
 </script>
 
 <!-- jQuery Custom Scroller CDN -->

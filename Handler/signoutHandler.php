@@ -4,5 +4,5 @@ session_start();
 session_unset();
 session_destroy();
 
-header("Location: ../index.php?signout=success");
+header("Location: ../index.php?success=signout");
 ?>

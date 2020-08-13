@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,7 +31,7 @@
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="loginPage.php">Sign In</a>
+                    <a class="nav-link" href="signinPage.html">Sign In</a>
                 </li>
 
                 <li class="nav-item">
@@ -239,22 +238,33 @@
 <!-- Footer -->
 
 <!-- Optional JavaScript -->
-<?php
-if (isset($_GET['signout']))
-{
-	if ($_GET['signout'] == "success")
-	{
-		echo
-		"<script>
-            Swal.fire
-            (
-              'The Internet?',
-              'That thing is still around?',
-              'question'
-            )        
-            </script>";
-	}
-}
-?>
+<script>
+    let url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+    var success = searchParams.get('success');
+    var error = searchParams.get('error');
+
+    if(success === 'register')
+    {
+        Swal.fire
+        (
+            'Account Registered',
+            'You have successfully registered! Please check your e-mail OTP.',
+            'success'
+        )
+    }
+
+    else if(success === 'signout')
+    {
+        Swal.fire
+        (
+            'Signed Out',
+            'You have successfully signed out!',
+            'success'
+        )
+    }
+
+</script>
+
 </body>
 </html>
