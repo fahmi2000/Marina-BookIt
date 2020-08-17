@@ -18,7 +18,7 @@ if (isset($_POST['resetPwdBtn']))
 
 	if (!mysqli_stmt_prepare($stmt, $sql))
 	{
-		echo "error sql";
+		header("Location: ../signinForgot.html?error=sql");
 		exit();
 	}
 
@@ -33,7 +33,7 @@ if (isset($_POST['resetPwdBtn']))
 
 	if (!mysqli_stmt_prepare($stmt, $sql))
 	{
-		echo "error sql";
+		header("Location: ../signinForgot.html?error=sql");
 		exit();
 	}
 
@@ -47,7 +47,7 @@ if (isset($_POST['resetPwdBtn']))
 
 else
 {
-	header("Location: ../index.php");
+	header("Location: ../index.php?error=access");
 }
 
 $to = $userEmail;
@@ -58,5 +58,5 @@ $headers = "From: Marina BookIt <adelaidemeyrin12343@gmail.com>\r\n";
 $headers .= "Content-type: text/html\r\n";
 
 mail($to, $subject, $message, $headers);
-header("Location: ../index.php?reset=succcess");
+header("Location: ../signinPage.html?success=reset");
 

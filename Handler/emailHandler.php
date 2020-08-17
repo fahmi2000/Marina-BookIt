@@ -25,6 +25,7 @@ function sendVerify()
 	if (mysqli_connect_errno())
 	{
 		die("FAIL TO CONNECT: " . mysqli_connect_error());
+		header("Location: ../signinPage.html?error=sql");
 	}
 
 	$userEmail = $_POST['userEmail'];
@@ -45,7 +46,7 @@ function sendVerify()
 
 	if (!mysqli_stmt_prepare($stmt, $sql))
 	{
-		header("Location: ../signinPage.php?error=sql");
+		header("Location: ../signinPage.html?error=sql");
 		exit();
 	}
 

@@ -1,0 +1,14 @@
+
+.nav-item
+{
+    padding: 10px;
+}
+
+.nav-item > .btn
+{
+    min-width: 100px;
+}
+#lol
+{
+    object-fit: inherit;
+}

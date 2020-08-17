@@ -6,17 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="368517c7-b87b-4914-b111-43c6c2450776" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/master.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashboardAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/DashboardAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashboardMember.php" beforeDir="false" afterPath="$PROJECT_DIR$/DashboardMember.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DashboardStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/DashboardStaff.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Handler/emailHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/emailHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/errorHandler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/signinHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/signinHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/signoutHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/signoutHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginOTP.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginPage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Handler/forgotHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/forgotHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Handler/resetHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/resetHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/bg1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/bg1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/bg2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/bg2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/bg3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/bg3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/signinPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/signinPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,9 +40,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -107,7 +103,11 @@
       <workItem from="1597063246374" duration="938000" />
       <workItem from="1597078576158" duration="30134000" />
       <workItem from="1597197878393" duration="3215000" />
-      <workItem from="1597293094743" duration="22332000" />
+      <workItem from="1597293094743" duration="22926000" />
+      <workItem from="1597400146040" duration="6092000" />
+      <workItem from="1597464504227" duration="7505000" />
+      <workItem from="1597500175221" duration="970000" />
+      <workItem from="1597561339014" duration="3759000" />
     </task>
     <servers />
   </component>
@@ -145,10 +145,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597111359274" />
-    <state x="750" y="431" key="NewPhpFileDialog" timestamp="1597318889710">
+    <state x="750" y="431" key="NewPhpFileDialog" timestamp="1597465729840">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="750" y="431" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597318889710" />
+    <state x="750" y="431" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597465729840" />
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596272243606" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1597083803117">
       <screen x="0" y="0" width="1920" height="1040" />

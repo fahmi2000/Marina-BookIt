@@ -44,7 +44,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 		if (!$row = mysqli_fetch_assoc($result))
 		{
-			header("Location: ../loginPage.php?error=wrongselector");
+			header("Location: ../signinPage.html?error=invalid");
 			exit();
 		}
 
@@ -55,7 +55,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 			if($tokenCheck === false)
 			{
-				header("Location: ../loginPage.php?error=falsetoken");
+				header("Location: ../signinPage.html?error=invalid");
 				exit();
 			}
 
@@ -68,7 +68,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 				if(!mysqli_stmt_prepare($stmt, $sql))
 				{
-					header("Location: ../loginPage.php?error=sql");
+					header("Location: ../signinPage.html?error=sql");
 					exit();
 				}
 
@@ -81,7 +81,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 					if(!$row = mysqli_fetch_assoc($result))
 					{
-						header("Location: ../loginPage.php?error=usernotfound");
+						header("Location: ../signinPage.html?error=credentials");
 						exit();
 					}
 
@@ -92,7 +92,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 						if(!mysqli_stmt_prepare($stmt, $sql))
 						{
-							header("Location: ../loginPage.php?error=usernotfound2");
+							header("Location: ../signinPage.html?error=credentials");
 							exit();
 						}
 
@@ -107,7 +107,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 							if(!mysqli_stmt_prepare($stmt, $sql))
 							{
-								header("Location: ../loginPage.php?error=usernotfound3");
+								header("Location: ../signinPage.html?error=credentials");
 								exit();
 							}
 
@@ -115,7 +115,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 							{
 								mysqli_stmt_bind_param($stmt, "s", $tokenEmail);
 								mysqli_stmt_execute($stmt);
-								header("Location: ../loginPage.php?success=resetsuccesful");
+								header("Location: ../signinPage.html?success=reset");
 								exit();
 							}
 						}

@@ -17,6 +17,11 @@
             align-items: center;
         }
 
+        .btn
+        {
+            min-width: 120px;
+        }
+
         #signinBox1
         {
             padding: 20px;
@@ -46,7 +51,7 @@
     <script src="JavaScript/sweetalert2.all.min.js"></script>
     <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
-    <title>Sign In - Marina BookIt</title>
+    <title>Forgot Password - Marina BookIt</title>
 </head>
 <body>
 <div class="container-signin">
@@ -59,82 +64,57 @@
 
     <div class="box" id="signinBox2">
         <div class="text-center">
-            <h3>Sign In</h3>
-            <p>Use your existing Marina BookIt account</p>
-            <form class="form-group" action="Handler/signinHandler.php" method="post">
+            <h3>Forgot Password</h3>
+            <p>A one-time reset password link will be sent to your email address</p>
+            <form class="form-group" action="Handler/forgotHandler.php" method="post">
                 <div class="form-group">
-                    <input class="form-class form-control text-center" type="text" name="userName" placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <input class="form-class form-control text-center" type="password" name="userPwd" placeholder="Password">
+                    <input class="form-class form-control text-center" type="email" name="userEmail" placeholder="Email">
                 </div>
                 <div class="form-group" style="padding-top: 20px">
-                    <button class="btn btn-primary btn-block" type="submit" name="loginSubmitBtn">Next</button>
+                    <button class="btn btn-outline-primary float-left" type="submit" name="resendResetBtn">Resend Link</button>
+                    <button class="btn btn-primary float-right" type="submit" name="resetPwdBtn">Next</button>
                 </div>
-                <div class="form-group">
-                <a href="signinForgot.html">Forgot Password?</a>
-            </div>
             </form>
         </div>
     </div>
 </div>
 
 <!-- Optional CDN -->
+<!-- Local JavaScript -->
 <script>
-let url = new URL(window.location.href);
-let searchParams = new URLSearchParams(url.search);
-var error = searchParams.get('error');
-var success = searchParams.get('success');
+    let url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+    var error = searchParams.get('error');
 
-if(error === 'emptyfields')
-{
-    Swal.fire
-    (
-        'Error',
-        'All fields must not be empty.',
-        'error'
-    )
-}
+    if(error === 'emptyfields')
+    {
+        Swal.fire
+        (
+            'Error',
+            'All fields must not be empty.',
+            'error'
+        )
+    }
 
-else if (error === 'sql')
-{
-    Swal.fire
-    (
-        'Error',
-        'Database connection could not be established.',
-        'error'
-    )
-}
+    else if (error === 'sql')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Database connection could not be established.',
+            'error'
+        )
+    }
 
-else if (error === 'credentials')
-{
-    Swal.fire
-    (
-        'Error',
-        'Incorrect credentials!',
-        'error'
-    )
-}
-
-else if (error === 'invalid')
-{
-    Swal.fire
-    (
-        'Error',
-        'Invalid link!',
-        'error'
-    )
-}
-
-if(success === 'reset')
-{
-    Swal.fire
-    (
-        'Success',
-        'Your password has been reset!',
-        'error'
-    )
-}
+    else if (error === 'credentials')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Incorrect credentials!',
+            'error'
+        )
+    }
 
 </script>
 </body>
