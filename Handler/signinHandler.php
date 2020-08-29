@@ -51,7 +51,7 @@ if (isset($_POST['loginSubmitBtn']))
 					switch ($_SESSION['userType'])
 					{
 						case 1:
-							header("Location: ../DashboardAdmin.php?success=login");
+							header("Location: ../Dashboard.php?success=login");
 							exit();
 
 						case 2:

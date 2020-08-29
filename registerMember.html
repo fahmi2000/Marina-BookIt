@@ -29,13 +29,18 @@
 
         #signinBox2
         {
-            border-left: solid dimgrey;
+            border-right: solid dimgrey;
             padding: 20px;
             height: 60vh;
             width: 40vh;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .form-class
+        {
+            min-width: 32vh;
         }
     </style>
 
@@ -46,10 +51,34 @@
     <script src="JavaScript/sweetalert2.all.min.js"></script>
     <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
-    <title>Sign In - Marina BookIt</title>
+    <title>Register - Marina BookIt</title>
 </head>
 <body>
 <div class="container-signin">
+
+    <div class="box" id="signinBox2">
+        <div class="text-center">
+            <h3>Register</h3>
+            <p>Create a new Marina BookIt account</p>
+            <form class="form-group" action="Handler/signinHandler.php" method="post">
+                <div class="form-group">
+                    <input class="form-class form-control text-center" type="text" name="userName" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input class="form-class form-control text-center" type="text" name="userEmail" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input class="form-class form-control text-center" type="password" name="userPwd" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input class="form-class form-control text-center" type="password" name="userPwdRepeat" placeholder="Repeat Password">
+                </div>
+                <div class="form-group" style="padding-top: 20px">
+                    <button class="btn btn-primary btn-block" type="submit" name="registerSubmitBtn">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <div class="box" id="signinBox1">
         <div class="text-center">
@@ -57,87 +86,10 @@
         </div>
     </div>
 
-    <div class="box" id="signinBox2">
-        <div class="text-center">
-            <h3>Sign In</h3>
-            <p>Use your existing Marina BookIt account</p>
-            <form class="form-group" action="Handler/signinHandler.php" method="post">
-                <div class="form-group">
-                    <input class="form-class form-control text-center" type="text" name="userName" placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <input class="form-class form-control text-center" type="password" name="userPwd" placeholder="Password">
-                </div>
-                <div class="form-group" style="padding-top: 20px">
-                    <button class="btn btn-primary btn-block" type="submit" name="loginSubmitBtn">Next</button>
-                </div>
-                <div class="form-group">
-                <a href="signinForgot.html">Forgot Password?</a>
-                <br><br>
-                <a href="registerMember.php">Create Account</a>
-            </div>
-            </form>
-        </div>
-    </div>
+
 </div>
 
 <!-- Optional CDN -->
-<script>
-let url = new URL(window.location.href);
-let searchParams = new URLSearchParams(url.search);
-var error = searchParams.get('error');
-var success = searchParams.get('success');
 
-if(error === 'emptyfields')
-{
-    Swal.fire
-    (
-        'Error',
-        'All fields must not be empty.',
-        'error'
-    )
-}
-
-else if (error === 'sql')
-{
-    Swal.fire
-    (
-        'Error',
-        'Database connection could not be established.',
-        'error'
-    )
-}
-
-else if (error === 'credentials')
-{
-    Swal.fire
-    (
-        'Error',
-        'Incorrect credentials!',
-        'error'
-    )
-}
-
-else if (error === 'invalid')
-{
-    Swal.fire
-    (
-        'Error',
-        'Invalid link!',
-        'error'
-    )
-}
-
-if(success === 'reset')
-{
-    Swal.fire
-    (
-        'Success',
-        'Your password has been reset!',
-        'error'
-    )
-}
-
-</script>
 </body>
 </html>

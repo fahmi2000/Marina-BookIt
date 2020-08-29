@@ -11,6 +11,12 @@ html, body
     color: #222222;
 }
 
+.indexLogo > img
+{
+    padding: 20px;
+    min-width: 15%;
+    height: auto;
+}
 .nav-item
 {
     padding: 10px;
@@ -72,3 +78,51 @@ html, body
     text-shadow: 1px 1px 15px #000000;
 }
 
+.listRoom
+{
+    padding: 20px;
+}
+
+.basic-grid
+{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.about-grid
+{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(25vh, 1fr));
+    padding-bottom: 50px;
+}
+
+.card
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer
+{
+    background: black;
+}
+
+.footer p
+{
+    color: white;
+}
+
+.footer-grid
+{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(25vh, 1fr));
+    padding: 20px;
+}
+
+.team-img
+{
+    height: 35vh;
+}
