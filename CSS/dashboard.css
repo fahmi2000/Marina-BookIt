@@ -1,22 +1,61 @@
 html, body
 {
     height: 100%;
+    min-height: 100vh;
     width: 100%;
     font-family: "Roboto", sans-serif;
     color: #222222;
+    background: #9ecfff;
 }
 
-#dropdownMenuButton1
+.flex-container
 {
-    text-align: left;
-    width: 20vh;
-    line-height: 25px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    background: white;
 }
 
-i
+.flex-container > .filler
 {
-    line-height: inherit !important;
-    display: block;
-    float: right;
-    vertical-align: middle;
+    min-width: 25vh;
+}
+
+.flex-container > div
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.dropdown:last-child
+{
+    margin-left: auto;
+}
+
+.d1 > button
+{
+    width: 170px;
+}
+
+.dropdown > button
+{
+    border-radius: 30px;
+}
+
+.container
+{
+    animation: 0.7s ease-out 0s 1 loadPage;
+}
+
+@keyframes loadPage
+{
+    0%
+    {
+        transform: translateY(-100%);
+    }
+
+    100%
+    {
+        transform: translateY(0);
+    }
 }
