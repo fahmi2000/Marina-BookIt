@@ -72,10 +72,10 @@ $facilityStatus = $row['facilityStatus'];
 		echo '
             <div class="dropdown d1">
                 <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
-                    Home <span class="fas fa-angle-down"></span>
+                    Menu <span class="fas fa-angle-down" style="right: -90px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item active" href="Dashboard.php">Home</a>
+                    <a class="dropdown-item" href="Dashboard.php">Home</a>
                     <div class="dropdown-divider"></div>
                     <h6 class="dropdown-header">Booking Management</h6>    
                         <a class="dropdown-item" href="#">Pending booking</a>
@@ -87,7 +87,7 @@ $facilityStatus = $row['facilityStatus'];
                     <div class="dropdown-divider"></div>
                     
                     <h6 class="dropdown-header">Facility Management</h6>
-                        <a class="dropdown-item" href="listOfFacility.php">List of facility</a>
+                        <a class="dropdown-item active" href="listOfFacility.php">List of facility</a>
                         <a class="dropdown-item" href="registerFacility.php">Add facility</a>
                 </div>
             </div>
@@ -144,15 +144,22 @@ $facilityStatus = $row['facilityStatus'];
     <div class="container-2">
         <h3 style="text-align: center">Facility Information - <?= $facilityName ?></h3>
         <p style="text-align: center">Edit or update information of a room or facility</p>
-        <hr id="hr1">
-        <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6">
-                <button class="btn btn-dark" data-toggle="button" aria-pressed="false" onclick="editFunction()">Edit</button>
-            </div>
-            <div class="col-3"></div>
-        </div>
+        <hr id="hr1"><?php
 
+        if ($_SESSION['userType'] == 1)
+        {
+        echo '
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <button class="btn btn-dark" data-toggle="button" aria-pressed="false" onclick="editFunction()">Edit</button>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        ';
+        }
+
+        ?>
         <form class="form-group" method="post" action="Handler/eventListener.php">
             <div class="row">
                 <div class="col-3"></div>
@@ -176,12 +183,18 @@ $facilityStatus = $row['facilityStatus'];
 
                     <label for="facilityStatus">Status</label>
                     <input class="form-control" name="facilityStatus" id="facilityStatus" value="<?= $facilityStatus ?>" readonly>
-                    <br>
-                    <div class="butt">
-                        <button type="submit" class="btn btn-danger" id="facilityDeleteBtn" name="facilityDeleteBtn">Delete Account</button>
-                        <button type="submit" class="btn btn-success" id="facilityUpdateBtn" name="facilityUpdateBtn">Save</button>
-                    </div>
+                    <br><?php
 
+                    if ($_SESSION['userType'] == 1)
+                    {
+                    echo '
+                        <div class="butt">
+                            <button type="submit" class="btn btn-danger" id="facilityDeleteBtn" name="facilityDeleteBtn">Delete</button>
+                            <button type="submit" class="btn btn-success" id="facilityUpdateBtn" name="facilityUpdateBtn">Save</button>
+                        </div>
+                    ';
+                    }
+                    ?>
                 </div>
                 <div class="col-3"></div>
             </div>

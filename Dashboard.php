@@ -68,13 +68,22 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
 	{
 		echo '
             <div class="dropdown d1">
-                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu <span class="fas fa-angle-down"></span>
+                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
+                    Home <span class="fas fa-angle-down" style="right: -90px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
+                    <a class="dropdown-item active" href="Dashboard.php">Home</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Booking Management</h6>    
+                    <a class="dropdown-item" href="#">List of booking</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Facility Management</h6>
+                    <a class="dropdown-item" href="listOfFacility.php">List of facility</a>
+                    
                 </div>
             </div>
         ';
@@ -120,10 +129,9 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
 
 <div class="container" id="staffDiv">
     <h1>This is a staff div</h1>
-    <p>Booking management system go here</p>
+    <p>Report/history system go here</p>
 </div>
 
-<!--tukar balik jadi id="memberDiv" nanti, tengah develop-->
 <div class="container-fluid" id="memberDiv">
 
     <div class="explore">

@@ -5,35 +5,35 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 	header ("loginPage.html");
 }
 
-    require 'Handler/databaseConnect.php';
+require 'Handler/databaseConnect.php';
 
-    $userID = $_SESSION['userID'];
-    $userName = $_SESSION['userName'];
+$userID = $_SESSION['userID'];
+$userName = $_SESSION['userName'];
 
-    $sql = "SELECT * FROM users WHERE userID = ?;";
-    $stmt = mysqli_stmt_init($con);
+$sql = "SELECT * FROM users WHERE userID = ?;";
+$stmt = mysqli_stmt_init($con);
 
-    if (!mysqli_stmt_prepare($stmt, $sql))
-    {
-        header("Location: ../loginPage.php?error=sqlerror");
-        exit();
-    }
+if (!mysqli_stmt_prepare($stmt, $sql))
+{
+	header("Location: ../loginPage.php?error=sqlerror");
+	exit();
+}
 
-    else
-    {
-        mysqli_stmt_bind_param($stmt, "s" , $userID);
-        mysqli_stmt_execute($stmt);
+else
+{
+	mysqli_stmt_bind_param($stmt, "s" , $userID);
+	mysqli_stmt_execute($stmt);
 
-        $result = mysqli_stmt_get_result($stmt);
-        $row = mysqli_fetch_assoc($result);
+	$result = mysqli_stmt_get_result($stmt);
+	$row = mysqli_fetch_assoc($result);
 
-	    $fName = $row['fName'];
-	    $lName = $row['lName'];
-	    $userEmail = $row['userEmail'];
-	    $phoneNumber = $row['phoneNumber'];
-	    $userGender = $row['userGender'];
-	    $userType = $row['userType'];
-    }
+	$fName = $row['fName'];
+	$lName = $row['lName'];
+	$userEmail = $row['userEmail'];
+	$phoneNumber = $row['phoneNumber'];
+	$userGender = $row['userGender'];
+	$userType = $row['userType'];
+}
 ?>
 
 <!doctype html>
@@ -63,7 +63,6 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
         }
 
         .container
-<<<<<<< HEAD
         {
             display: grid;
             height: 80%;
@@ -77,40 +76,6 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
             padding: 50px;
             border-radius: 10px;
             column-gap: 20px;
-=======
-        {
-            display: grid;
-            height: 80%;
-            grid-template-areas:
-                "pic name name"
-                "option info info"
-                "option info info";
-            grid-template-rows: 280px;
-            grid-template-columns: 300px;
-            background-color: white;
-            padding: 50px;
-            border-radius: 10px;
-        }
-
-        .picture {grid-area: pic;}
-        .title {grid-area: name;}
-        .settings {grid-area: option;}
-        .content {grid-area: info;}
-
-        label
-        {
-            padding-top: 10px;
-        }
-
-        .outainer
-        {
-            padding-top: 50px;
-        }
-
-        .card
-        {
-            border: none;
->>>>>>> 51fbbff3dd482b2d8dbfbd9eee340e7f6a2ea9ee
         }
 
         .picture {grid-area: pic; justify-self: center; align-self: center}
@@ -125,7 +90,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 
         .outainer
         {
-            padding-top: 50px;
+            padding-top: 10px;
         }
 
         .card
@@ -148,7 +113,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
     <title><?php echo $_SESSION['userName'];?>'s Profile - Marina BookIt</title>
 </head>
 <body>
-<!-- Profile Card -->
+<!--navbar-->
 <div class="flex-container naviBar sticky-top" style="padding: 10px">
     <div>
         <img src="img/logo.png" id="logo">
@@ -158,7 +123,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 		echo '
             <div class="dropdown d1">
                 <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
-                    Home <span class="fas fa-angle-down"></span>
+                    Home <span class="fas fa-angle-down" style="right: -90px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item active" href="Dashboard.php">Home</a>
@@ -173,7 +138,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                     <div class="dropdown-divider"></div>
                     
                     <h6 class="dropdown-header">Facility Management</h6>
-                        <a class="dropdown-item" href="#">List of facility</a>
+                        <a class="dropdown-item" href="listOfFacility.php">List of facility</a>
                         <a class="dropdown-item" href="registerFacility.php">Add facility</a>
                 </div>
             </div>
@@ -184,13 +149,22 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 	{
 		echo '
             <div class="dropdown d1">
-                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu <span class="fas fa-angle-down"></span>
+                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
+                    Home <span class="fas fa-angle-down" style="right: -90px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
+                    <a class="dropdown-item active" href="Dashboard.php">Home</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Booking Management</h6>    
+                    <a class="dropdown-item" href="#">List of booking</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Facility Management</h6>
+                    <a class="dropdown-item" href="listOfFacility.php">List of facility</a>
+                    
                 </div>
             </div>
         ';
@@ -221,17 +195,20 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="ProfileUser.php">View profile</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Sign out</a>
+            <a class="dropdown-item" href="Handler/signoutHandler.php">Sign out</a>
+
         </div>
     </div>
 </div>
+
+
+
 <div class="outainer">
     <div class="container">
         <div class="picture">
             <img src="img/profilepic/<?= $userID ; ?>.jpg?<?= mt_rand() ; ?>" id="userPic"/>
         </div>
         <div class="title">
-<<<<<<< HEAD
             <h3 class="title"><?= $userName ?></h3>
             <h3 class="title text-muted"><?= $userEmail ?></h3>
         </div>
@@ -250,32 +227,11 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                     History
                 </button>
                 <button class="btn btn-dark btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-=======
-            <input type="text" class="form-control-plaintext" value="<?= $userName ?>">
-            <input type="text" class="form-control-plaintext" value="<?= $userEmail ?>">
-        </div>
-        <div class="settings">
-            <div class="btn-group-vertical btn-block btn-group-lg">
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseExample">
-                    Account Info
-                </button>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseExample">
-                    Personal Details
-                </button>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseExample">
-                    Transactions
-                </button>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseExample">
-                    History
-                </button>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapseExample">
->>>>>>> 51fbbff3dd482b2d8dbfbd9eee340e7f6a2ea9ee
                     Password & Security
                 </button>
             </div>
         </div>
         <div class="content">
-<<<<<<< HEAD
             <div class="accordion" id="accordionExample">
                 <div class="card">
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -306,15 +262,15 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                             <input class="form-control" type="text" value="<?= $lName ?>" readonly>
                             <br>
                             <p class="thick">Gender: </p><?php
-	                        if ($userGender == 'maleGender'){ echo '<input class="form-control" type="text" value="Male" readonly>'; }
+							if ($userGender == 'maleGender'){ echo '<input class="form-control" type="text" value="Male" readonly>'; }
                             elseif ($userGender == 'femaleGender'){ echo '<input class="form-control" type="text" value="Female" readonly>'; }
                             elseif ($userGender == 'shyGender'){ echo '<input class="form-control" type="text" value="Prefer not to say" readonly>'; }
 
-	                        echo '<br> <p class="thick">Type: </p>';
-	                        if ($userType == 1){ echo '<input class="form-control" type="text" value="Admin" readonly>'; }
+							echo '<br> <p class="thick">Type: </p>';
+							if ($userType == 1){ echo '<input class="form-control" type="text" value="Admin" readonly>'; }
                             elseif ($userType == 2){ echo '<input class="form-control" type="text" value="Staff" readonly>'; }
                             elseif ($userType == 3){ echo '<input class="form-control" type="text" value="Registered Member" readonly>'; }
-	                        ?>
+							?>
                         </div>
                     </div>
                 </div>
@@ -341,41 +297,6 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                             <p>Password & Security</p>
                         </div>
                     </div>
-=======
-            <div class="collapse show" id="collapse1">
-                <div class="card card-body">
-                    <div class="form-group row">
-                        <label class="col-2" for="userID">ID:</label>
-                        <input class="col-10 form-control" type="text" id="userID" value="<?= $userID ?>" readonly>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-2" for="userName">Username:</label>
-                        <input class="col-10 form-control" type="text" id="userName" value="<?= $userName ?>" readonly>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-2" for="userEmail">Email:</label>
-                        <input class="col-10 form-control" type="text" id="userEmail" value="<?= $userEmail ?>" readonly>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="collapse" id="collapse2">
-                <div class="card card-body">
-                    <input class="form-control" type="text" value="<?= $fName ?>" readonly>
-                    <input class="form-control" type="text" value="<?= $lName ?>" readonly><?php
-
-                    if ($userGender == 'maleGender'){ echo '<input class="form-control" type="text" value="Male" readonly>'; }
-                    elseif ($userGender == 'femaleGender'){ echo '<input class="form-control" type="text" value="Female" readonly>'; }
-                    elseif ($userGender == 'shyGender'){ echo '<input class="form-control" type="text" value="Prefer not to say" readonly>'; }
-
-                    if ($userType == 1){ echo '<input class="form-control" type="text" value="Admin" readonly>'; }
-                    elseif ($userType == 2){ echo '<input class="form-control" type="text" value="Staff" readonly>'; }
-                    elseif ($userType == 3){ echo '<input class="form-control" type="text" value="Registered Member" readonly>'; }
-                    ?>
->>>>>>> 51fbbff3dd482b2d8dbfbd9eee340e7f6a2ea9ee
                 </div>
             </div>
         </div>
@@ -392,7 +313,6 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                         <h4 class="card-title"><?php echo $_SESSION['userName'];?></h4>
                         <img class="d-inline" src="img/profilepic/<?= $userID ; ?>.jpg?<?= mt_rand() ; ?>" id="userPic"/>
                     </div>
-
                     <p class="px-4 text-center" style="padding-top: 20px">
                         <a class="btn btn-outline-secondary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-camera"></i> Change Picture </a>
                     </p>
@@ -431,8 +351,6 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                             </div>
                         </form>
                     </div>
-
-
                     <form action="Handler/profileHandler.php" method="post">
                         <div class="row">
                             <div class="col">

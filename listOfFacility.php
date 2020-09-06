@@ -28,7 +28,7 @@ $loop = 1;
 	<link rel="stylesheet" href="CSS/dashboard.css">    <!-- For pages that uses side navbar -->
 	<link rel="stylesheet" href="CSS/master.css">   <!-- All pages  -->
     <style>
-        .container
+        .container-1
         {
             margin-top: 50px;
             background-color: white;
@@ -131,7 +131,7 @@ $loop = 1;
 </div>
 
 
-<div class="container">
+<div class="container-1">
 	<div class="container-2">
 		<div class="text-center">
 			<h3>List of Facilites</h3>
@@ -166,7 +166,21 @@ $loop = 1;
 			echo '<td>' .$row['facilityCapacity']. '</td>';
 			echo '<td>' .$row['facilityRate']. '</td>';
 			echo '<td>' .$row['facilityAmenities']. '</td>';
-			//echo '<td>' .$row['facilityStatus']. '</td>';
+
+			if ($row['facilityStatus'] == 0)
+            {
+	            echo '<td>Not available</td>';
+            }
+
+			elseif ($row['facilityStatus'] == 1)
+			{
+				echo '<td>Available</td>';
+			}
+
+            elseif ($row['facilityStatus'] == 2)
+			{
+				echo '<td>Maintenance</td>';
+			}
 			echo '<td>';
 			echo '<form action="ProfileFacility.php" method="post">';
 			echo "<input type='hidden' value='$viewFacility' name='viewFacility'>";

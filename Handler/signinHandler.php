@@ -55,7 +55,7 @@ if (isset($_POST['loginSubmitBtn']))
 							exit();
 
 						case 2:
-							header("Location: ../DashboardStaff.php?success=login");
+							header("Location: ../Dashboard.php?success=login");
 							exit();
 
 						case 3:
@@ -66,7 +66,7 @@ if (isset($_POST['loginSubmitBtn']))
 							}
 							else
 							{
-								header("Location: ../DashboardMember.php?success=login");
+								header("Location: ../Dashboard.php?success=login");
 								exit();
 							}
 
@@ -157,7 +157,7 @@ if (isset($_POST['OTPSubmitBtn']))
 						mysqli_stmt_execute($stmt);
 					}
 
-					header("Location: ../DashboardMember.php?success=OTP");
+					header("Location: ../Dashboard.php?success=OTP");
 				}
 			}
 
