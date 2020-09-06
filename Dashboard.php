@@ -15,83 +15,10 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
 	<!-- CSS -->
 	<link rel="stylesheet" href="CSS/bootstrap.css">    <!-- All pages -->
 	<link rel="stylesheet" href="CSS/master.css">   <!-- All pages  -->
-    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/dashboardMember.css">
+    <link rel="stylesheet" href="CSS/dashboardAdmin.css">
     <style>
-        .btn > span:last-child
-        {
-            right: -90px;
-            position: relative;
-        }
 
-        #adminDiv
-        {
-            display: grid;
-            height: 100%;
-            grid-template-areas:
-                "explore"
-                "type"
-                "special"
-                "common"
-                "foot";
-            background-color: white;
-            grid-template-rows: 100vh 50vh 100vh 100vh 100vh;
-        }
-
-        .explore
-        {
-            display: flex;
-
-            grid-area: explore;
-
-            background-image: url("img/ex1.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-
-            align-items: flex-end;
-        }
-
-        .explore > .explore-1
-        {
-            padding-left: 100px;
-            padding-bottom: 250px;
-            color: white;
-        }
-
-        .type
-        {
-            grid-area: type
-        }
-
-        .type > .type-1
-        {
-            padding: 100px;
-        }
-
-        .special
-        {
-            grid-area: special
-        }
-
-        .common
-        {
-            grid-area: common
-        }
-
-        .foot
-        {
-            grid-area: foot
-        }
-
-        .card-img-top
-        {
-            padding-bottom: 10px;
-        }
-
-        .col-6 > .card
-        {
-            width: inherit;
-        }
 
     </style>
 
@@ -186,10 +113,10 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
 
 
 <!--Contents-->
-<!--<div class="container" id="adminDiv">-->
-<!--    <h1>This is an admin div</h1>-->
-<!--    <p>Dashboard/report system go here</p>-->
-<!--</div>-->
+<div class="container" id="adminDiv">
+    <h1>This is an admin div</h1>
+    <p>Dashboard/report system go here</p>
+</div>
 
 <div class="container" id="staffDiv">
     <h1>This is a staff div</h1>
@@ -197,7 +124,8 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
 </div>
 
 <!--tukar balik jadi id="memberDiv" nanti, tengah develop-->
-<div class="container-fluid" id="adminDiv">
+<div class="container-fluid" id="memberDiv">
+
     <div class="explore">
         <div class="explore-1">
             <h1>Book Now</h1>
@@ -205,11 +133,12 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
             <a href="#" class="btn btn-dark">Make reservations</a>
         </div>
     </div>
+
     <div class="type">
         <div class="type-1">
             <div class="row">
-                <div class="col-6">
-                    <div class="card" style="border-radius: 50px">
+                <div class="col-lg-6" style="padding-top: 10px">
+                    <div class="card" style="border-radius: 50px; cursor: pointer" onclick="window.location='';">
                         <div class="card-body">
                             <img src="img/bg1.jpg" alt="" class="card-img-top" style="border-radius: 40px 40px 0 0">
                             <h3 class="card-title" style="font-weight: bolder">Formal Space</h3>
@@ -217,8 +146,9 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="card" style="border-radius: 50px">
+                <br>
+                <div class="col-lg-6" style="padding-top: 10px">
+                    <div class="card" style="border-radius: 50px; cursor: pointer" onclick="window.location='';">
                         <div class="card-body">
                             <img src="img/bg1.jpg" alt="" class="card-img-top" style="border-radius: 40px 40px 0 0">
                             <h3 class="card-title" style="font-weight: bolder">Recreational Facilities</h3>
@@ -229,7 +159,128 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
             </div>
         </div>
     </div>
+
+    <div class="common">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card" style="width: inherit">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <img src="img/bg1.jpg" alt="" class="card-img">
+                        </div>
+                        <div class="col-8">
+                            <h5 class="card-title side">TITLE</h5>
+                            <p class="card-text side">A bunch of texts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card" style="width: inherit">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <img src="img/bg1.jpg" alt="" class="card-img">
+                        </div>
+                        <div class="col-8">
+                            <h5 class="card-title side">TITLE</h5>
+                            <p class="card-text side">A bunch of texts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card" style="width: inherit">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <img src="img/bg1.jpg" alt="" class="card-img">
+                        </div>
+                        <div class="col-8">
+                            <h5 class="card-title side">TITLE</h5>
+                            <p class="card-text side">A bunch of texts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card" style="width: inherit">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <img src="img/bg1.jpg" alt="" class="card-img">
+                        </div>
+                        <div class="col-8">
+                            <h5 class="card-title side">TITLE</h5>
+                            <p class="card-text side">A bunch of texts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card" style="width: inherit">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <img src="img/bg1.jpg" alt="" class="card-img">
+                        </div>
+                        <div class="col-8">
+                            <h5 class="card-title side">TITLE</h5>
+                            <p class="card-text side">A bunch of texts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card" style="width: inherit">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <img src="img/bg1.jpg" alt="" class="card-img">
+                        </div>
+                        <div class="col-8">
+                            <h5 class="card-title side">TITLE</h5>
+                            <p class="card-text side">A bunch of texts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="foot">
+        <div class="row">
+            <div class="col-sm-3">
+                <p>Marina Putrajaya</p>
+                <p>Managed and operated by MARINA PUTRAJAYA SDN. BHD.</p>
+                <br>
+                <br>
+                <p>No 1, Jalan P5/5, Presint 5, 62200 Putrajaya, Wilayah Persekutuan Putrajaya</p>
+                <br>
+                <br>
+                <p>Email: sales@cruisetasikputrajaya.com</p>
+                <p>Phone: +(603) 8881 0648</p>
+                <p>Fax: +(603) 8888 3769</p>
+            </div>
+
+            <div class="col-sm-3">
+                <p>Col 2</p>
+            </div>
+
+            <div class="col-sm-3">
+                <p>Col 3</p>
+            </div>
+
+            <div class="col-sm-3">
+                <p>Col 4</p>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 <!-- Local JavaScript -->
 <script>

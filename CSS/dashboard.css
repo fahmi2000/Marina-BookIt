@@ -41,25 +41,3 @@ html, body
 {
     border-radius: 30px;
 }
-
-.container
-{
-<<<<<<< HEAD
-    animation: 0.7s ease 0s 1 loadPage;
-=======
-    animation: 0.7s ease-out 0s 1 loadPage;
->>>>>>> 51fbbff3dd482b2d8dbfbd9eee340e7f6a2ea9ee
-}
-
-@keyframes loadPage
-{
-    0%
-    {
-        transform: translateY(-100%);
-    }
-
-    100%
-    {
-        transform: translateY(0);
-    }
-}
