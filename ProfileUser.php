@@ -150,10 +150,10 @@ else
 		echo '
             <div class="dropdown d1">
                 <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
-                    Home <span class="fas fa-angle-down" style="right: -90px; position: relative;"></span>
+                    Menu <span class="fas fa-angle-down" style="right: -90px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item active" href="Dashboard.php">Home</a>
+                    <a class="dropdown-item" href="Dashboard.php">Home</a>
                     
                     <div class="dropdown-divider"></div>
                     
@@ -206,7 +206,32 @@ else
 <div class="outainer">
     <div class="container">
         <div class="picture">
-            <img src="img/profilepic/<?= $userID ; ?>.jpg?<?= mt_rand() ; ?>" id="userPic"/>
+            <input type="image" src="img/profilepic/<?= $userID ; ?>.jpg?<?= mt_rand() ; ?>" id="userPic" data-toggle="modal" data-target="#exampleModalCenter">
+        </div>
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Change Profile Picture</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="Handler/profileHandler.php" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <input type="file" name="file" accept=".jpg">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-primary" name="userPicBtn" type="submit">
+                                Upload
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="title">
             <h3 class="title"><?= $userName ?></h3>

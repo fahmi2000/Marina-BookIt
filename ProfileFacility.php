@@ -98,13 +98,22 @@ $facilityStatus = $row['facilityStatus'];
 	{
 		echo '
             <div class="dropdown d1">
-                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu <span class="fas fa-angle-down"></span>
+                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
+                    Menu <span class="fas fa-angle-down" style="right: -90px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
+                    <a class="dropdown-item" href="Dashboard.php">Home</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Booking Management</h6>    
+                    <a class="dropdown-item" href="#">List of booking</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Facility Management</h6>
+                    <a class="dropdown-item" href="listOfFacility.php">List of facility</a>
+                    
                 </div>
             </div>
         ';
@@ -142,8 +151,21 @@ $facilityStatus = $row['facilityStatus'];
 
 <div class="container">
     <div class="container-2">
-        <h3 style="text-align: center">Facility Information - <?= $facilityName ?></h3>
-        <p style="text-align: center">Edit or update information of a room or facility</p>
+        <h3 style="text-align: center">Facility Information - <?= $facilityName ?></h3><?php
+	    if ($_SESSION['userType'] == 1)
+        {
+            echo '
+                <p style="text-align: center">Edit or update information of a room or facility</p>
+            ';
+        }
+
+	    elseif ($_SESSION['userType'] == 2)
+        {
+	        echo '
+                <p style="text-align: center">Information of a room or facility</p>
+            ';
+        }
+         ?>
         <hr id="hr1"><?php
 
         if ($_SESSION['userType'] == 1)
@@ -179,21 +201,45 @@ $facilityStatus = $row['facilityStatus'];
                     <input class="form-control" name="facilityRate" id="facilityRate" value="<?= $facilityRate ?>" readonly>
 
                     <label for="facilityAmenities">Amenities</label>
-                    <input class="form-control" name="facilityAmenities" id="facilityAmenities" value="<?= $facilityAmenities ?>" readonly>
+                    <input class="form-control" name="facilityAmenities" id="facilityAmenities" value="<?= $facilityAmenities ?>" readonly><?php
 
-                    <label for="facilityStatus">Status</label>
-                    <input class="form-control" name="facilityStatus" id="facilityStatus" value="<?= $facilityStatus ?>" readonly>
+	                if ($_SESSION['userType'] == 1)
+                    {
+	                    echo '
+                            <label for="facilityStatus">Status</label>
+                            <input class="form-control" name="facilityStatus" id="facilityStatus" value='.$facilityStatus.' readonly>
+                        ';
+                    }
+
+	                elseif ($_SESSION['userType'] == 2)
+	                {
+		                echo '
+                            <label for="facilityStatus">Status</label>
+                            <input class="form-control" name="facilityStatus" id="facilityStatus" value='.$facilityStatus.'>
+                        ';
+	                }
+                    ?>
+
                     <br><?php
 
                     if ($_SESSION['userType'] == 1)
                     {
-                    echo '
-                        <div class="butt">
-                            <button type="submit" class="btn btn-danger" id="facilityDeleteBtn" name="facilityDeleteBtn">Delete</button>
-                            <button type="submit" class="btn btn-success" id="facilityUpdateBtn" name="facilityUpdateBtn">Save</button>
-                        </div>
-                    ';
+                        echo '
+                            <div class="butt">
+                                <button type="submit" class="btn btn-danger" id="facilityDeleteBtn" name="facilityDeleteBtn">Delete</button>
+                                <button type="submit" class="btn btn-success" id="facilityUpdateBtn" name="facilityUpdateBtn">Save</button>
+                            </div>
+                        ';
                     }
+
+	                elseif ($_SESSION['userType'] == 2)
+	                {
+		                echo '
+                            <div class="butt">
+                                <button type="submit" class="btn btn-success" id="facilityUpdateBtn" name="facilityUpdateBtn">Save</button>
+                            </div>
+                        ';
+	                }
                     ?>
                 </div>
                 <div class="col-3"></div>

@@ -6,27 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="368517c7-b87b-4914-b111-43c6c2450776" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/Dashboard.php" afterDir="false" />
-<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/ProfileFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileFacility.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileUser.php" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/Handler/FacilityHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/FacilityHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/eventListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/eventListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/registerHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/registerHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/signoutHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/signoutHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/staffHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/staffHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileStaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addFacilityForm.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listOfFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/listOfFacility.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listOfStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/listOfStaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registerMember.html" beforeDir="false" afterPath="$PROJECT_DIR$/registerMember.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registerStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/registerStaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signinPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/signinPage.html" afterDir="false" />
->>>>>>> 51fbbff3dd482b2d8dbfbd9eee340e7f6a2ea9ee
+      <change beforePath="$PROJECT_DIR$/img/profilepic/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/profilepic/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/profilepic/14.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/profilepic/14.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registerFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/registerFacility.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,13 +128,8 @@
       <workItem from="1599127672144" duration="2610000" />
       <workItem from="1599137033823" duration="2059000" />
       <workItem from="1599145180369" duration="2988000" />
-<<<<<<< HEAD
-      <workItem from="1599155754903" duration="35242000" />
-      <workItem from="1599294362119" duration="1789000" />
-      <workItem from="1599362982329" duration="8979000" />
-=======
       <workItem from="1599155754903" duration="31138000" />
->>>>>>> 51fbbff3dd482b2d8dbfbd9eee340e7f6a2ea9ee
+      <workItem from="1599414117992" duration="7365000" />
     </task>
     <servers />
   </component>

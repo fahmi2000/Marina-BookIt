@@ -17,11 +17,6 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
 	<link rel="stylesheet" href="CSS/dashboard.css">    <!-- For pages that uses side navbar -->
 	<link rel="stylesheet" href="CSS/master.css">   <!-- All pages  -->
     <style>
-        label
-        {
-            padding-top: 20px;
-        }
-
         .container
         {
             background-color: white;
@@ -138,19 +133,42 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
 
             <div class="col-6">
                 <form class="form-group" method="post" action="Handler/facilityHandler.php">
-                <label for="facilityName">Name</label>
-                <input class="form-control" type="text" name="facilityName" id="facilityName" placeholder="Name">
+                    <label for="facilityName">Name</label>
+                    <input class="form-control" type="text" name="facilityName" id="facilityName" placeholder="Name">
+                    <br>
+                    <label for="facilityCapacity">Capacity</label>
+                    <input class="form-control" type="text" name="facilityCapacity" id="facilityCapacity" placeholder="Capacity">
+                    <br>
+                    <label for="facilityRate">Rental Rate</label>
+                    <input class="form-control" type="text" name="facilityRate" id="facilityRate" placeholder="Rental Rate">
+                    <br>
+                    <label for="facilityAmenities">Amenities</label>
+                    <input class="form-control" type="text" name="facilityAmenities" id="facilityAmenities" placeholder="Amenities">
+                    <br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="POOL" id="checkBox1">
+                        <label class="form-check-label" for="checkBox1">Pool</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="SEAT" id="checkBox2" name="">
+                        <label class="form-check-label" for="checkBox2">Seats</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="TABLE" id="checkBox3">
+                        <label class="form-check-label" for="checkBox3">Tables</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="PA" id="checkBox4">
+                        <label class="form-check-label" for="checkBox4">PA System</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="AIRCOND" id="checkBox5">
+                        <label class="form-check-label" for="checkBox5">Air Conditioning</label>
+                    </div>
 
-                <label for="facilityCapacity">Capacity</label>
-                <input class="form-control" type="text" name="facilityCapacity" id="facilityCapacity" placeholder="Capacity">
 
-                <label for="facilityRate">Rental Rate</label>
-                <input class="form-control" type="text" name="facilityRate" id="facilityRate" placeholder="Rental Rate">
-
-                <label for="facilityAmenities">Amenities</label>
-                <input class="form-control" type="text" name="facilityAmenities" id="facilityAmenities" placeholder="Amenities">
-                <br>
-                <button type="submit" class="btn btn-success" name="facilitySubmitBtn" style="float: right">Save</button>
+                    <br>
+                    <button type="submit" class="btn btn-success" name="facilitySubmitBtn" style="float: right">Save</button>
                 </form>
             </div>
 
