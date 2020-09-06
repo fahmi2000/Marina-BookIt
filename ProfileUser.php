@@ -63,6 +63,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
         }
 
         .container
+<<<<<<< HEAD
         {
             display: grid;
             height: 80%;
@@ -76,6 +77,40 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
             padding: 50px;
             border-radius: 10px;
             column-gap: 20px;
+=======
+        {
+            display: grid;
+            height: 80%;
+            grid-template-areas:
+                "pic name name"
+                "option info info"
+                "option info info";
+            grid-template-rows: 280px;
+            grid-template-columns: 300px;
+            background-color: white;
+            padding: 50px;
+            border-radius: 10px;
+        }
+
+        .picture {grid-area: pic;}
+        .title {grid-area: name;}
+        .settings {grid-area: option;}
+        .content {grid-area: info;}
+
+        label
+        {
+            padding-top: 10px;
+        }
+
+        .outainer
+        {
+            padding-top: 50px;
+        }
+
+        .card
+        {
+            border: none;
+>>>>>>> 51fbbff3dd482b2d8dbfbd9eee340e7f6a2ea9ee
         }
 
         .picture {grid-area: pic; justify-self: center; align-self: center}
@@ -196,6 +231,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
             <img src="img/profilepic/<?= $userID ; ?>.jpg?<?= mt_rand() ; ?>" id="userPic"/>
         </div>
         <div class="title">
+<<<<<<< HEAD
             <h3 class="title"><?= $userName ?></h3>
             <h3 class="title text-muted"><?= $userEmail ?></h3>
         </div>
@@ -214,11 +250,32 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                     History
                 </button>
                 <button class="btn btn-dark btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+=======
+            <input type="text" class="form-control-plaintext" value="<?= $userName ?>">
+            <input type="text" class="form-control-plaintext" value="<?= $userEmail ?>">
+        </div>
+        <div class="settings">
+            <div class="btn-group-vertical btn-block btn-group-lg">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseExample">
+                    Account Info
+                </button>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseExample">
+                    Personal Details
+                </button>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseExample">
+                    Transactions
+                </button>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseExample">
+                    History
+                </button>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapseExample">
+>>>>>>> 51fbbff3dd482b2d8dbfbd9eee340e7f6a2ea9ee
                     Password & Security
                 </button>
             </div>
         </div>
         <div class="content">
+<<<<<<< HEAD
             <div class="accordion" id="accordionExample">
                 <div class="card">
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -284,6 +341,41 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                             <p>Password & Security</p>
                         </div>
                     </div>
+=======
+            <div class="collapse show" id="collapse1">
+                <div class="card card-body">
+                    <div class="form-group row">
+                        <label class="col-2" for="userID">ID:</label>
+                        <input class="col-10 form-control" type="text" id="userID" value="<?= $userID ?>" readonly>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-2" for="userName">Username:</label>
+                        <input class="col-10 form-control" type="text" id="userName" value="<?= $userName ?>" readonly>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-2" for="userEmail">Email:</label>
+                        <input class="col-10 form-control" type="text" id="userEmail" value="<?= $userEmail ?>" readonly>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="collapse" id="collapse2">
+                <div class="card card-body">
+                    <input class="form-control" type="text" value="<?= $fName ?>" readonly>
+                    <input class="form-control" type="text" value="<?= $lName ?>" readonly><?php
+
+                    if ($userGender == 'maleGender'){ echo '<input class="form-control" type="text" value="Male" readonly>'; }
+                    elseif ($userGender == 'femaleGender'){ echo '<input class="form-control" type="text" value="Female" readonly>'; }
+                    elseif ($userGender == 'shyGender'){ echo '<input class="form-control" type="text" value="Prefer not to say" readonly>'; }
+
+                    if ($userType == 1){ echo '<input class="form-control" type="text" value="Admin" readonly>'; }
+                    elseif ($userType == 2){ echo '<input class="form-control" type="text" value="Staff" readonly>'; }
+                    elseif ($userType == 3){ echo '<input class="form-control" type="text" value="Registered Member" readonly>'; }
+                    ?>
+>>>>>>> 51fbbff3dd482b2d8dbfbd9eee340e7f6a2ea9ee
                 </div>
             </div>
         </div>

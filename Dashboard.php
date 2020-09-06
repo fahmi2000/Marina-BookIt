@@ -211,7 +211,7 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
                 <div class="col-6">
                     <div class="card" style="border-radius: 50px">
                         <div class="card-body">
-                            <img src="img/bg1.jpg" alt="" class="card-img-top" style="border-radius: 50px 50px">
+                            <img src="img/bg1.jpg" alt="" class="card-img-top" style="border-radius: 40px 40px 0 0">
                             <h3 class="card-title" style="font-weight: bolder">Formal Space</h3>
                             <p class="text-muted">Unique venue to rent for off-site meeting, product launches, conferences and many more.</p>
                         </div>
@@ -220,7 +220,7 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
                 <div class="col-6">
                     <div class="card" style="border-radius: 50px">
                         <div class="card-body">
-                            <img src="img/bg1.jpg" alt="" class="card-img-top" style="border-radius: 50px 50px">
+                            <img src="img/bg1.jpg" alt="" class="card-img-top" style="border-radius: 40px 40px 0 0">
                             <h3 class="card-title" style="font-weight: bolder">Recreational Facilities</h3>
                             <p class="text-muted">Spaces where you can have an activity of leisure such as swimming or exercising.</p>
                         </div>
