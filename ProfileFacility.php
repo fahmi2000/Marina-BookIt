@@ -51,6 +51,25 @@ $facilityStatus = $row['facilityStatus'];
         {
             float: right;
         }
+
+        #facilityList
+        {
+            display: grid;
+            height: 100%;
+            grid-template-areas:
+                "images"
+                "head"
+                "option"
+                "cont"
+                "butts";
+            background-color: red;
+        }
+
+        .images{grid-area: images}
+        .head {grid-area: head}
+        .option{grid-area: option}
+        .cont{grid-area: cont}
+        .butts{grid-area: butts}
     </style>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -188,25 +207,25 @@ $facilityStatus = $row['facilityStatus'];
                 <div class="col-6">
 
                     <br>
-                    <label for="facilityID">ID</label>
+                    <label for="facilityID">ID:</label>
                     <input class="form-control" name="facilityID" id="facilityID" value="<?= $facilityID ?>" readonly>
 
-                    <label for="facilityName">Name</label>
+                    <label for="facilityName">Name:</label>
                     <input class="form-control" name="facilityName" id="facilityName" value="<?= $facilityName ?>" readonly>
 
-                    <label for="facilityCapacity">Capacity</label>
+                    <label for="facilityCapacity">Capacity:</label>
                     <input class="form-control" name="facilityCapacity" id="facilityCapacity" value="<?= $facilityCapacity ?>" readonly>
 
-                    <label for="facilityRate">Rate</label>
+                    <label for="facilityRate">Rate per hour:</label>
                     <input class="form-control" name="facilityRate" id="facilityRate" value="<?= $facilityRate ?>" readonly>
 
-                    <label for="facilityAmenities">Amenities</label>
+                    <label for="facilityAmenities">Amenities:</label>
                     <input class="form-control" name="facilityAmenities" id="facilityAmenities" value="<?= $facilityAmenities ?>" readonly><?php
 
 	                if ($_SESSION['userType'] == 1)
                     {
 	                    echo '
-                            <label for="facilityStatus">Status</label>
+                            <label for="facilityStatus">Status:</label>
                             <input class="form-control" name="facilityStatus" id="facilityStatus" value='.$facilityStatus.' readonly>
                         ';
                     }
@@ -214,7 +233,7 @@ $facilityStatus = $row['facilityStatus'];
 	                elseif ($_SESSION['userType'] == 2)
 	                {
 		                echo '
-                            <label for="facilityStatus">Status</label>
+                            <label for="facilityStatus">Status:</label>
                             <input class="form-control" name="facilityStatus" id="facilityStatus" value='.$facilityStatus.'>
                         ';
 	                }
@@ -240,11 +259,26 @@ $facilityStatus = $row['facilityStatus'];
                             </div>
                         ';
 	                }
+
+                    elseif ($_SESSION['userType'] == 3)
+                    {
+	                    echo '
+                            <div class="butt">
+                                <button type="submit" class="btn btn-primary" id="facilityUpdateBtn" name="#">Book</button>
+                            </div>
+                        ';
+                    }
                     ?>
                 </div>
                 <div class="col-3"></div>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="container" id="facilityList">
+    <div class="images">
+        <h1>AIR BNB</h1>
     </div>
 </div>
 

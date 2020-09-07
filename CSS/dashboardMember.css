@@ -49,11 +49,10 @@ html, body
     position: relative;
 }
 
-#adminDiv
+#memberDiv
 {
     display: grid;
     height: 100%;
-    width: 100vw;
     grid-template-areas:
                 "explore"
                 "type"

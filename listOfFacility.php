@@ -28,7 +28,7 @@ $loop = 1;
 	<link rel="stylesheet" href="CSS/dashboard.css">    <!-- For pages that uses side navbar -->
 	<link rel="stylesheet" href="CSS/master.css">   <!-- All pages  -->
     <style>
-        .container-1
+        .container
         {
             margin-top: 50px;
             background-color: white;
@@ -131,7 +131,7 @@ $loop = 1;
 </div>
 
 
-<div class="container-1">
+<div class="container">
 	<div class="container-2">
 		<div class="text-center">
 			<h3>List of Facilites</h3>

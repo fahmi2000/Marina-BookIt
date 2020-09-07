@@ -80,7 +80,7 @@ else
 
         .picture {grid-area: pic; justify-self: center; align-self: center}
         .title {grid-area: name; align-self: center}
-        .settings {grid-area: option;}
+        .settings {grid-area: option; background-color: #343a40}
         .content {grid-area: info;}
 
         label
@@ -201,8 +201,6 @@ else
     </div>
 </div>
 
-
-
 <div class="outainer">
     <div class="container">
         <div class="picture">
@@ -319,7 +317,51 @@ else
                 <div class="card">
                     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
                         <div class="card-body">
-                            <p>Password & Security</p>
+                            <h4>Password & Security</h4>
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-outline-dark" type="button" data-toggle="modal" data-target="#pwdModal" style="min-width: 200px">Change Password</button>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-outline-danger" type="button" style="min-width: 200px">Delete Account</button>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="pwdModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle2" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Change Password</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <form action="Handler/profileHandler.php" method="post">
+                                            <div class="modal-body">
+                                                <label for="userPwd">Current Password</label>
+                                                <input type="password" class="form-control" name="userPwd" placeholder="Password" required>
+                                                <br>
+                                                <hr>
+                                                <label for="userPwd">New Password</label>
+                                                <input type="password" class="form-control" name="userPwdNew" placeholder="Password" required>
+                                                <br>
+                                                <label for="userPwdNewRepeat">Repeat New Password</label>
+                                                <input type="password" class="form-control" name="userPwdNewRepeat" placeholder="Password" required>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-success" name="pwdUpdateBtn">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

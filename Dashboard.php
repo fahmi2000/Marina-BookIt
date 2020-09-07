@@ -17,10 +17,6 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
 	<link rel="stylesheet" href="CSS/master.css">   <!-- All pages  -->
     <link rel="stylesheet" href="CSS/dashboardMember.css">
     <link rel="stylesheet" href="CSS/dashboardAdmin.css">
-    <style>
-
-
-    </style>
 
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="JavaScript/jquery-3.5.1.min.js" crossorigin="anonymous"></script> <!-- Required by Bootstrap 4 -->
@@ -138,7 +134,7 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
         <div class="explore-1">
             <h1>Book Now</h1>
             <p>Book a room or facility</p>
-            <a href="#" class="btn btn-dark">Make reservations</a>
+            <a href="listOfFacility.php" class="btn btn-dark">Make reservations</a>
         </div>
     </div>
 
@@ -308,7 +304,7 @@ if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
     else if (userType === "3")
     {
         document.getElementById("adminDiv").style.display = "none";
-        document.getElementById("memberDiv").style.display = "none";
+        document.getElementById("staffDiv").style.display = "none";
     }
 </script>
 <!-- Optional CDN -->

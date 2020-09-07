@@ -36,6 +36,18 @@ $userType = $row['userType'];
         {
             padding-top: 20px;
         }
+
+        .container
+        {
+            background-color: #ffffff;
+            margin-top: 50px;
+            border: 10px;
+        }
+
+        .container-1
+        {
+            padding: 40px;
+        }
     </style>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -43,8 +55,6 @@ $userType = $row['userType'];
     <script src="JavaScript/popper.min.js" crossorigin="anonymous"></script>
     <script src="JavaScript/bootstrap.bundle.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
-
-
 
 	<title>Staff Management - <?php echo $userName; ?></title>
 </head>
@@ -127,47 +137,49 @@ $userType = $row['userType'];
     </div>
 </div>
 
-<div class="container">
-    <h3 style="padding-top: 20px">Staff's Account Information</h3>
-    <button class="btn btn-dark" data-toggle="button" aria-pressed="false" onclick="editFunction()">Edit</button>
-    <button class="btn btn-dark">Change Password</button>
-    <input type="text" class="form-control" name="userID" value="<?= $userID ?>" readonly hidden>
-    <div class="row">
-        <div class="col">
-            <label for="fName">First name:</label>
-            <input type="text" class="form-control" name="fName" id="fName" value="<?= $fName ?>" readonly>
+<div class="container" style="border-radius: 10px">
+    <div class="container-1">
+        <h3 style="padding-top: 20px">Staff's Account Information</h3>
+        <button class="btn btn-dark" data-toggle="button" aria-pressed="false" onclick="editFunction()">Edit</button>
+        <button class="btn btn-dark">Change Password</button>
+        <input type="text" class="form-control" name="userID" value="<?= $userID ?>" readonly hidden>
+        <div class="row">
+            <div class="col">
+                <label for="fName">First name:</label>
+                <input type="text" class="form-control" name="fName" id="fName" value="<?= $fName ?>" readonly>
+            </div>
+            <div class="col">
+                <label for="lName">Last name:</label>
+                <input type="text" class="form-control" name="lName" id="lName" value="<?= $lName ?>" readonly>
+            </div>
         </div>
-        <div class="col">
-            <label for="lName">Last name:</label>
-            <input type="text" class="form-control" name="lName" id="lName" value="<?= $lName ?>" readonly>
+        <div class="row">
+            <div class="col">
+                <label for="userName">Username:</label>
+                <input type="text" class="form-control" name="userName" id="userName" value="<?= $userName ?>" readonly>
+            </div>
+            <div class="col">
+                <label for="userEmail">Email address:</label>
+                <input type="text" class="form-control" name="userEmail" id="userEmail" value="<?= $userEmail ?>" readonly>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <label for="userName">Username:</label>
-            <input type="text" class="form-control" name="userName" id="userName" value="<?= $userName ?>" readonly>
+        <div class="row">
+            <div class="col">
+                <label for="phoneNumber">Phone number:</label>
+                <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="<?= $phoneNumber ?>" readonly>
+            </div>
+            <div class="col">
+                <label for="userGender">Gender:</label>
+                <input type="text" class="form-control" name="userGender" id="userGender" value="<?= $userGender ?>" readonly>
+            </div>
         </div>
-        <div class="col">
-            <label for="userEmail">Email address:</label>
-            <input type="text" class="form-control" name="userEmail" id="userEmail" value="<?= $userEmail ?>" readonly>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <label for="phoneNumber">Phone number:</label>
-            <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="<?= $phoneNumber ?>" readonly>
-        </div>
-        <div class="col">
-            <label for="userGender">Gender:</label>
-            <input type="text" class="form-control" name="userGender" id="userGender" value="<?= $userGender ?>" readonly>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button type="submit" class="btn btn-danger" name="ADMINprofileDeleteBtn">Delete Account</button>
-        </div>
-        <div class="col">
-            <button type="submit" class="btn btn-success" name="ADMINprofileUpdateBtn" style="float: right">Save</button>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-danger" name="ADMINprofileDeleteBtn">Delete Account</button>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-success" name="ADMINprofileUpdateBtn" style="float: right">Save</button>
+            </div>
         </div>
     </div>
 </div>
