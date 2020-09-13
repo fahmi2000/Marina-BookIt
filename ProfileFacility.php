@@ -59,16 +59,39 @@ $facilityStatus = $row['facilityStatus'];
             grid-template-areas:
                 "images"
                 "head"
-                "option"
-                "cont"
+                "amenities"
                 "butts";
             background-color: red;
         }
 
-        .images{grid-area: images}
-        .head {grid-area: head}
-        .option{grid-area: option}
-        .cont{grid-area: cont}
+        .images
+        {
+            grid-area: images;
+            display: grid;
+            grid-template-areas:
+                "bigImg img1 img2"
+                "bigImg img3 img4";
+        }
+            .bigImg {grid-area: bigImg; height: inherit;}
+            .img1 {grid-area: img1}
+            .img2 {grid-area: img2}
+            .img3 {grid-area: img3}
+            .img4 {grid-area: img4}
+
+        .head
+        {
+            grid-area: head;
+            display: grid;
+            grid-template-areas:
+                "facilityName facilityName check"
+                "description description check"
+                "description description check";
+        }
+            .facilityName {grid-area: facilityName}
+            .check {grid-area: check}
+            .description {grid-area: description}
+
+        .amenities{grid-area: amenities}
         .butts{grid-area: butts}
     </style>
 
@@ -278,7 +301,17 @@ $facilityStatus = $row['facilityStatus'];
 
 <div class="container" id="facilityList">
     <div class="images">
-        <h1>AIR BNB</h1>
+        <div class="bigImg"></div>
+        <div class="img1"></div>
+        <div class="img2"></div>
+        <div class="img3"></div>
+        <div class="img4"></div>
+    </div>
+
+    <div class="head">
+        <div class="facilityName"></div>
+        <div class="check"></div>
+        <div class="description"></div>
     </div>
 </div>
 

@@ -142,45 +142,49 @@ $userType = $row['userType'];
         <h3 style="padding-top: 20px">Staff's Account Information</h3>
         <button class="btn btn-dark" data-toggle="button" aria-pressed="false" onclick="editFunction()">Edit</button>
         <button class="btn btn-dark">Change Password</button>
-        <input type="text" class="form-control" name="userID" value="<?= $userID ?>" readonly hidden>
-        <div class="row">
-            <div class="col">
-                <label for="fName">First name:</label>
-                <input type="text" class="form-control" name="fName" id="fName" value="<?= $fName ?>" readonly>
+        <form action="Handler/eventListener.php" method="post">
+
+            <input type="text" class="form-control" name="userID" value="<?= $userID ?>" readonly hidden>
+            <div class="row">
+                <div class="col">
+                    <label for="fName">First name:</label>
+                    <input type="text" class="form-control" name="fName" id="fName" value="<?= $fName ?>" readonly>
+                </div>
+                <div class="col">
+                    <label for="lName">Last name:</label>
+                    <input type="text" class="form-control" name="lName" id="lName" value="<?= $lName ?>" readonly>
+                </div>
             </div>
-            <div class="col">
-                <label for="lName">Last name:</label>
-                <input type="text" class="form-control" name="lName" id="lName" value="<?= $lName ?>" readonly>
+            <div class="row">
+                <div class="col">
+                    <label for="userName">Username:</label>
+                    <input type="text" class="form-control" name="userName" id="userName" value="<?= $userName ?>" readonly>
+                </div>
+                <div class="col">
+                    <label for="userEmail">Email address:</label>
+                    <input type="text" class="form-control" name="userEmail" id="userEmail" value="<?= $userEmail ?>" readonly>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="userName">Username:</label>
-                <input type="text" class="form-control" name="userName" id="userName" value="<?= $userName ?>" readonly>
+            <div class="row">
+                <div class="col">
+                    <label for="phoneNumber">Phone number:</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="<?= $phoneNumber ?>" readonly>
+                </div>
+                <div class="col">
+                    <label for="userGender">Gender:</label>
+                    <input type="text" class="form-control" name="userGender" id="userGender" value="<?= $userGender ?>" readonly>
+                </div>
             </div>
-            <div class="col">
-                <label for="userEmail">Email address:</label>
-                <input type="text" class="form-control" name="userEmail" id="userEmail" value="<?= $userEmail ?>" readonly>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-danger" name="ADMINprofileDeleteBtn">Delete Account</button>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-success" name="ADMINprofileUpdateBtn" style="float: right">Save</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="phoneNumber">Phone number:</label>
-                <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="<?= $phoneNumber ?>" readonly>
-            </div>
-            <div class="col">
-                <label for="userGender">Gender:</label>
-                <input type="text" class="form-control" name="userGender" id="userGender" value="<?= $userGender ?>" readonly>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-danger" name="ADMINprofileDeleteBtn">Delete Account</button>
-            </div>
-            <div class="col">
-                <button type="submit" class="btn btn-success" name="ADMINprofileUpdateBtn" style="float: right">Save</button>
-            </div>
-        </div>
+        </form>
+
     </div>
 </div>
 

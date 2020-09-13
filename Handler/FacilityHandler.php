@@ -85,6 +85,7 @@ function deleteFacility()
 	}
 }
 
+//add new facility
 if (isset($_POST['facilitySubmitBtn']))
 {
 	require 'databaseConnect.php';
@@ -140,6 +141,12 @@ if (isset($_POST['facilitySubmitBtn']))
 					mysqli_stmt_bind_param($stmt, "ssss", $facilityName, $facilityCapacity, $facilityRate, $facilityAmenities);
 					mysqli_stmt_execute($stmt);
 
+					$path = "../img/facility/".$facilityName."";
+					if (!file_exists($path))
+					{
+						mkdir($path, 0777, true);
+					}
+
 					header("Location: ../registerFacility.php?success=insert");
 					exit();
 				}
@@ -149,3 +156,30 @@ if (isset($_POST['facilitySubmitBtn']))
 	mysqli_stmt_close($stmt);
 	mysqli_close($con);
 }
+
+//if (isset($_POST['facilityPicBtn']))
+//{
+//	$file = $_FILES['facilityImg'];
+//
+//	$fileName = $_FILES['facilityImg']['imgName'];
+//	$fileTmpName = $_FILES['facilityImg']['tmp_imgName'];
+//	$fileSize = $_FILES['facilityImg']['imgSize'];
+//	$fileError = $_FILES['facilityImg']['imgError'];
+//	$fileType = $_FILES['facilityImg']['imgtype'];
+//
+//	$fileExt = explode('.', $fileName);
+//	$fileActualExt = strtolower(end($fileExt));
+//
+//	$allowed = array('jpg', 'jpeg', 'png');
+//
+//	if (in_array($fileActualExt, $allowed))
+//	{
+//		if ($fileError === 0)
+//		{
+//			if ($fileSize < 99999999)
+//			{
+//				$fileNameNew = $loop
+//			}
+//		}
+//	}
+//}

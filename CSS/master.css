@@ -7,3 +7,9 @@ html, body
     font-family: "Roboto", sans-serif;
     color: #222222;
 }
+
+label
+{
+    font-size: 90% !important;
+    color: dimgrey !important;
+}

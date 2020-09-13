@@ -19,7 +19,9 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
     <style>
         .container
         {
-            background-color: white;
+            background-color: #ffffff;
+            border: solid 1px;
+            border-color: rgba(0, 0, 0, 0.1);
             padding: 50px;
             border-radius: 10px;
         }
@@ -133,42 +135,59 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
 
             <div class="col-6">
                 <form class="form-group" method="post" action="Handler/facilityHandler.php">
-                    <label for="facilityName">Name</label>
-                    <input class="form-control" type="text" name="facilityName" id="facilityName" placeholder="Name">
-                    <br>
-                    <label for="facilityCapacity">Capacity</label>
-                    <input class="form-control" type="text" name="facilityCapacity" id="facilityCapacity" placeholder="Capacity">
-                    <br>
-                    <label for="facilityRate">Rental Rate</label>
-                    <input class="form-control" type="text" name="facilityRate" id="facilityRate" placeholder="Rental Rate">
-                    <br>
-                    <label for="facilityAmenities">Amenities</label>
-                    <input class="form-control" type="text" name="facilityAmenities" id="facilityAmenities" placeholder="Amenities">
-                    <br>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="POOL" id="checkBox1">
-                        <label class="form-check-label" for="checkBox1">Pool</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="SEAT" id="checkBox2" name="">
-                        <label class="form-check-label" for="checkBox2">Seats</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="TABLE" id="checkBox3">
-                        <label class="form-check-label" for="checkBox3">Tables</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="PA" id="checkBox4">
-                        <label class="form-check-label" for="checkBox4">PA System</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="AIRCOND" id="checkBox5">
-                        <label class="form-check-label" for="checkBox5">Air Conditioning</label>
+                    <div class="form-group">
+                        <label for="facilityName">NAME</label>
+                        <input class="form-control" type="text" name="facilityName" id="facilityName">
                     </div>
 
+                    <div class="form-group">
+                        <label for="facilityCapacity">CAPACITY</label>
+                        <input class="form-control" type="text" name="facilityCapacity" id="facilityCapacity">
+                    </div>
 
-                    <br>
-                    <button type="submit" class="btn btn-success" name="facilitySubmitBtn" style="float: right">Save</button>
+                    <div class="form-group">
+                        <label for="facilityRate">RENTAL RATE PER HOUR</label>
+                        <input class="form-control" type="text" name="facilityRate" id="facilityRate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facilityAmenities">TYPE</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="facilityType[]" value="Formal" id="radio1">
+                            <label class="form-check-label" for="radio1">Formal</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="facilityType[]" value="Sports" id="radio2">
+                            <label class="form-check-label" for="radio2">Sports</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facilityAmenities">AMENITIES</label>
+                        <input class="form-control" type="text" name="facilityAmenities" id="facilityAmenities">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="POOL" id="checkBox1">
+                            <label class="form-check-label" for="checkBox1">Pool</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="SEAT" id="checkBox2">
+                            <label class="form-check-label" for="checkBox2">Seats</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="TABLE" id="checkBox3">
+                            <label class="form-check-label" for="checkBox3">Tables</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="PA" id="checkBox4">
+                            <label class="form-check-label" for="checkBox4">PA System</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="AIRCOND" id="checkBox5">
+                            <label class="form-check-label" for="checkBox5">Air Conditioning</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark" name="facilitySubmitBtn" style="float: right">Save</button>
                 </form>
             </div>
 

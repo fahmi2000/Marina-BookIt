@@ -6,13 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="368517c7-b87b-4914-b111-43c6c2450776" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/dashboardMember.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/dashboardMember.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/Dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/master.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Handler/staffHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/staffHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileFacility.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileStaff.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/profilepic/14.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/profilepic/14.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listOfFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/listOfFacility.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/profilepic/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/profilepic/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registerFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/registerFacility.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signinPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/signinPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +135,13 @@
       <workItem from="1599145180369" duration="2988000" />
       <workItem from="1599155754903" duration="31138000" />
       <workItem from="1599414117992" duration="7867000" />
-      <workItem from="1599433866218" duration="6891000" />
+      <workItem from="1599433866218" duration="7198000" />
+      <workItem from="1599540217272" duration="370000" />
+      <workItem from="1599549854060" duration="595000" />
+      <workItem from="1599719726497" duration="9890000" />
+      <workItem from="1599808540485" duration="1487000" />
+      <workItem from="1599897458728" duration="1257000" />
+      <workItem from="1599976629565" duration="8749000" />
     </task>
     <servers />
   </component>
@@ -170,10 +179,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598688000550" />
-    <state x="750" y="431" key="NewPhpFileDialog" timestamp="1599164945000">
+    <state x="750" y="431" key="NewPhpFileDialog" timestamp="1599980572139">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="750" y="431" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599164945000" />
+    <state x="750" y="431" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599980572139" />
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596272243606" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1597083803117">
       <screen x="0" y="0" width="1920" height="1040" />

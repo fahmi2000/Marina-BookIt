@@ -65,7 +65,7 @@ else
         .container
         {
             display: grid;
-            height: 80%;
+            min-height: 100vh;
             grid-template-areas:
                 "pic name name"
                 "option info info"
@@ -76,17 +76,35 @@ else
             padding: 50px;
             border-radius: 10px;
             column-gap: 20px;
+            border: 1px solid;
+            border-color: rgba(0, 0, 0, 0.1);
         }
 
         .picture {grid-area: pic; justify-self: center; align-self: center}
         .title {grid-area: name; align-self: center}
-        .settings {grid-area: option; background-color: #343a40}
-        .content {grid-area: info;}
-
-        label
+        .settings
         {
-            padding-top: 10px;
+            grid-area: option;
+
+            display: grid;
+            grid-template-areas:
+                "btn1"
+                "btn2"
+                "btn3"
+                "btn4"
+                "btn5"
+                "btn6";
+            grid-template-rows: repeat(5, min-content);
+            background-color: #292e32;
         }
+        .btn1 {grid-area: btn1; background-color: #343a40}
+        .btn2 {grid-area: btn2; background-color: #343a40}
+        .btn3 {grid-area: btn3; background-color: #343a40}
+        .btn4 {grid-area: btn4; background-color: #343a40}
+        .btn5 {grid-area: btn5; background-color: #343a40}
+        .btn6 {grid-area: btn6; background-color: #343a40; align-self: end}
+
+        .content {grid-area: info;}
 
         .outainer
         {
@@ -98,14 +116,14 @@ else
             border: none;
         }
 
-        p.thick
-        {
-            font-weight: bold;
-        }
-
         h3.title
         {
             font-size: 200%;
+        }
+
+        #btnSettings > button:last-child
+        {
+            margin-top: auto;
         }
 
     </style>
@@ -222,8 +240,8 @@ else
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button class="btn btn-primary" name="userPicBtn" type="submit">
+                            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-dark" name="userPicBtn" type="submit">
                                 Upload
                             </button>
                         </div>
@@ -231,26 +249,50 @@ else
                 </div>
             </div>
         </div>
+
         <div class="title">
-            <h3 class="title"><?= $userName ?></h3>
-            <h3 class="title text-muted"><?= $userEmail ?></h3>
+            <h4 class="title"><?= $userName ?></h4>
+            <h4 class="title text-muted"><?= $userEmail ?></h4>
         </div>
+
         <div class="settings">
-            <div class="btn-group-vertical btn-block btn-group-lg">
+            <div class="btn1">
                 <button class="btn btn-dark btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     Account Information
                 </button>
+            </div>
+
+            <div class="btn2">
                 <button class="btn btn-dark btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     Personal Details
                 </button>
+            </div>
+
+            <div class="btn3">
                 <button class="btn btn-dark btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     Transactions
                 </button>
+            </div>
+
+            <div class="btn4">
                 <button class="btn btn-dark btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                     History
                 </button>
+            </div>
+
+            <div class="btn5">
                 <button class="btn btn-dark btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                     Password & Security
+                </button>
+            </div>
+
+            <div class="btn6">
+                <button class="btn btn-dark btn-block text-left">
+                    <span style="padding-right: 10px">Sign Out</span>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+                        <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                    </svg>
                 </button>
             </div>
         </div>
@@ -259,16 +301,26 @@ else
                 <div class="card">
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="card-body">
+
                             <h4>Account Information</h4>
+
                             <hr>
-                            <p class="thick">ID: </p>
-                            <input class="col-6 form-control" type="text" id="userID" value="<?= $userID ?>" readonly>
-                            <br>
-                            <p class="thick">Username: </p>
-                            <input class="col-6 form-control" type="text" id="userName" value="<?= $userName ?>" readonly>
-                            <br>
-                            <p class="thick">Email: </p>
-                            <input class="col-6 form-control" type="text" id="userEmail" value="<?= $userEmail ?>" readonly>
+
+                            <div class="form-group">
+                                <label for="userID">USER ID</label>
+                                <input class="form-control" type="text" id="userID" value="<?= $userID ?>" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userName">USERNAME</label>
+                                <input class="form-control" type="text" id="userName" value="<?= $userName ?>" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmail">EMAIL</label>
+                                <input class="form-control" type="text" id="userEmail" value="<?= $userEmail ?>" readonly>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -276,24 +328,41 @@ else
                 <div class="card">
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                         <div class="card-body">
-                            <h4>Personal Details</h4>
-                            <hr>
-                            <p class="thick">First Name: </p>
-                            <input class="form-control" type="text" value="<?= $fName ?>" readonly>
-                            <br>
-                            <p class="thick">Last Name: </p>
-                            <input class="form-control" type="text" value="<?= $lName ?>" readonly>
-                            <br>
-                            <p class="thick">Gender: </p><?php
-							if ($userGender == 'maleGender'){ echo '<input class="form-control" type="text" value="Male" readonly>'; }
-                            elseif ($userGender == 'femaleGender'){ echo '<input class="form-control" type="text" value="Female" readonly>'; }
-                            elseif ($userGender == 'shyGender'){ echo '<input class="form-control" type="text" value="Prefer not to say" readonly>'; }
 
-							echo '<br> <p class="thick">Type: </p>';
-							if ($userType == 1){ echo '<input class="form-control" type="text" value="Admin" readonly>'; }
-                            elseif ($userType == 2){ echo '<input class="form-control" type="text" value="Staff" readonly>'; }
-                            elseif ($userType == 3){ echo '<input class="form-control" type="text" value="Registered Member" readonly>'; }
-							?>
+                            <div class="input-group">
+                                <h4>Personal Details</h4>
+                                <button class="btn btn-outline-dark" type="button" style="margin-left: auto">Edit</button>
+                            </div>
+
+                            <hr>
+                            <div class="form-group">
+                                <label for="fName">FIRST NAME</label>
+                                <input class="form-control" type="text" id="fName" value="<?= $fName ?>" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lName">LAST NAME</label>
+                                <input class="form-control" type="text" id="lName" value="<?= $lName ?>" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmail">GENDER</label><?php
+	                            if ($userGender == 'maleGender'){ echo '<input class="form-control" type="text" id="userGender" value="Male" readonly>'; }
+                                elseif ($userGender == 'femaleGender'){ echo '<input class="form-control" type="text" id="userGender" value="Female" readonly>'; }
+                                elseif ($userGender == 'shyGender'){ echo '<input class="form-control" type="text" id="userGender" value="Prefer not to say" readonly>'; }
+
+                                ?>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmail">ACCOUNT TYPE</label><?php
+	                            if ($userType == 1){ echo '<input class="form-control" type="text" value="Admin" readonly>'; }
+                                elseif ($userType == 2){ echo '<input class="form-control" type="text" value="Staff" readonly>'; }
+                                elseif ($userType == 3){ echo '<input class="form-control" type="text" value="Registered Member" readonly>'; }
+
+		                        ?>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -301,7 +370,8 @@ else
                 <div class="card">
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                         <div class="card-body">
-                            <p>Transaction</p>
+                            <h4>Transaction</h4>
+                            <hr>
                         </div>
                     </div>
                 </div>
@@ -309,7 +379,8 @@ else
                 <div class="card">
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                         <div class="card-body">
-                            <p>History</p>
+                            <h4>History</h4>
+                            <hr>
                         </div>
                     </div>
                 </div>
@@ -354,8 +425,8 @@ else
                                                 <input type="password" class="form-control" name="userPwdNewRepeat" placeholder="Password" required>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-success" name="pwdUpdateBtn">Save</button>
+                                                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-dark" name="pwdUpdateBtn">Save</button>
                                             </div>
                                         </form>
                                     </div>
@@ -370,97 +441,6 @@ else
     </div>
 </div>
 
-<!--
-<div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center">
-        <div id="swapper-first">
-            <div class="card" style="width: 70rem; padding: 5px">
-                <div class="card-body">
-                    <div class="text-center">
-                        <h4 class="card-title"><?php echo $_SESSION['userName'];?></h4>
-                        <img class="d-inline" src="img/profilepic/<?= $userID ; ?>.jpg?<?= mt_rand() ; ?>" id="userPic"/>
-                    </div>
-                    <p class="px-4 text-center" style="padding-top: 20px">
-                        <a class="btn btn-outline-secondary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-camera"></i> Change Picture </a>
-                    </p>
-                    <div class="row" style="padding-bottom: 20px">
-                        <div class="col">
-                            <div class="collapse multi-collapse" id="multiCollapseExample1">
-                                <div class="card card-body text-center">
-                                    <form action="Handler/profileHandler.php" method="post" enctype="multipart/form-data">
-                                        <input type="file" name="file" accept=".jpg">
-                                        <button class="btn btn-primary" name="userPicBtn" type="submit">
-                                            Upload
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div<?php if ($userType == 2) echo " style='display: none';"; ?>>
-                        <form action="Handler/profileHandler.php" method="post" class="text-center">
-                            <div class="btn-group dropdown" style="padding-bottom: 20px">
-                                <button type="button" class="btn btn-outline-warning dropdown-toggle text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Change Password
-                                </button>
-                                <div class="dropdown-menu p-4" style="min-width: 20rem">
-                                    <label for="userPwd">Current Password</label>
-                                    <input type="password" class="form-control" name="userPwd" placeholder="Password" required>
-                                    <br>
-                                    <label for="userPwd">New Password</label>
-                                    <input type="password" class="form-control" name="userPwdNew" placeholder="Password" required>
-                                    <br>
-                                    <label for="userPwdNewRepeat">Repeat New Password</label>
-                                    <input type="password" class="form-control" name="userPwdNewRepeat" placeholder="Password" required>
-                                    <div class="dropdown-divider"></div>
-                                    <button type="submit" class="btn btn-primary float-right" name="pwdUpdateBtn">Save</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <form action="Handler/profileHandler.php" method="post">
-                        <div class="row">
-                            <div class="col">
-                                <label for="fName">First Name</label>
-                                <input type="text" class="form-control"  value="<?= $fName ?>" id="fName" name="fName" required>
-                            </div>
-                            <div class="col">
-                                <label for="lName">Last Name</label>
-                                <input type="text" class="form-control"  value="<?= $lName ?>" id="lName" name="lName" required>
-                            </div>
-                            <div class="col">
-                                <label for="userID">User ID</label>
-                                <input type="text" class="form-control"  value="<?= $userID ?>" id="userID" readonly>
-                            </div>
-                        </div>
-                        <div class="row" style="padding-top: 3rem">
-                            <div class="col">
-                                <label for="userEmail">Email Address</label>
-                                <input type="email" class="form-control"  value="<?= $userEmail ?>" id="userEmail" name="userEmail" required>
-                            </div>
-                            <div class="col">
-                                <label for="phoneNumber">Phone Number</label>
-                                <input type="text" class="form-control"  value="<?= $phoneNumber ?>" id="phoneNumber" name="phoneNumber" required>
-                            </div>
-                            <div class="col">
-                                <label for="userGender">Gender</label>
-                                <select class="form-control" id="userGender" name="userGender" required>
-                                    <option value="maleGender">Male</option>
-                                    <option value="femaleGender">Female</option>
-                                    <option value="shyGender">Prefer not to say</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div style="padding-top: 20px">
-                            <button type="submit" class="btn btn-primary float-right" name="profileUpdateBtn">Save Changes</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
 <!-- Local JavaScript -->
 
 </body>
