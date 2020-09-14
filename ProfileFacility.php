@@ -16,6 +16,9 @@ $facilityCapacity= $row['facilityCapacity'];
 $facilityRate = $row['facilityRate'];
 $facilityAmenities = $row['facilityAmenities'];
 $facilityStatus = $row['facilityStatus'];
+
+$path = "img/facility/".$facilityName."";
+$facilityImage = glob($path."/*.jpg");
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +64,8 @@ $facilityStatus = $row['facilityStatus'];
                 "head"
                 "amenities"
                 "butts";
-            background-color: red;
+            background-color: #ffffff;
+            grid-template-rows: 70% auto auto auto;
         }
 
         .images
@@ -71,8 +75,13 @@ $facilityStatus = $row['facilityStatus'];
             grid-template-areas:
                 "bigImg img1 img2"
                 "bigImg img3 img4";
+            padding-top: 20px;
         }
-            .bigImg {grid-area: bigImg; height: inherit;}
+            .bigImg
+            {
+                grid-area: bigImg;
+                height: inherit;
+            }
             .img1 {grid-area: img1}
             .img2 {grid-area: img2}
             .img3 {grid-area: img3}
@@ -86,6 +95,7 @@ $facilityStatus = $row['facilityStatus'];
                 "facilityName facilityName check"
                 "description description check"
                 "description description check";
+            grid-template-columns: 30% 30% 40%;
         }
             .facilityName {grid-area: facilityName}
             .check {grid-area: check}
@@ -301,17 +311,66 @@ $facilityStatus = $row['facilityStatus'];
 
 <div class="container" id="facilityList">
     <div class="images">
-        <div class="bigImg"></div>
-        <div class="img1"></div>
-        <div class="img2"></div>
-        <div class="img3"></div>
-        <div class="img4"></div>
+        <div class="bigImg" style="background-image: url('img/facility/<?= $facilityName ?>/1.jpg'); background-size: cover; border-radius: 30px 0 0 30px">
+
+        </div>
+
+        <div class="img1" style="background-image: url('img/facility/<?= $facilityName ?>/2.jpg'); background-size: cover;">
+
+        </div>
+
+        <div class="img2" style="background-image: url('img/facility/<?= $facilityName ?>/3.jpg'); background-size: cover; border-radius: 0 30px 0 0">
+
+        </div>
+
+        <div class="img3" style="background-image: url('img/facility/<?= $facilityName ?>/4.jpg'); background-size: cover;">
+
+        </div>
+
+        <div class="img4" style="background-image: url('img/facility/<?= $facilityName ?>/5.jpg'); background-size: cover; border-radius: 0 0 30px 0">
+
+        </div>
     </div>
 
     <div class="head">
-        <div class="facilityName"></div>
-        <div class="check"></div>
-        <div class="description"></div>
+        <div class="facilityName" style="padding: 20px">
+            <h3><?= $facilityName ?></h3>
+            <h5>Lorem · Ipsum · Sit · Amet</h5>
+            <hr>
+        </div>
+        <div class="check" style="padding: 20px">
+            <div class="box" style="width: inherit; border: solid 1px; border-color: gray; border-radius: 20px">
+                <div style="padding-left: 20px; padding-right: 20px">
+                    <form class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="dateStart">CHECK-IN</label>
+                                    <input type="date" class="form-control" id="dateStart" name="dateStart">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="dateEnd">CHECK-OUT</label>
+                                    <input type="date" class="form-control" id="dateEnd" name="dateEnd">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button class="btn btn-outline-dark btn-block">Check availability</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="description" style="padding: 20px">
+            <p>At 500m above sea-level, our place in the hills is 5-6 degrees cooler than and only 40 minutes away from the Klang Valley.
+                The treehouse, crafted from recycled materials, nestles among some trees on the site with beautiful views of the adjacent valley.
+                Enjoy a restful night among the sound of trees swaying in the breeze, reminiscent of a wooden boat on the seas.
+                Advantageous location for bird watching, relaxing, reading, spending time with your special loved-one or writing your next masterpiece.</p>
+        </div>
     </div>
 </div>
 
