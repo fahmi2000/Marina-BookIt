@@ -1,5 +1,6 @@
 <?php
 require 'staffHandler.php';
+require 'facilityHandler.php';
 
 if (isset($_POST['ADMINprofileUpdateBtn']))
 {
@@ -16,4 +17,14 @@ if (isset($_POST['ADMINprofileDeleteBtn']))
 if (isset($_POST['ADMINpwdUpdateBtn']))
 {
 	changePwdStaff();
+}
+
+if (isset($_POST['facilityUpdateBtn']))
+{
+	updateFacility();
+}
+
+if (isset($_POST['facilityDeleteBtn']))
+{
+	deleteFacility();
 }

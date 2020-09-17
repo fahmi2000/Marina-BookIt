@@ -1,10 +1,9 @@
 <?php
-require 'databaseConnect.php';
 
 function listStaff()
 {
-	$con = mysqli_connect('localhost', 'web39', 'web39', 'mbisdb');
-
+	require "databaseConnect.php";
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
 	if (mysqli_connect_errno())
 	{
 		die("FAIL TO CONNECT: " . mysqli_connect_error());
@@ -18,7 +17,8 @@ function listStaff()
 
 function viewStaff()
 {
-	$con = mysqli_connect('localhost', 'web39', 'web39', 'mbisdb');
+	require "databaseConnect.php";
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
 
 	if (mysqli_connect_errno())
 	{
@@ -34,7 +34,8 @@ function viewStaff()
 
 function updateStaff()
 {
-	$con = mysqli_connect('localhost', 'web39', 'web39', 'mbisdb');
+	require "databaseConnect.php";
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
 
 	if (mysqli_connect_errno())
 	{
@@ -58,7 +59,8 @@ function updateStaff()
 
 function deleteStaff()
 {
-	$con = mysqli_connect('localhost', 'web39', 'web39', 'mbisdb');
+	require "databaseConnect.php";
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
 
 	if (mysqli_connect_errno())
 	{
@@ -76,7 +78,8 @@ function deleteStaff()
 
 function changePwdStaff()
 {
-	$con = mysqli_connect('localhost', 'web39', 'web39', 'mbisdb');
+	require "databaseConnect.php";
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
 
 	if (mysqli_connect_errno())
 	{

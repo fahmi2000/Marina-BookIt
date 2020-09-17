@@ -1,0 +1,129 @@
+html, body
+{
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    color: #222222;
+    background: #ffffff;
+}
+
+.flex-container
+{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    background: white;
+}
+
+.flex-container > .filler
+{
+    min-width: 25vh;
+}
+
+.flex-container > div
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.dropdown:last-child
+{
+    margin-left: auto;
+}
+
+.d1 > button
+{
+    width: 170px;
+}
+
+.dropdown > button
+{
+    border-radius: 30px;
+}
+
+
+.btn > span:last-child
+{
+    right: -90px;
+    position: relative;
+}
+
+#memberDiv
+{
+    display: grid;
+    height: 100%;
+    grid-template-areas:
+                "explore"
+                "type"
+                "common"
+                "foot";
+    background-color: white;
+    grid-template-rows: 100vh auto auto auto ;
+}
+
+.explore
+{
+    display: flex;
+
+    grid-area: explore;
+
+    background-image: url("../img/ex1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: white;
+
+    align-items: flex-end;
+}
+
+.explore > .explore-1
+{
+    padding-left: 100px;
+    padding-bottom: 250px;
+    color: white;
+}
+
+.type
+{
+    grid-area: type;
+}
+
+.type > .type-1
+{
+    padding: 100px;
+}
+
+.common
+{
+    grid-area: common;
+    padding: 100px;
+}
+
+.foot
+{
+    grid-area: foot;
+    background-color: black;
+    color: #ffffff;
+}
+
+.foot > .row
+{
+    padding: 20px;
+}
+
+.card-img-top
+{
+    padding-bottom: 10px;
+}
+
+.col-lg-6 > .card
+{
+    width: inherit;
+    min-width: inherit;
+}
+
+.side
+{
+   padding-left: 20px;
+}

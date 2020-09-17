@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="368517c7-b87b-4914-b111-43c6c2450776" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/emailHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/emailHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/forgotHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/forgotHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/resetHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/resetHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bg1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/bg1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bg2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/bg2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bg3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/bg3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signinPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/signinPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Handler/staffHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/staffHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileFacility.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +35,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -60,12 +54,14 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -108,6 +104,37 @@
       <workItem from="1597464504227" duration="7505000" />
       <workItem from="1597500175221" duration="970000" />
       <workItem from="1597561339014" duration="3759000" />
+      <workItem from="1597645960859" duration="751000" />
+      <workItem from="1598169904843" duration="1189000" />
+      <workItem from="1598212135482" duration="5913000" />
+      <workItem from="1598239052228" duration="3706000" />
+      <workItem from="1598271575853" duration="18000" />
+      <workItem from="1598271674605" duration="112000" />
+      <workItem from="1598315185163" duration="3565000" />
+      <workItem from="1598355135759" duration="3278000" />
+      <workItem from="1598584124191" duration="65000" />
+      <workItem from="1598584294320" duration="83000" />
+      <workItem from="1598584473223" duration="598000" />
+      <workItem from="1598667026221" duration="7471000" />
+      <workItem from="1598692336542" duration="10949000" />
+      <workItem from="1598716960175" duration="1025000" />
+      <workItem from="1598718354881" duration="22881000" />
+      <workItem from="1598799004994" duration="629000" />
+      <workItem from="1598800217273" duration="2372000" />
+      <workItem from="1599100129180" duration="114000" />
+      <workItem from="1599127672144" duration="2610000" />
+      <workItem from="1599137033823" duration="2059000" />
+      <workItem from="1599145180369" duration="2988000" />
+      <workItem from="1599155754903" duration="31138000" />
+      <workItem from="1599414117992" duration="7867000" />
+      <workItem from="1599433866218" duration="7198000" />
+      <workItem from="1599540217272" duration="370000" />
+      <workItem from="1599549854060" duration="595000" />
+      <workItem from="1599719726497" duration="9890000" />
+      <workItem from="1599808540485" duration="1487000" />
+      <workItem from="1599897458728" duration="1257000" />
+      <workItem from="1599976629565" duration="8749000" />
+      <workItem from="1600043932898" duration="5443000" />
     </task>
     <servers />
   </component>
@@ -119,10 +146,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="336" y="361" key="#SQL_Dialects/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597081394087" />
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596389528069">
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598846820346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596389528069" />
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598846820346" />
     <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1596793603587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -141,14 +168,14 @@
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596973547052" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596249413237" />
-    <state x="757" y="243" key="NewPhpClassDialog" timestamp="1597111359274">
+    <state x="757" y="243" key="NewPhpClassDialog" timestamp="1598688000550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597111359274" />
-    <state x="750" y="431" key="NewPhpFileDialog" timestamp="1597465729840">
+    <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598688000550" />
+    <state x="750" y="431" key="NewPhpFileDialog" timestamp="1599980572139">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="750" y="431" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597465729840" />
+    <state x="750" y="431" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599980572139" />
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596272243606" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1597083803117">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -158,9 +185,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597318024145" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597300051454">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598757029569">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597300051454" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598757029569" />
   </component>
 </project>

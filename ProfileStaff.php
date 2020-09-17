@@ -30,6 +30,25 @@ $userType = $row['userType'];
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/bootstrap.css">    <!-- All pages -->
     <link rel="stylesheet" href="CSS/master.css">   <!-- All pages  -->
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <style>
+        .row
+        {
+            padding-top: 20px;
+        }
+
+        .container
+        {
+            background-color: #ffffff;
+            margin-top: 50px;
+            border: 10px;
+        }
+
+        .container-1
+        {
+            padding: 40px;
+        }
+    </style>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="JavaScript/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -37,119 +56,149 @@ $userType = $row['userType'];
     <script src="JavaScript/bootstrap.bundle.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
-    <style>
-        body
-        {
-            height: 100vh;
-        }
-
-        #userPic
-        {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-        }
-
-        #backBtn
-        {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-        }
-    </style>
-
-	<!-- Icon CDN -->
-	<script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
-
 	<title>Staff Management - <?php echo $userName; ?></title>
 </head>
 <body>
 
-
-<div class="container h-100">
-
-    <div class="row h-100 justify-content-center align-items-center">
-        <div id="swapper-first">
-            <div class="card" style="width: 70rem; padding: 5px">
-                <h1 class="display-4 text-center">Staff Management</h1>
-                <div class="card-body">
-                    <div class="text-center">
-                        <h4 class="card-title"><?php echo $userName;?>'s Profile</h4>
-                        <img class="d-inline" src="img/profilepic/<?= $userID ; ?>.jpg?<?= mt_rand() ; ?>" id="userPic"/>
-                    </div>
-
-                    <form action="Handler/eventListener.php" method="post" class="text-center">
-                        <div class="btn-group dropdown" style="padding-bottom: 20px; padding-top: 20px">
-                            <button type="button" class="btn btn-outline-warning dropdown-toggle text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Change Password
-                            </button>
-                            <div class="dropdown-menu p-4" style="min-width: 20rem">
-                                <input type="password" class="form-control" name="userID" value="<?= $userID ?>" readonly hidden>
-                                <br>
-                                <label for="userPwd">New Password</label>
-                                <input type="password" class="form-control" name="userPwdNew" placeholder="Password" required>
-                                <br>
-                                <label for="userPwdNewRepeat">Repeat New Password</label>
-                                <input type="password" class="form-control" name="userPwdNewRepeat" placeholder="Password" required>
-                                <div class="dropdown-divider"></div>
-                                <button type="submit" class="btn btn-primary float-right" name="ADMINpwdUpdateBtn">Save</button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <form action="Handler/eventListener.php" method="post">
-                        <div class="row">
-                            <div class="col">
-                                <label for="fName">First Name</label>
-                                <input type="text" class="form-control"  value="<?= $fName ?>" id="fName" name="fName" required>
-                            </div>
-                            <div class="col">
-                                <label for="lName">Last Name</label>
-                                <input type="text" class="form-control"  value="<?= $lName ?>" id="lName" name="lName" required>
-                            </div>
-                            <div class="col">
-                                <label for="userID">User ID</label>
-                                <input type="text" class="form-control"  value="<?= $userID ?>" id="userID" name="userID" readonly>
-                            </div>
-                        </div>
-                        <div class="row" style="padding-top: 3rem">
-                            <div class="col">
-                                <label for="userEmail">Email Address</label>
-                                <input type="email" class="form-control"  value="<?= $userEmail ?>" id="userEmail" name="userEmail" required>
-                            </div>
-                            <div class="col">
-                                <label for="phoneNumber">Phone Number</label>
-                                <input type="text" class="form-control"  value="<?= $phoneNumber ?>" id="phoneNumber" name="phoneNumber" required>
-                            </div>
-                            <div class="col">
-                                <label for="userGender">Gender</label>
-                                <select class="form-control" id="userGender" name="userGender" required>
-                                    <option value="maleGender">Male</option>
-                                    <option value="femaleGender">Female</option>
-                                    <option value="shyGender">Prefer not to say</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div style="padding-top: 20px">
-                            <button type="submit" class="btn btn-primary float-right" name="ADMINprofileUpdateBtn">Save Changes</button>
-                            <button type="submit" class="btn btn-outline-danger float-left" name="ADMINprofileDeleteBtn">Delete Account</button>
-                        </div>
-                    </form>
+<div class="flex-container naviBar sticky-top" style="padding: 10px">
+    <div>
+        <img src="img/logo.png" id="logo">
+    </div><?php
+	if ($_SESSION['userType'] == 1) //Admin
+	{
+		echo '
+            <div class="dropdown d1">
+                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
+                    Home <span class="fas fa-angle-down"></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item active" href="Dashboard.php">Home</a>
+                    <div class="dropdown-divider"></div>
+                    <h6 class="dropdown-header">Booking Management</h6>    
+                        <a class="dropdown-item" href="#">Pending booking</a>
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Staff Management</h6>
+                        <a class="dropdown-item" href="listOfStaff.php">List of staff</a>
+                        <a class="dropdown-item" href="#">Register staff</a>
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Facility Management</h6>
+                        <a class="dropdown-item" href="#">List of facility</a>
+                        <a class="dropdown-item" href="#">Add facility</a>
                 </div>
             </div>
+        ';
+	}
+
+    elseif ($_SESSION['userType'] == 2) //Staff
+	{
+		echo '
+            <div class="dropdown d1">
+                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu <span class="fas fa-angle-down"></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Booking Management</a>
+                    <a class="dropdown-item" href="#">Booking Management</a>
+                    <a class="dropdown-item" href="#">Booking Management</a>
+                </div>
+            </div>
+        ';
+	}
+
+    elseif ($_SESSION['userType'] == 3) //Member
+	{
+		echo '
+            <div class="dropdown d1">
+                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu <i class="fas fa-angle-down"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Booking Management</a>
+                    <a class="dropdown-item" href="#">Booking Management</a>
+                    <a class="dropdown-item" href="#">Booking Management</a>
+                </div>
+            </div>
+        ';
+	}
+
+	?>
+
+    <div class="dropdown">
+        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<?php echo $_SESSION['userName'] ?>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="ProfileUser.php">View profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Sign out</a>
         </div>
     </div>
 </div>
 
+<div class="container" style="border-radius: 10px">
+    <div class="container-1">
+        <h3 style="padding-top: 20px">Staff's Account Information</h3>
+        <button class="btn btn-dark" data-toggle="button" aria-pressed="false" onclick="editFunction()">Edit</button>
+        <button class="btn btn-dark">Change Password</button>
+        <form action="Handler/eventListener.php" method="post">
+
+            <input type="text" class="form-control" name="userID" value="<?= $userID ?>" readonly hidden>
+            <div class="row">
+                <div class="col">
+                    <label for="fName">First name:</label>
+                    <input type="text" class="form-control" name="fName" id="fName" value="<?= $fName ?>" readonly>
+                </div>
+                <div class="col">
+                    <label for="lName">Last name:</label>
+                    <input type="text" class="form-control" name="lName" id="lName" value="<?= $lName ?>" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="userName">Username:</label>
+                    <input type="text" class="form-control" name="userName" id="userName" value="<?= $userName ?>" readonly>
+                </div>
+                <div class="col">
+                    <label for="userEmail">Email address:</label>
+                    <input type="text" class="form-control" name="userEmail" id="userEmail" value="<?= $userEmail ?>" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="phoneNumber">Phone number:</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="<?= $phoneNumber ?>" readonly>
+                </div>
+                <div class="col">
+                    <label for="userGender">Gender:</label>
+                    <input type="text" class="form-control" name="userGender" id="userGender" value="<?= $userGender ?>" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-danger" name="ADMINprofileDeleteBtn">Delete Account</button>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-success" name="ADMINprofileUpdateBtn" style="float: right">Save</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
 <!-- Local JavaScript -->
-<?php
-if ($_SESSION['userType'] == 1)
-	echo '<a href="DashboardAdmin.php" class="btn btn-dark" type="button" id="backBtn">Back to Dashboard</a>';
-elseif ($_SESSION['userType'] == 2)
-	echo '<a href="DashboardStaff.php" class="btn btn-dark" type="button" id="backBtn">Back to Dashboard</a>';
-elseif ($_SESSION['userType'] == 3)
-	echo '<a href="DashboardMember.php" class="btn btn-dark" type="button" id="backBtn">Back to Dashboard</a>';
-?>
+<script>
+    function editFunction()
+    {
+        document.getElementById('fName').readOnly = document.getElementById('fName').readOnly !== true;
+        document.getElementById('lName').readOnly = document.getElementById('lName').readOnly !== true;
+        document.getElementById('phoneNumber').readOnly = document.getElementById('phoneNumber').readOnly !== true;
+        document.getElementById('userEmail').readOnly = document.getElementById('userEmail').readOnly !== true;
+        document.getElementById('userGender').readOnly = document.getElementById('userGender').readOnly !== true;
+    }
+</script>
 
 </body>
 </html>
