@@ -500,6 +500,8 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
                     </button>
                 </div>
                 <form class="form-group" action="Handler/bookingHandler.php" method="post">
+                    <input type="hidden" name="facilityID" value="<?= $facilityID ?>">
+                    <input type="hidden" name="facilityName" value="<?= $facilityName ?>">
                     <div class="modal-body">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -523,22 +525,26 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>RM<?= $facilityRate ?> x <?= $_GET['numDays'] ?> days <span style="float: right">RM<?= $facilityRate * $_GET['numDays'] ?></span></p>
+                                    <input type="hidden" name="numDays" value="<?= $_GET['numDays'] ?>">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12"><?php $cleanFee = 80?>
                                     <p>Cleaning fee <span style="float: right">RM<?=$cleanFee?></span></p>
+                                    <input type="hidden" name="cleanFee" value="<?= $cleanFee ?>">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12"><?php $serveFee = 69?>
                                     <p>Service fee <span style="float: right">RM<?=$serveFee?></span></p>
+                                    <input type="hidden" name="serveFee" value="<?= $serveFee ?>">
                                 </div>
                             </div>
                             <hr class="text-muted">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p class="font-weight-bold">Total <span style="float: right">RM<?= $totalRate = $cleanFee + $serveFee + ($facilityRate * $_GET['numDays']) ?></span></p>
+                                    <input type="hidden" name="totalRate" value="<?= $totalRate ?>">
                                 </div>
                             </div>
 

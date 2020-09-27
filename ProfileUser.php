@@ -370,7 +370,8 @@ else
                 <div class="card">
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                         <div class="card-body">
-                            <h4>Transaction</h4>
+                            <h4>Transaction<?= $_SESSION['userName'] ?></h4>
+
                             <hr>
                         </div>
                     </div>
@@ -380,7 +381,69 @@ else
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                         <div class="card-body">
                             <h4>History</h4>
-                            <hr>
+                            <hr><?php
+                                require 'Handler/bookingHandler.php';
+                                $listBooking = listBooking();
+                                $loop = 1;
+                                echo '<table class="table table-striped table-bordered">';
+                                echo '<thead>';
+                                echo '<tr>';
+                                    echo '<th scope="col">#</th>';
+                                    echo '<th scope="col">ID</th>';
+                                    echo '<th scope="col">Facility</th>';
+                                    echo '<th scope="col">From</th>';
+                                    echo '<th scope="col">Until</th>';
+                                    echo '<th scope="col">Duration</th>';
+                                    echo '<th scope="col">Price</th>';
+                                    echo '<th scope="col">Status</th>';
+	                                echo '<th scope="col"></th>';
+                                    echo '</tr>';
+                                echo '</thead>';
+
+                                echo '<tbody>';
+
+                                while ($row = mysqli_fetch_assoc($listBooking))
+                                {
+                                $viewFacility  = $row['facilityID'];
+
+                                echo '<tr>';
+                                    echo '<th scope="row">' .$loop. '</th>';
+                                    echo '<td>' .$row['bookingID']. '</td>';
+                                    echo '<td>' .$row['b_facilityID']. '</td>';
+                                    echo '<td>' .$row['startDate']. '</td>';
+                                    echo '<td>' .$row['endDate']. '</td>';
+                                    echo '<td>' .$row['b_durationDay']. '</td>';
+	                                echo '<td>' .$row['b_totalRate']. '</td>';
+
+                                    if ($row['facilityStatus'] == 0)
+                                    {
+                                    echo '<td>Pending</td>';
+                                    }
+
+                                    elseif ($row['facilityStatus'] == 1)
+                                    {
+                                    echo '<td>Unpaid</td>';
+                                    }
+
+                                    elseif ($row['facilityStatus'] == 2)
+                                    {
+                                    echo '<td>Completed</td>';
+                                    }
+                                    echo '<td>';
+                                        echo '<form action="ProfileFacility.php" method="get">';
+                                            echo "<input type='hidden' value='$viewFacility' name='viewFacility'>";
+                                            echo '<input class="btn btn-outline-dark btn-block" type="submit" name="viewFacilityBtn" value="View">';
+                                            echo '</form>';
+                                        echo '</td>';
+                                    echo '</tr>';
+                                $loop++;
+                                }
+
+                                echo '</tbody>';
+
+                                echo '</table>';
+
+                            ?>
                         </div>
                     </div>
                 </div>
