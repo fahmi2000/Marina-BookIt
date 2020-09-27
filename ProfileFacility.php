@@ -14,11 +14,12 @@ $facilityID = $row['facilityID'];
 $facilityName = $row['facilityName'];
 $facilityCapacity= $row['facilityCapacity'];
 $facilityRate = $row['facilityRate'];
+$facilityDescription = $row['facilityDescription'];
 $facilityAmenities = $row['facilityAmenities'];
 $facilityStatus = $row['facilityStatus'];
+$facilityType = $row['facilityType'];
 
-$path = "img/facility/".$facilityName."";
-$facilityImage = glob($path."/*.jpg");
+$facilityAmenitiesArr = explode(" · ", $facilityAmenities);
 ?>
 
 <!DOCTYPE html>
@@ -43,11 +44,6 @@ $facilityImage = glob($path."/*.jpg");
         .container-2
         {
             padding: 40px;
-        }
-
-        label
-        {
-            padding-top: 20px;
         }
 
         #facilityUpdateBtn
@@ -222,11 +218,31 @@ $facilityImage = glob($path."/*.jpg");
 
         if ($_SESSION['userType'] == 1)
         {
-        echo '
+            echo '
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <button class="btn btn-outline-dark" data-toggle="button" aria-pressed="false" onclick="editFunction()">Edit</button>
+                                <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Show Images</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            ';
+        }
+
+        else
+        {
+	        echo '
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-6">
-                    <button class="btn btn-dark" data-toggle="button" aria-pressed="false" onclick="editFunction()">Edit</button>
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Button with data-target</button>
+                    </div>
                 </div>
                 <div class="col-3"></div>
             </div>
@@ -234,78 +250,175 @@ $facilityImage = glob($path."/*.jpg");
         }
 
         ?>
-        <form class="form-group" method="post" action="Handler/eventListener.php">
-            <div class="row">
-                <div class="col-3"></div>
-                <div class="col-6">
+        <div class="row" style="display: flex">
 
-                    <br>
-                    <label for="facilityID">ID:</label>
-                    <input class="form-control" name="facilityID" id="facilityID" value="<?= $facilityID ?>" readonly>
+            <div class="col-sm-3"></div>
 
-                    <label for="facilityName">Name:</label>
-                    <input class="form-control" name="facilityName" id="facilityName" value="<?= $facilityName ?>" readonly>
-
-                    <label for="facilityCapacity">Capacity:</label>
-                    <input class="form-control" name="facilityCapacity" id="facilityCapacity" value="<?= $facilityCapacity ?>" readonly>
-
-                    <label for="facilityRate">Rate per hour:</label>
-                    <input class="form-control" name="facilityRate" id="facilityRate" value="<?= $facilityRate ?>" readonly>
-
-                    <label for="facilityAmenities">Amenities:</label>
-                    <input class="form-control" name="facilityAmenities" id="facilityAmenities" value="<?= $facilityAmenities ?>" readonly><?php
-
-	                if ($_SESSION['userType'] == 1)
-                    {
-	                    echo '
-                            <label for="facilityStatus">Status:</label>
-                            <input class="form-control" name="facilityStatus" id="facilityStatus" value='.$facilityStatus.' readonly>
-                        ';
-                    }
-
-	                elseif ($_SESSION['userType'] == 2)
-	                {
-		                echo '
-                            <label for="facilityStatus">Status:</label>
-                            <input class="form-control" name="facilityStatus" id="facilityStatus" value='.$facilityStatus.'>
-                        ';
-	                }
-                    ?>
-
-                    <br><?php
-
-                    if ($_SESSION['userType'] == 1)
-                    {
-                        echo '
-                            <div class="butt">
-                                <button type="submit" class="btn btn-danger" id="facilityDeleteBtn" name="facilityDeleteBtn">Delete</button>
-                                <button type="submit" class="btn btn-success" id="facilityUpdateBtn" name="facilityUpdateBtn">Save</button>
-                            </div>
-                        ';
-                    }
-
-	                elseif ($_SESSION['userType'] == 2)
-	                {
-		                echo '
-                            <div class="butt">
-                                <button type="submit" class="btn btn-success" id="facilityUpdateBtn" name="facilityUpdateBtn">Save</button>
-                            </div>
-                        ';
-	                }
-
-                    elseif ($_SESSION['userType'] == 3)
-                    {
-	                    echo '
-                            <div class="butt">
-                                <button type="submit" class="btn btn-primary" id="facilityUpdateBtn" name="#">Book</button>
-                            </div>
-                        ';
-                    }
-                    ?>
+            <div class="col-sm-6">
+                <div class="collapse" id="collapseExample">
+                    <input type="image" src="img/facility/<?= $facilityName; ?>/1.jpg?<?= mt_rand(); ?>" style="width: 50%" data-toggle="modal" data-target="#img1">
+                    <img src="img/facility/<?= $facilityName; ?>/2.jpg?<?= mt_rand(); ?>" style="width: 50%">
+                    <img src="img/facility/<?= $facilityName; ?>/3.jpg?<?= mt_rand(); ?>" style="width: 50%">
+                    <img src="img/facility/<?= $facilityName; ?>/4.jpg?<?= mt_rand(); ?>" style="width: 50%">
+                    <img src="img/facility/<?= $facilityName; ?>/5.jpg?<?= mt_rand(); ?>" style="width: 50%">
                 </div>
-                <div class="col-3"></div>
+                <div class="modal fade" id="img1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Change Facility Image #1</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="Handler/facilityHandler.php" method="post" enctype="multipart/form-data">
+
+                                <div class="modal-body">
+                                    <div class="form-group text-center">
+                                        <img src="img/facility/<?= $facilityName; ?>/1.jpg?<?= mt_rand(); ?>" style="max-width: 90%">
+                                        <input type="text" name="facilityName" value="<?= $facilityName ?>" hidden>
+
+                                    </div>
+                                    <div class="form-group" style="text-align: right">
+                                        <input type="file" name="facilityImg1" accept=".jpg">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-dark" name="facilityPicBtn1" type="submit">
+                                        Upload
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
+
+            <div class="col-sm-3"></div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-3"></div>
+
+            <div class="col-6">
+                <form method="post" action="Handler/eventListener.php">
+                    <div class="form-group">
+                        <label for="facilityID">ID</label>
+                        <input class="form-control" type="text" name="facilityID" id="facilityID" value="<?= $facilityID ?>" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facilityName">NAME</label>
+                        <input class="form-control" type="text" name="facilityName" id="facilityName" value="<?= $facilityName ?>" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facilityCapacity">CAPACITY</label>
+                        <input class="form-control" type="text" name="facilityCapacity" id="facilityCapacity" value="<?= $facilityCapacity ?>" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facilityRate">RENTAL RATE PER HOUR</label>
+                        <input class="form-control" type="text" name="facilityRate" id="facilityRate" value="<?= $facilityRate ?>" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facilityDescription">DESCRIPTION</label>
+                        <textarea class="form-control" type="text" name="facilityDescription" id="facilityDescription" rows="10"><?= $facilityDescription ?></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facilityAmenities">TYPE</label>
+                        <div class="form-check"><?php
+                            if ($facilityType == "Formal")
+                                echo '<input class="form-check-input" type="radio" name="facilityType" value="Formal" id="radio1" checked>';
+
+                            else
+	                            echo '<input class="form-check-input" type="radio" name="facilityType" value="Formal" id="radio1">';
+                            ?>
+                            <label class="form-check-label" for="radio1">Formal</label>
+                        </div>
+                        <div class="form-check"><?php
+	                        if ($facilityType == "Sports")
+		                        echo '<input class="form-check-input" type="radio" name="facilityType" value="Sports" id="radio2" checked>';
+
+	                        else
+		                        echo '<input class="form-check-input" type="radio" name="facilityType" value="Sports" id="radio2">';
+	                        ?>
+                            <label class="form-check-label" for="radio2">Sports</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facilityAmenities">AMENITIES</label>
+                        <div class="form-check"><?php
+                            if (in_array("Pool", $facilityAmenitiesArr))
+                                echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Pool" id="checkBox1" checked>';
+
+                            else
+	                            echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Pool" id="checkBox1">';
+                            ?>
+                            <label class="form-check-label" for="checkBox1">Pool</label>
+                        </div>
+                        <div class="form-check"><?php
+	                        if (in_array("Seat", $facilityAmenitiesArr))
+                                echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Seat" id="checkBox2" checked>';
+
+	                        else
+		                        echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Seat" id="checkBox2">';
+                            ?>
+                            <label class="form-check-label" for="checkBox2">Seats</label>
+                        </div>
+                        <div class="form-check"><?php
+	                        if (in_array("Table", $facilityAmenitiesArr))
+		                        echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Table" id="checkBox3" checked>';
+
+	                        else
+		                        echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Table" id="checkBox3">';
+	                        ?>
+                            <label class="form-check-label" for="checkBox3">Tables</label>
+                        </div>
+                        <div class="form-check"><?php
+	                        if (in_array("PA", $facilityAmenitiesArr))
+		                        echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="PA" id="checkBox4" checked>';
+
+	                        else
+		                        echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="PA" id="checkBox4">';
+	                        ?>
+                            <label class="form-check-label" for="checkBox4">PA System</label>
+                        </div>
+                        <div class="form-check"><?php
+	                        if (in_array("AC", $facilityAmenitiesArr))
+		                        echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="AC" id="checkBox5" checked>';
+
+	                        else
+		                        echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="AC" id="checkBox5">';
+	                        ?>
+                            <label class="form-check-label" for="checkBox5">Air Conditioning</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facilityStatus">STATUS</label>
+                        <input class="form-control" type="text" name="facilityStatus" id="facilityStatus" value="<?= $facilityStatus ?>" readonly>
+                    </div>
+
+                    <div class="form-group"><?php
+                        if ($_SESSION['userType'] = 1)
+                        {
+	                        echo '<button type="submit" class="btn btn-dark" name="facilityUpdateBtn" style="float: right">Save</button>';
+	                        echo '<button type="submit" class="btn btn-outline-danger" name="facilityDeleteBtn">Delete</button>';
+                        }
+                        ?>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-3"></div>
+        </div>
+
     </div>
 </div>
 
@@ -335,30 +448,37 @@ $facilityImage = glob($path."/*.jpg");
     <div class="head">
         <div class="facilityName" style="padding: 20px">
             <h3><?= $facilityName ?></h3>
-            <h5>Lorem · Ipsum · Sit · Amet</h5>
+            <h5><?= $facilityAmenities ?></h5>
             <hr>
         </div>
         <div class="check" style="padding: 20px">
             <div class="box" style="width: inherit; border: solid 1px; border-color: gray; border-radius: 20px">
-                <div style="padding-left: 20px; padding-right: 20px">
-                    <form class="form-group">
+                <div style="padding-left: 20px; padding-right: 20px; padding-top: 20px">
+                    <form class="form-group" action="Handler/bookingHandler.php" method="post">
+                        <input type="text" class="form-control" name="facilityName" value="<?= $facilityName ?>" hidden readonly>
+                        <input type="text" class="form-control" name="facilityID" value="<?= $facilityID ?>" hidden readonly>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <span style="font-size: 2rem">RM<?= $facilityRate ?> </span><span class="text-muted">/ day</span>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="dateStart">CHECK-IN</label>
-                                    <input type="date" class="form-control" id="dateStart" name="dateStart">
+                                    <label for="startDate">CHECK-IN</label>
+                                    <input type="date" class="form-control" id="startDate" name="startDate">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="dateEnd">CHECK-OUT</label>
-                                    <input type="date" class="form-control" id="dateEnd" name="dateEnd">
+                                    <label for="endDate">CHECK-OUT</label>
+                                    <input type="date" class="form-control" id="endDate" name="endDate">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <button class="btn btn-outline-dark btn-block">Check availability</button>
+                                <button class="btn btn-dark btn-block" name="checkAvailableFacilityBtn">Check availability</button>
                             </div>
                         </div>
                     </form>
@@ -366,18 +486,93 @@ $facilityImage = glob($path."/*.jpg");
             </div>
         </div>
         <div class="description" style="padding: 20px">
-            <p>At 500m above sea-level, our place in the hills is 5-6 degrees cooler than and only 40 minutes away from the Klang Valley.
-                The treehouse, crafted from recycled materials, nestles among some trees on the site with beautiful views of the adjacent valley.
-                Enjoy a restful night among the sound of trees swaying in the breeze, reminiscent of a wooden boat on the seas.
-                Advantageous location for bird watching, relaxing, reading, spending time with your special loved-one or writing your next masterpiece.</p>
+            <p><?= $facilityDescription ?></p>
         </div>
     </div>
+
+    <div class="modal fade" id="myModal" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">The facility is available!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="form-group" action="Handler/bookingHandler.php" method="post">
+                    <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="startDate">CHECK-IN</label>
+                                        <input type="date" class="form-control" id="startDate" name="startDate" value="<?= $_GET['startDate'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="endDate">CHECK-OUT</label>
+                                        <input type="date" class="form-control" id="endDate" name="endDate" value="<?= $_GET['endDate'] ?>" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="text-center text-muted">You won't be charged yet</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>RM<?= $facilityRate ?> x <?= $_GET['numDays'] ?> days <span style="float: right">RM<?= $facilityRate * $_GET['numDays'] ?></span></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12"><?php $cleanFee = 80?>
+                                    <p>Cleaning fee <span style="float: right">RM<?=$cleanFee?></span></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12"><?php $serveFee = 69?>
+                                    <p>Service fee <span style="float: right">RM<?=$serveFee?></span></p>
+                                </div>
+                            </div>
+                            <hr class="text-muted">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="font-weight-bold">Total <span style="float: right">RM<?= $totalRate = $cleanFee + $serveFee + ($facilityRate * $_GET['numDays']) ?></span></p>
+                                </div>
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-dark btn-block btn-lg" name="bookFacilityBtn">Book</button>
+                        <br>
+                        <button type="button" class="btn btn-outline-dark btn-block" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><?php
+    if (isset($_GET['date']))
+    {
+	    if ($_GET['date'] == "Available")
+        {
+            echo "
+            <script>
+                $('#myModal').modal('show');
+            </script>
+            ";
+        }
+    }
+    ?>
+
 </div>
 
 <div class="container" style="max-height: 1%"></div>
 
-
 <!-- Local JavaScript -->
+<script>
+
+</script>
 <script>
     function editFunction()
     {
@@ -386,6 +581,7 @@ $facilityImage = glob($path."/*.jpg");
         document.getElementById('facilityRate').readOnly = document.getElementById('facilityRate').readOnly !== true;
         document.getElementById('facilityAmenities').readOnly = document.getElementById('facilityAmenities').readOnly !== true;
         document.getElementById('facilityStatus').readOnly = document.getElementById('facilityStatus').readOnly !== true;
+        document.getElementById('facilityDescription').readOnly = true;
 
         if (document.getElementById("hr1").style.borderColor !== "red")
         {

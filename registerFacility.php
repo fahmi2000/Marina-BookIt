@@ -151,13 +151,18 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
                     </div>
 
                     <div class="form-group">
+                        <label for="facilityDescription">DESCRIPTION</label>
+                        <textarea class="form-control" type="text" name="facilityDescription" id="facilityDescription" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
                         <label for="facilityAmenities">TYPE</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="facilityType[]" value="Formal" id="radio1">
+                            <input class="form-check-input" type="radio" name="facilityType" value="Formal" id="radio1">
                             <label class="form-check-label" for="radio1">Formal</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="facilityType[]" value="Sports" id="radio2">
+                            <input class="form-check-input" type="radio" name="facilityType" value="Sports" id="radio2">
                             <label class="form-check-label" for="radio2">Sports</label>
                         </div>
                     </div>
@@ -166,19 +171,19 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
                         <label for="facilityAmenities">AMENITIES</label>
                         <input class="form-control" type="text" name="facilityAmenities" id="facilityAmenities">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="POOL" id="checkBox1">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Pool" id="checkBox1">
                             <label class="form-check-label" for="checkBox1">Pool</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="SEAT" id="checkBox2">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Seat" id="checkBox2">
                             <label class="form-check-label" for="checkBox2">Seats</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="TABLE" id="checkBox3">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Table" id="checkBox3">
                             <label class="form-check-label" for="checkBox3">Tables</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="PA" id="checkBox4">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Pa" id="checkBox4">
                             <label class="form-check-label" for="checkBox4">PA System</label>
                         </div>
                         <div class="form-check">

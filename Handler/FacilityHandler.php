@@ -24,7 +24,7 @@ function viewFacility()
 		die("FAIL TO CONNECT: " . mysqli_connect_error());
 	}
 
-	$facilityID = $_POST['viewFacility'];
+	$facilityID = $_GET['viewFacility'];
 	$sql = "SELECT * FROM facility WHERE facilityID = '".$facilityID."' ";
 	$qry = mysqli_query($con, $sql);
 	mysqli_close($con);
@@ -47,7 +47,9 @@ function updateFacility()
 	$facilityAmenities = $_POST['facilityAmenities'];
 	$facilityStatus = $_POST['facilityStatus'];
 
-	$sql = "UPDATE facility SET facilityName = ?, facilityCapacity = ?, facilityRate = ?, facilityAmenities = ?, facilityStatus = ? WHERE facilityID = '".$facilityID."' ";
+	$facilityAmenitiesSQL = implode(" · ", $facilityAmenities);
+
+	$sql = "UPDATE facility SET facilityName = ?, facilityCapacity = ?, facilityRate = ?, facilityAmenities = ?, facilityStatus = ? WHERE facilityID = '".$facilityID."'";
 	$stmt = mysqli_stmt_init($con);
 
 	if (!mysqli_stmt_prepare($stmt, $sql))
@@ -58,8 +60,14 @@ function updateFacility()
 
 	else
 	{
-		mysqli_stmt_bind_param($stmt, "sssss", $facilityName, $facilityCapacity, $facilityRate, $facilityAmenities, $facilityStatus);
+		mysqli_stmt_bind_param($stmt, "sssss", $facilityName, $facilityCapacity, $facilityRate, $facilityAmenitiesSQL, $facilityStatus);
 		mysqli_stmt_execute($stmt);
+
+//		print_r($facilityAmenities);
+//		echo '<br>';
+//		print_r($_POST);
+//		echo '<br>';
+//		echo $facilityAmenitiesSQL;
 		header("Location: ../listOfFacility.php?success=updated");
 		exit();
 	}
@@ -67,22 +75,22 @@ function updateFacility()
 
 function deleteFacility()
 {
+
+	$con = mysqli_connect('localhost', 'web39', 'web39', 'mbisdb');
+
+	if (mysqli_connect_errno())
 	{
-		$con = mysqli_connect('localhost', 'web39', 'web39', 'mbisdb');
-
-		if (mysqli_connect_errno())
-		{
-			die("FAIL TO CONNECT: " . mysqli_connect_error());
-		}
-
-		$facilityID = $_POST['facilityID'];
-
-		$sql = "DELETE FROM facility WHERE facilityID = '".$facilityID."'";
-		mysqli_query($con, $sql);
-		mysqli_close($con);
-
-		header('Location:../listOfFacility.php?delete=success');
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
 	}
+
+	$facilityID = $_POST['facilityID'];
+
+	$sql = "DELETE FROM facility WHERE facilityID = '".$facilityID."'";
+	mysqli_query($con, $sql);
+	mysqli_close($con);
+
+	header('Location:../listOfFacility.php?delete=success');
+
 }
 
 //add new facility
@@ -94,6 +102,10 @@ if (isset($_POST['facilitySubmitBtn']))
 	$facilityCapacity = $_POST['facilityCapacity'];
 	$facilityRate = $_POST['facilityRate'];
 	$facilityAmenities = $_POST['facilityAmenities'];
+	$facilityDescription = $_POST['facilityDescription'];
+	$facilityType = $_POST['facilityType'];
+
+	$facilityAmenitiesSQL = implode(" · ", $facilityAmenities);
 
 	if (empty($facilityName) || empty($facilityCapacity) || empty($facilityRate) || empty($facilityAmenities))
 	{
@@ -127,7 +139,7 @@ if (isset($_POST['facilitySubmitBtn']))
 
 			else
 			{
-				$sql = "INSERT INTO facility (facilityName, facilityCapacity, facilityRate, facilityAmenities) VALUES (?, ?, ?, ?)";
+				$sql = "INSERT INTO facility (facilityName, facilityCapacity, facilityRate, facilityAmenities, facilityDescription, facilityType) VALUES (?, ?, ?, ?, ?, ?)";
 				$stmt = mysqli_stmt_init($con);
 
 				if (!mysqli_stmt_prepare($stmt, $sql))
@@ -138,7 +150,7 @@ if (isset($_POST['facilitySubmitBtn']))
 
 				else
 				{
-					mysqli_stmt_bind_param($stmt, "ssss", $facilityName, $facilityCapacity, $facilityRate, $facilityAmenities);
+					mysqli_stmt_bind_param($stmt, "ssssss", $facilityName, $facilityCapacity, $facilityRate, $facilityAmenitiesSQL, $facilityDescription, $facilityType);
 					mysqli_stmt_execute($stmt);
 
 					$path = "../img/facility/".$facilityName."";
@@ -146,6 +158,18 @@ if (isset($_POST['facilitySubmitBtn']))
 					{
 						mkdir($path, 0777, true);
 					}
+
+					//$sql = "CREATE TABLE `mbisdb`.`".$facilityName."` (`bookingDate` DATE NOT NULL, `b_userID` INT NULL DEFAULT NULL) ENGINE = InnoDB";
+					$sql = "CREATE TABLE `mbisdb`.`b_".$facilityName."` (ID INT, date DATE, b_userID INT) ENGINE = InnoDB;";
+					mysqli_query($con, $sql);
+
+					$sql2 = "INSERT INTO `b_".$facilityName."` (ID, date, b_userID) SELECT t.n, DATE_ADD('2020-01-01', INTERVAL t.n DAY), NULL
+								FROM (SELECT a.N + b.N * 10 + c.N * 100 AS n FROM
+						        (SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) a
+						       ,(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) b
+						       ,(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4) c ORDER BY n) t   
+								WHERE t.n <= TIMESTAMPDIFF(DAY, '2020-01-01', '2020-12-31');";
+					mysqli_query($con, $sql2);
 
 					header("Location: ../registerFacility.php?success=insert");
 					exit();
@@ -157,29 +181,49 @@ if (isset($_POST['facilitySubmitBtn']))
 	mysqli_close($con);
 }
 
-//if (isset($_POST['facilityPicBtn']))
-//{
-//	$file = $_FILES['facilityImg'];
-//
-//	$fileName = $_FILES['facilityImg']['imgName'];
-//	$fileTmpName = $_FILES['facilityImg']['tmp_imgName'];
-//	$fileSize = $_FILES['facilityImg']['imgSize'];
-//	$fileError = $_FILES['facilityImg']['imgError'];
-//	$fileType = $_FILES['facilityImg']['imgtype'];
-//
-//	$fileExt = explode('.', $fileName);
-//	$fileActualExt = strtolower(end($fileExt));
-//
-//	$allowed = array('jpg', 'jpeg', 'png');
-//
-//	if (in_array($fileActualExt, $allowed))
-//	{
-//		if ($fileError === 0)
-//		{
-//			if ($fileSize < 99999999)
-//			{
-//				$fileNameNew = $loop
-//			}
-//		}
-//	}
-//}
+if (isset($_POST['facilityPicBtn1']))
+{
+	$facilityImg1 = $_FILES['facilityImg1'];
+	$facilityName = $_POST['facilityName'];
+
+	$fileName = $_FILES['facilityImg1']['name'];
+	$fileTmpName = $_FILES['facilityImg1']['tmp_name'];
+	$fileSize = $_FILES['facilityImg1']['size'];
+	$fileError = $_FILES['facilityImg1']['error'];
+	$fileType = $_FILES['facilityImg1']['type'];
+
+	$fileExt = explode('.', $fileName);
+	$fileActualExt = strtolower(end($fileExt));
+
+	$allowed = array('jpg', 'jpeg', 'png');
+
+	if (in_array($fileActualExt, $allowed))
+	{
+		if ($fileError === 0)
+		{
+			if ($fileSize < 99999999)
+			{
+				$fileNameNew = "1.".$fileActualExt;
+				$fileDestination = '../img/facility/'.$facilityName.'/'.$fileNameNew;
+				move_uploaded_file($fileTmpName, $fileDestination);
+				header("Location: ../listOfFacility.php?success=upload");
+				exit();
+			}
+		}
+
+		else
+		{
+			echo "Error file";
+			print_r($_FILES);
+		}
+
+	}
+	else
+	{
+		echo "Error type";
+		print_r($_FILES);
+		echo '<br>';
+		echo $fileActualExt;
+		print_r($fileExt);
+	}
+}

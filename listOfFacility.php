@@ -182,7 +182,7 @@ $loop = 1;
 				echo '<td>Maintenance</td>';
 			}
 			echo '<td>';
-			echo '<form action="ProfileFacility.php" method="post">';
+			echo '<form action="ProfileFacility.php" method="get">';
 			echo "<input type='hidden' value='$viewFacility' name='viewFacility'>";
 			echo '<input class="btn btn-outline-dark btn-block" type="submit" name="viewFacilityBtn" value="View">';
 			echo '</form>';
