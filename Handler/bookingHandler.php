@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!(isset($_SESSION['userName']) && $_SESSION['username'] != ''))
+if (!(isset($_SESSION['userName']) && $_SESSION['userName'] != ''))
 {
 	header ("loginPage.html");
 }
@@ -51,7 +51,7 @@ if (isset($_POST['checkAvailableFacilityBtn']))
 	$listDateArr = (getDateCount($startDate, $endDate));
 	$actualEndDate = end($listDateArr);
 
-	$sql = "SELECT * FROM `b_".$facilityName."` WHERE date BETWEEN '".$listDateArr[0]."' AND '".$actualEndDate."' AND b_userID IS NULL";
+	$sql = "SELECT * FROM `b_".$facilityName."` WHERE date BETWEEN '".$listDateArr[0]."' AND '".$actualEndDate."' AND b_userName IS NULL";
 
 	$result = mysqli_query($con, $sql);
 	$row = mysqli_num_rows($result);
@@ -75,18 +75,18 @@ if (isset($_POST['checkAvailableFacilityBtn']))
 	}
 
 
-//	echo "num of row:".$row;
-//	echo "<br>";
-//	echo $sql;
-//	echo "<br>";
-//	echo "NAME:".$facilityName;
-//	echo "<br>";
-//	echo "ID:".$facilityID;
-//	echo "<br>";
-//	$string = "Location: ../ProfileFacility.php?viewFacility=".$facilityID."&viewFacilityBtn=View";
-//	echo "<br>";
-//	echo $string;
-//	print_r($listDateArr);
+	echo "num of row:".$row;
+	echo "<br>";
+	echo $sql;
+	echo "<br>";
+	echo "NAME:".$facilityName;
+	echo "<br>";
+	echo "ID:".$facilityID;
+	echo "<br>";
+	$string = "Location: ../ProfileFacility.php?viewFacility=".$facilityID."&viewFacilityBtn=View";
+	echo "<br>";
+	echo $string;
+	print_r($listDateArr);
 }
 
 if (isset($_POST['bookFacilityBtn']))

@@ -187,7 +187,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
                             <label class="form-check-label" for="checkBox4">PA System</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="AIRCOND" id="checkBox5">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Aircond" id="checkBox5">
                             <label class="form-check-label" for="checkBox5">Air Conditioning</label>
                         </div>
                     </div>

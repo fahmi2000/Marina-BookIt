@@ -197,7 +197,7 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
     </div>
 </div>
 
-<div class="container">
+<div class="container" id="facilityListAdmin">
     <div class="container-2">
         <h3 style="text-align: center">Facility Information - <?= $facilityName ?></h3><?php
 	    if ($_SESSION['userType'] == 1)
@@ -306,22 +306,22 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
                 <form method="post" action="Handler/eventListener.php">
                     <div class="form-group">
                         <label for="facilityID">ID</label>
-                        <input class="form-control" type="text" name="facilityID" id="facilityID" value="<?= $facilityID ?>" readonly>
+                        <input class="form-control" type="text" name="facilityID" id="facilityID" value="<?= $facilityID ?>" >
                     </div>
 
                     <div class="form-group">
                         <label for="facilityName">NAME</label>
-                        <input class="form-control" type="text" name="facilityName" id="facilityName" value="<?= $facilityName ?>" readonly>
+                        <input class="form-control" type="text" name="facilityName" id="facilityName" value="<?= $facilityName ?>" >
                     </div>
 
                     <div class="form-group">
                         <label for="facilityCapacity">CAPACITY</label>
-                        <input class="form-control" type="text" name="facilityCapacity" id="facilityCapacity" value="<?= $facilityCapacity ?>" readonly>
+                        <input class="form-control" type="text" name="facilityCapacity" id="facilityCapacity" value="<?= $facilityCapacity ?>" >
                     </div>
 
                     <div class="form-group">
-                        <label for="facilityRate">RENTAL RATE PER HOUR</label>
-                        <input class="form-control" type="text" name="facilityRate" id="facilityRate" value="<?= $facilityRate ?>" readonly>
+                        <label for="facilityRate">RENTAL RATE PER DAY</label>
+                        <input class="form-control" type="text" name="facilityRate" id="facilityRate" value="<?= $facilityRate ?>" >
                     </div>
 
                     <div class="form-group">
@@ -401,8 +401,60 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
                     </div>
 
                     <div class="form-group">
-                        <label for="facilityStatus">STATUS</label>
-                        <input class="form-control" type="text" name="facilityStatus" id="facilityStatus" value="<?= $facilityStatus ?>" readonly>
+
+                        <div class="form-check"><?php
+                            if ($facilityStatus == 1)
+                            {
+                                echo '
+                                    <input class="form-check-input" type="radio" name="facilityStatus" value="1" id="radio3" checked>
+                                    <label class="form-check-label" for="radio3">Available</label>
+                                ';
+                            }
+
+                            else
+                            {
+	                            echo '
+                                    <input class="form-check-input" type="radio" name="facilityStatus" value="1" id="radio3">
+                                    <label class="form-check-label" for="radio3">Available</label>
+                                ';
+                            }
+                            ?>
+                        </div>
+
+                        <div class="form-check"><?php
+                            if ($facilityStatus == 2)
+                            {
+	                            echo '
+                                    <input class="form-check-input" type="radio" name="facilityStatus" value="2" id="radio4" checked>
+                                    <label class="form-check-label" for="radio4">Maintenance</label>
+                                ';
+                            }
+
+                            else
+	                            echo '
+                                    <input class="form-check-input" type="radio" name="facilityStatus" value="2" id="radio4">
+                                    <label class="form-check-label" for="radio4">Maintenance</label>
+                                ';
+                            ?>
+
+                        </div>
+
+                        <div class="form-check"><?php
+	                        if ($facilityStatus == 2)
+	                        {
+		                        echo '
+                                    <input class="form-check-input" type="radio" name="facilityStatus" value="3" id="radio5" checked>
+                                    <label class="form-check-label" for="radio5">Not Available</label>
+                                ';
+	                        }
+
+	                        else
+		                        echo '
+                                    <input class="form-check-input" type="radio" name="facilityStatus" value="3" id="radio5">
+                                    <label class="form-check-label" for="radio5">Not Available</label>
+                                ';
+                            ?>
+                        </div>
                     </div>
 
                     <div class="form-group"><?php
@@ -421,7 +473,7 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
 
     </div>
 </div>
-
+<!--member div-->
 <div class="container" id="facilityList">
     <div class="images">
         <div class="bigImg" style="background-image: url('img/facility/<?= $facilityName ?>/1.jpg'); background-size: cover; border-radius: 30px 0 0 30px">
@@ -576,8 +628,23 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
 <div class="container" style="max-height: 1%"></div>
 
 <!-- Local JavaScript -->
-<script>
 
+<script>
+    //const userType = "<?//= $_SESSION['userType']; ?>//";
+    //if (userType === "1")
+    //{
+    //    document.getElementById("facilityList").style.display = "none";
+    //}
+    //
+    //else if (userType === "2")
+    //{
+    //    document.getElementById("facilityList").style.display = "none";
+    //}
+    //
+    //else if (userType === "3")
+    //{
+    //    document.getElementById("facilityListAdmin").style.display = "none";
+    //}
 </script>
 <script>
     function editFunction()

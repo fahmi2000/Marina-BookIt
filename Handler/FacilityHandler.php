@@ -159,7 +159,6 @@ if (isset($_POST['facilitySubmitBtn']))
 						mkdir($path, 0777, true);
 					}
 
-					//$sql = "CREATE TABLE `mbisdb`.`".$facilityName."` (`bookingDate` DATE NOT NULL, `b_userID` INT NULL DEFAULT NULL) ENGINE = InnoDB";
 					$sql = "CREATE TABLE `mbisdb`.`b_".$facilityName."` (ID INT, date DATE, b_userName VARCHAR(20)) ENGINE = InnoDB;";
 					mysqli_query($con, $sql);
 

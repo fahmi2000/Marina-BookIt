@@ -9,7 +9,7 @@
       <change beforePath="$PROJECT_DIR$/Handler/FacilityHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/FacilityHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Handler/bookingHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/bookingHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileFacility.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registerFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/registerFacility.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +150,10 @@
       <workItem from="1600842093883" duration="595000" />
       <workItem from="1601180796651" duration="15959000" />
       <workItem from="1601222514434" duration="1450000" />
-      <workItem from="1601224344432" duration="8797000" />
+      <workItem from="1601224344432" duration="10448000" />
+      <workItem from="1601252623980" duration="1653000" />
+      <workItem from="1601274669722" duration="2561000" />
+      <workItem from="1601867371031" duration="317000" />
     </task>
     <servers />
   </component>
