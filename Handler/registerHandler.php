@@ -91,7 +91,7 @@ if (isset($_POST['registerSubmitBtn']))
 					{
 						case 1:
 						case 2:
-							header("Location: ../Dashboard.php?msg=regstaffsucc");
+							header("Location: ../registerStaff.php?msg=regstaffsucc");
 							exit();
 
 						case 3:

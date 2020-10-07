@@ -231,10 +231,10 @@ $userType = $row['userType'];
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-sm-6">
                     <button type="submit" class="btn btn-danger" name="ADMINprofileDeleteBtn">Delete Account</button>
                 </div>
-                <div class="col">
+                <div class="col-sm-6">
                     <button type="submit" class="btn btn-dark" name="ADMINprofileUpdateBtn" style="float: right">Save</button>
                 </div>
             </div>

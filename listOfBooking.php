@@ -27,7 +27,7 @@ elseif (isset($_POST['listApprovedBtn']))
 	$listAllBooking = listApproved();
 }
 
-elseif (isset($_POST['listDenieddBtn']))
+elseif (isset($_POST['listDeniedBtn']))
 {
 	$listAllBooking = listDenied();
 }
@@ -89,7 +89,7 @@ $loop = 1;
 	<script src="JavaScript/bootstrap.bundle.js" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/fea17f5e62.js" crossorigin="anonymous"></script>
 
-	<title>List of Staff - Marina BookIt System</title>
+	<title>List of Booking - Marina BookIt System</title>
 </head>
 
 <body>
@@ -187,6 +187,8 @@ $loop = 1;
 			<h3>List of Booking</h3>
 			<p>List of bookings made by customers of Marina BookIt</p>
             <form method="post" action="">
+                <div class="btn-group" role="group">
+
                 <button class="btn btn-dark" type="submit" name="listAllBtn">All</button>
                 <button class="btn btn-dark" type="submit" name="listPendingBtn">Pending</button>
                 <button class="btn btn-dark" type="submit" name="listApprovedBtn">Approved</button>
@@ -194,6 +196,7 @@ $loop = 1;
                 <button class="btn btn-dark" type="submit" name="listCancelledBtn">Cancelled</button>
                 <button class="btn btn-dark" type="submit" name="listRequestedBtn">Requested</button>
             </form>
+        </div>
 			<hr>
 		</div><?php
 

@@ -147,6 +147,21 @@ function listRequested()
 	return $qry;
 }
 
+function paymentMethod()
+{
+	require 'databaseConnect.php';
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+
+	$sqlStr = "SELECT * FROM booking WHERE b_userName = '".$_SESSION['userName']."'";
+	$qry = mysqli_query($con, $sqlStr);
+	mysqli_close($con);
+	return $qry;
+}
+
 function getFacilityName($ID)
 {
 	require 'databaseConnect.php';
@@ -186,7 +201,7 @@ if (isset($_POST['checkAvailableFacilityBtn']))
 
 		elseif ($row !== count($listDateArr) || $listDateArr[0] !== $listDateArr[1])
 		{
-			header("Location: ../ProfileFacility.php?viewFacility=".$facilityID."&viewFacilityBtn=View&date=NAvailable");
+			header("Location: ../ProfileFacility.php?viewFacility=".$facilityID."&viewFacilityBtn=View&date=NAvailable&startDate=".$listDateArr[0]."&endDate=".$actualEndDate."");
 		}
 	}
 
@@ -236,7 +251,7 @@ if (isset($_POST['bookFacilityBtn']))
 		mysqli_query($con,$sql);
 	}
 
-	header("Location: ../ProfileFacility.php?viewFacility=".$facilityID."&viewFacilityBtn=View&booking=success");
+	header("Location: ../listOfFacility.php?msg=booksuccess");
 
 //	echo $startDate;
 //	echo '<br>';

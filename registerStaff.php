@@ -199,6 +199,19 @@ if($_SESSION['userType'] != 1)
 <!-- Local JavaScript -->
 
 <!-- Optional CDN -->
-
+<script>
+    let url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+    var msg = searchParams.get('msg');
+    if(msg === 'regstaffsucc')
+    {
+        Swal.fire
+        (
+            'Success',
+            'Staff successfully added!',
+            'success'
+        )
+    }
+</script>
 </body>
 </html>

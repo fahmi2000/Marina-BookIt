@@ -602,6 +602,49 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
                 </form>
             </div>
         </div>
+    </div>
+
+    <div class="modal fade" id="myModal2" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">The facility is not available!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="form-group" action="Handler/bookingHandler.php" method="post">
+                    <input type="hidden" name="facilityID" value="<?= $facilityID ?>">
+                    <input type="hidden" name="facilityName" value="<?= $facilityName ?>">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="startDate">CHECK-IN</label>
+                                    <input type="date" class="form-control" id="startDate" name="startDate" value="<?= $_GET['startDate'] ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="endDate">CHECK-OUT</label>
+                                    <input type="date" class="form-control" id="endDate" name="endDate" value="<?= $_GET['endDate'] ?>" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-center text-muted">This facility is not available on the following date</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <br>
+                        <button type="button" class="btn btn-outline-dark btn-block" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div><?php
     if (isset($_GET['date']))
     {
@@ -613,6 +656,15 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
             </script>
             ";
         }
+
+	    elseif ($_GET['date'] == "NAvailable")
+	    {
+		    echo "
+            <script>
+                $('#myModal2').modal('show');
+            </script>
+            ";
+	    }
     }
     ?>
 

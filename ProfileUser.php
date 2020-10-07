@@ -273,12 +273,7 @@ else
                     Personal Details
                 </button>
             </div>
-
-            <div class="btn3">
-                <button class="btn btn-dark btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Transactions
-                </button>
-            </div>
+            
 
             <div class="btn4">
                 <button class="btn btn-dark btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -434,15 +429,6 @@ else
                     </div>
                 </div>
 
-                <div class="card">
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                        <div class="card-body">
-                            <h4>Transaction</h4>
-                            <hr>
-                            <h1>Under Construction</h1>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="card">
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">

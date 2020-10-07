@@ -79,20 +79,20 @@ $facilityName = $row2['facilityName'];
                     List of booking <span class="fas fa-angle-down" style="right: -25px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item active" href="Dashboard.php">Home</a>
+                    <a class="dropdown-item" href="Dashboard.php">Home</a>
                     <div class="dropdown-divider"></div>
                     <h6 class="dropdown-header">Booking Management</h6>    
-                        <a class="dropdown-item" href="listOfBooking.php">List of booking</a>
+                        <a class="dropdown-item active" href="listOfBooking.php">List of booking</a>
                     <div class="dropdown-divider"></div>
                     
                     <h6 class="dropdown-header">Staff Management</h6>
                         <a class="dropdown-item" href="listOfStaff.php">List of staff</a>
-                        <a class="dropdown-item" href="#">Register staff</a>
+                        <a class="dropdown-item" href="registerStaff.php">Register staff</a>
                     <div class="dropdown-divider"></div>
                     
                     <h6 class="dropdown-header">Facility Management</h6>
-                        <a class="dropdown-item" href="#">List of facility</a>
-                        <a class="dropdown-item" href="#">Add facility</a>
+                        <a class="dropdown-item" href="listOfFacility.php">List of facility</a>
+                        <a class="dropdown-item" href="registerFacility.php">Add facility</a>
                 </div>
             </div>
         ';
@@ -226,6 +226,13 @@ $facilityName = $row2['facilityName'];
                     {
 	                    echo '
                         <input type="text" class="form-control" name="bookingStatus" id="bookingStatus" value="CANCELLED" readonly>
+                        ';
+                    }
+
+                    elseif ($bookingStatus == 4)
+                    {
+	                    echo '
+                        <input type="text" class="form-control" name="bookingStatus" id="bookingStatus" value="REQUESTING CANCELLATION" readonly>
                         ';
                     }
                     ?>

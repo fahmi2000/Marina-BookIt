@@ -127,54 +127,62 @@ else
 			<p class="text-muted">Sort by categories from our wide range of offerings.</p>
 		</div>
 		<div class="categories">
-			<form method="get" action="">
-				<div class="flex1">
-					<div class="card" style="width: 70vh">
-						<div class="row no-gutters">
-							<div class="col-4">
-								<img src="img/bg1.jpg" alt="" class="card-img">
-							</div>
-							<div class="col-8">
-								<button type="submit" name="listAllFacilityBtn" style="text-align: left; border: none; background: none">
-									<h5 class="card-title side" style="padding-left: 10px; padding-top: 10px">View All</h5>
-									<p class="card-text side text-muted" style="padding-left: 10px">Display all of our offerings.</p>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="flex1">
-					<div class="card" style="width: 70vh">
-						<div class="row no-gutters">
-							<div class="col-4">
-								<img src="img/bg1.jpg" alt="" class="card-img">
-							</div>
-							<div class="col-8">
-								<button type="submit" name="listFormalFacilityBtn" style="text-align: left; border: none; background: none">
-									<h5 class="card-title side" style="padding-left: 10px; padding-top: 10px">Formal Space</h5>
-									<p class="card-text side text-muted" style="padding-left: 10px">Unique venue to rent for off-site meeting, product launches, conferences and many more.</p>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="flex1" style="padding-bottom: 30px">
-					<div class="card" style="width: 70vh">
-						<div class="row no-gutters">
-							<div class="col-4">
-								<img src="img/bg1.jpg" alt="" class="card-img">
-							</div>
-							<div class="col-8">
-								<button type="submit" name="listSportsFacilityBtn" style="text-align: left; border: none; background: none">
-									<h5 class="card-title side" style="padding-left: 10px; padding-top: 10px">Recreational Facilities</h5>
-									<p class="card-text side text-muted" style="padding-left: 10px">Spaces where you can have an activity of leisure such as swimming or exercising.</p>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <form method="get" action="">
+                        <div class="flex1">
+                            <div class="card" style="width: 70vh">
+                                <div class="row no-gutters">
+                                    <div class="col-4">
+                                        <img src="img/bg1.jpg" alt="" class="card-img">
+                                    </div>
+                                    <div class="col-8">
+                                        <button type="submit" name="listAllFacilityBtn" style="text-align: left; border: none; background: none">
+                                            <h5 class="card-title side" style="padding-left: 10px; padding-top: 10px">View All</h5>
+                                            <p class="card-text side text-muted" style="padding-left: 10px">Display all of our offerings.</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex1">
+                            <div class="card" style="width: 70vh">
+                                <div class="row no-gutters">
+                                    <div class="col-4">
+                                        <img src="img/formal.jpg" alt="" class="card-img">
+                                    </div>
+                                    <div class="col-8">
+                                        <button type="submit" name="listFormalFacilityBtn" style="text-align: left; border: none; background: none">
+                                            <h5 class="card-title side" style="padding-left: 10px; padding-top: 10px">Formal Space</h5>
+                                            <p class="card-text side text-muted" style="padding-left: 10px">Unique venue to rent for off-site meeting, product launches, conferences and many more.</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex1" style="padding-bottom: 30px">
+                            <div class="card" style="width: 70vh">
+                                <div class="row no-gutters">
+                                    <div class="col-4">
+                                        <img src="img/rec.jpg" alt="" class="card-img">
+                                    </div>
+                                    <div class="col-8">
+                                        <button type="submit" name="listSportsFacilityBtn" style="text-align: left; border: none; background: none">
+                                            <h5 class="card-title side" style="padding-left: 10px; padding-top: 10px">Recreational Facilities</h5>
+                                            <p class="card-text side text-muted" style="padding-left: 10px">Spaces where you can have an activity of leisure such as swimming or exercising.</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-1"></div>
+            </div>
+
 		</div>
+
 
 		<div class="title2">
 			<h4>List of Rooms and Facilities</h4>

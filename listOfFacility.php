@@ -127,7 +127,7 @@ $loop = 1;
                     <a class="dropdown-item" href="Dashboard.php">Home</a>
                     <div class="dropdown-divider"></div>
                     <h6 class="dropdown-header">Booking Management</h6>    
-                        <a class="dropdown-item" href="#">Pending booking</a>
+                    <a class="dropdown-item" href="listOfBooking.php">List of booking</a>
                     <div class="dropdown-divider"></div>
                     
                     <h6 class="dropdown-header">Staff Management</h6>
@@ -447,6 +447,15 @@ $loop = 1;
         (
             'Success',
             'Facility image updated.',
+            'success'
+        )
+    }
+    if(msg === 'booksuccess')
+    {
+        Swal.fire
+        (
+            'Success',
+            'Facility booking is currently pending. Please await for approval from us.',
             'success'
         )
     }
