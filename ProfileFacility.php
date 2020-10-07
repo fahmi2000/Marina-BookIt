@@ -20,6 +20,7 @@ $facilityStatus = $row['facilityStatus'];
 $facilityType = $row['facilityType'];
 
 $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
+
 ?>
 
 <!DOCTYPE html>
@@ -120,13 +121,13 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
 		echo '
             <div class="dropdown d1">
                 <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
-                    Menu <span class="fas fa-angle-down" style="right: -90px; position: relative;"></span>
+                    List of Facility <span class="fas fa-angle-down" style="right: -35px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="Dashboard.php">Home</a>
                     <div class="dropdown-divider"></div>
                     <h6 class="dropdown-header">Booking Management</h6>    
-                        <a class="dropdown-item" href="#">Pending booking</a>
+                        <a class="dropdown-item" href="listOfBooking.php">List of booking</a>
                     <div class="dropdown-divider"></div>
                     
                     <h6 class="dropdown-header">Staff Management</h6>
@@ -147,7 +148,7 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
 		echo '
             <div class="dropdown d1">
                 <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
-                    Menu <span class="fas fa-angle-down" style="right: -90px; position: relative;"></span>
+                    List of Facility <span class="fas fa-angle-down" style="right: -35px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="Dashboard.php">Home</a>
@@ -155,7 +156,7 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
                     <div class="dropdown-divider"></div>
                     
                     <h6 class="dropdown-header">Booking Management</h6>    
-                    <a class="dropdown-item" href="#">List of booking</a>
+                    <a class="dropdown-item" href="listOfBooking.php">List of booking</a>
                     
                     <div class="dropdown-divider"></div>
                     
@@ -171,13 +172,19 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
 	{
 		echo '
             <div class="dropdown d1">
-                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu <i class="fas fa-angle-down"></i>
+                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
+                    List of Facility <span class="fas fa-angle-down" style="right: -35px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
+                    <a class="dropdown-item" href="Dashboard.php">Home</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Facilities and Rooms</h6>
+                    <a class="dropdown-item active" href="listOfFacility.php">All rooms and facilities</a>
+                    <a class="dropdown-item" href="listOfFacility.php?listFormalFacilityBtn=">Formal space</a>
+                    <a class="dropdown-item" href="listOfFacility.php?listSportsFacilityBtn=">Recreational facilities</a>
+                    
                 </div>
             </div>
         ';
@@ -192,7 +199,7 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="ProfileUser.php">View profile</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Sign out</a>
+            <a class="dropdown-item" href="Handler/signoutHandler.php">Sign out</a>
         </div>
     </div>
 </div>
@@ -214,59 +221,40 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
             ';
         }
          ?>
-        <hr id="hr1"><?php
+        <hr id="hr1">
 
-        if ($_SESSION['userType'] == 1)
-        {
-            echo '
-                <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button class="btn btn-outline-dark" data-toggle="button" aria-pressed="false" onclick="editFunction()">Edit</button>
-                                <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Show Images</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3"></div>
-                </div>
-            ';
-        }
-
-        else
-        {
-	        echo '
-            <div class="row">
-                <div class="col-3"></div>
-                <div class="col-6">
-                    <div class="form-group">
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Button with data-target</button>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="form-group">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Show Images</button>
+                        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#img1">Change Images</button>
                     </div>
                 </div>
-                <div class="col-3"></div>
             </div>
-        ';
-        }
-
-        ?>
+            <div class="col-3"></div>
+        </div>
         <div class="row" style="display: flex">
 
             <div class="col-sm-3"></div>
 
             <div class="col-sm-6">
                 <div class="collapse" id="collapseExample">
-                    <input type="image" src="img/facility/<?= $facilityName; ?>/1.jpg?<?= mt_rand(); ?>" style="width: 50%" data-toggle="modal" data-target="#img1">
+
+                    <hr>
+                    <img src="img/facility/<?= $facilityName; ?>/0.jpg?<?= mt_rand(); ?>" style="width: 50%">
+                    <img src="img/facility/<?= $facilityName; ?>/1.jpg?<?= mt_rand(); ?>" style="width: 50%">
                     <img src="img/facility/<?= $facilityName; ?>/2.jpg?<?= mt_rand(); ?>" style="width: 50%">
                     <img src="img/facility/<?= $facilityName; ?>/3.jpg?<?= mt_rand(); ?>" style="width: 50%">
                     <img src="img/facility/<?= $facilityName; ?>/4.jpg?<?= mt_rand(); ?>" style="width: 50%">
-                    <img src="img/facility/<?= $facilityName; ?>/5.jpg?<?= mt_rand(); ?>" style="width: 50%">
+                    <hr>
                 </div>
                 <div class="modal fade" id="img1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Change Facility Image #1</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Change Facility Images</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -275,12 +263,17 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
 
                                 <div class="modal-body">
                                     <div class="form-group text-center">
-                                        <img src="img/facility/<?= $facilityName; ?>/1.jpg?<?= mt_rand(); ?>" style="max-width: 90%">
-                                        <input type="text" name="facilityName" value="<?= $facilityName ?>" hidden>
+                                        <img src="img/facility/<?= $facilityName; ?>/0.jpg?<?= mt_rand(); ?>" style="max-width: 10%">
+                                        <img src="img/facility/<?= $facilityName; ?>/1.jpg?<?= mt_rand(); ?>" style="max-width: 10%">
+                                        <img src="img/facility/<?= $facilityName; ?>/2.jpg?<?= mt_rand(); ?>" style="max-width: 10%">
+                                        <img src="img/facility/<?= $facilityName; ?>/3.jpg?<?= mt_rand(); ?>" style="max-width: 10%">
+                                        <img src="img/facility/<?= $facilityName; ?>/4.jpg?<?= mt_rand(); ?>" style="max-width: 10%">
 
+                                        <input type="text" name="facilityName" value="<?= $facilityName ?>" hidden>
+                                        <input type="text" name="facilityID" value="<?= $facilityID ?>" hidden>
                                     </div>
                                     <div class="form-group" style="text-align: right">
-                                        <input type="file" name="facilityImg1" accept=".jpg">
+                                        <input type="file" name="facilityImg[]" accept=".jpg" multiple>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -390,7 +383,7 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
                             <label class="form-check-label" for="checkBox4">PA System</label>
                         </div>
                         <div class="form-check"><?php
-	                        if (in_array("AC", $facilityAmenitiesArr))
+	                        if (in_array("Aircond", $facilityAmenitiesArr))
 		                        echo '<input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="AC" id="checkBox5" checked>';
 
 	                        else
@@ -401,7 +394,7 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
                     </div>
 
                     <div class="form-group">
-
+                        <label for="facilityAmenities">STATUS</label>
                         <div class="form-check"><?php
                             if ($facilityStatus == 1)
                             {
@@ -458,7 +451,7 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
                     </div>
 
                     <div class="form-group"><?php
-                        if ($_SESSION['userType'] = 1)
+                        if ($_SESSION['userType'] == 1 || $_SESSION['userType'] == 2)
                         {
 	                        echo '<button type="submit" class="btn btn-dark" name="facilityUpdateBtn" style="float: right">Save</button>';
 	                        echo '<button type="submit" class="btn btn-outline-danger" name="facilityDeleteBtn">Delete</button>';
@@ -476,23 +469,23 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
 <!--member div-->
 <div class="container" id="facilityList">
     <div class="images">
-        <div class="bigImg" style="background-image: url('img/facility/<?= $facilityName ?>/1.jpg'); background-size: cover; border-radius: 30px 0 0 30px">
+        <div class="bigImg" style="background-image: url('img/facility/<?= $facilityName ?>/0.jpg'); background-size: cover; border-radius: 30px 0 0 30px">
 
         </div>
 
-        <div class="img1" style="background-image: url('img/facility/<?= $facilityName ?>/2.jpg'); background-size: cover;">
+        <div class="img1" style="background-image: url('img/facility/<?= $facilityName ?>/1.jpg'); background-size: cover;">
 
         </div>
 
-        <div class="img2" style="background-image: url('img/facility/<?= $facilityName ?>/3.jpg'); background-size: cover; border-radius: 0 30px 0 0">
+        <div class="img2" style="background-image: url('img/facility/<?= $facilityName ?>/2.jpg'); background-size: cover; border-radius: 0 30px 0 0">
 
         </div>
 
-        <div class="img3" style="background-image: url('img/facility/<?= $facilityName ?>/4.jpg'); background-size: cover;">
+        <div class="img3" style="background-image: url('img/facility/<?= $facilityName ?>/3.jpg'); background-size: cover;">
 
         </div>
 
-        <div class="img4" style="background-image: url('img/facility/<?= $facilityName ?>/5.jpg'); background-size: cover; border-radius: 0 0 30px 0">
+        <div class="img4" style="background-image: url('img/facility/<?= $facilityName ?>/4.jpg'); background-size: cover; border-radius: 0 0 30px 0">
 
         </div>
     </div>
@@ -630,41 +623,20 @@ $facilityAmenitiesArr = explode(" · ", $facilityAmenities);
 <!-- Local JavaScript -->
 
 <script>
-    //const userType = "<?//= $_SESSION['userType']; ?>//";
-    //if (userType === "1")
-    //{
-    //    document.getElementById("facilityList").style.display = "none";
-    //}
-    //
-    //else if (userType === "2")
-    //{
-    //    document.getElementById("facilityList").style.display = "none";
-    //}
-    //
-    //else if (userType === "3")
-    //{
-    //    document.getElementById("facilityListAdmin").style.display = "none";
-    //}
-</script>
-<script>
-    function editFunction()
+    const userType = "<?= $_SESSION['userType']; ?>";
+    if (userType === "1")
     {
-        document.getElementById('facilityName').readOnly = document.getElementById('facilityName').readOnly !== true;
-        document.getElementById('facilityCapacity').readOnly = document.getElementById('facilityCapacity').readOnly !== true;
-        document.getElementById('facilityRate').readOnly = document.getElementById('facilityRate').readOnly !== true;
-        document.getElementById('facilityAmenities').readOnly = document.getElementById('facilityAmenities').readOnly !== true;
-        document.getElementById('facilityStatus').readOnly = document.getElementById('facilityStatus').readOnly !== true;
-        document.getElementById('facilityDescription').readOnly = true;
+        document.getElementById("facilityList").style.display = "none";
+    }
 
-        if (document.getElementById("hr1").style.borderColor !== "red")
-        {
-            document.getElementById("hr1").style.borderColor = "red";
-        }
+    else if (userType === "2")
+    {
+        document.getElementById("facilityList").style.display = "none";
+    }
 
-        else
-        {
-            document.getElementById("hr1").style.borderColor = "rgba(0, 0, 0, 0.1)";
-        }
+    else if (userType === "3")
+    {
+        document.getElementById("facilityListAdmin").style.display = "none";
     }
 </script>
 <!-- Optional CDN -->

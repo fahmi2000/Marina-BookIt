@@ -12,6 +12,27 @@ if($_SESSION['userType'] != 1)
 
 require 'Handler/facilityHandler.php';
 
+if (isset($_GET['listAllFacilityBtn']))
+{
+	$listFacility2 = listFacility();
+}
+
+elseif (isset($_GET['listFormalFacilityBtn']))
+{
+	$listFacility2 = listFormalFacility();
+}
+
+elseif (isset($_GET['listSportsFacilityBtn']))
+{
+	$listFacility2 = listSportsFacility();
+}
+
+else
+{
+	$listFacility2 = listFacility();
+}
+
+
 $listFacility = listFacility();
 $loop = 1;
 ?>
@@ -38,6 +59,45 @@ $loop = 1;
         .container-2
         {
             padding: 40px;
+        }
+
+        .container-3
+        {
+            display: grid;
+            min-height: 100vh;
+            grid-template-areas:
+                "title"
+                "categories"
+                "title2"
+                "facilities";
+            grid-template-rows: auto;
+            gap 30px;
+        }
+
+        .title
+        {
+            grid-area: title;
+        }
+
+        .categories
+        {
+            grid-area: categories;
+        }
+
+        .facilities
+        {
+            grid-area: facilities;
+        }
+
+        .flex1
+        {
+            padding: 10px;
+        }
+
+        #imgfac1
+        {
+            max-width: 40%;
+            padding: 10px;
         }
 
     </style>
@@ -87,13 +147,22 @@ $loop = 1;
 	{
 		echo '
             <div class="dropdown d1">
-                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu <span class="fas fa-angle-down"></span>
+                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
+                    List of Facilities<span class="fas fa-angle-down" style="right: -25px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
+                    <a class="dropdown-item" href="Dashboard.php">Home</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Booking Management</h6>    
+                    <a class="dropdown-item" href="listOfBooking.php">List of booking</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Facility Management</h6>
+                    <a class="dropdown-item active" href="listOfFacility.php">List of facility</a>
+                    
                 </div>
             </div>
         ';
@@ -103,13 +172,19 @@ $loop = 1;
 	{
 		echo '
             <div class="dropdown d1">
-                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu <i class="fas fa-angle-down"></i>
+                <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left">
+                    List of Facilities<span class="fas fa-angle-down" style="right: -25px; position: relative;"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
-                    <a class="dropdown-item" href="#">Booking Management</a>
+                    <a class="dropdown-item" href="Dashboard.php">Home</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <h6 class="dropdown-header">Facilities and Rooms</h6>
+                    <a class="dropdown-item active" href="listOfFacility.php">All rooms and facilities</a>
+                    <a class="dropdown-item" href="listOfFacility.php?listFormalFacilityBtn=">Formal space</a>
+                    <a class="dropdown-item" href="listOfFacility.php?listSportsFacilityBtn=">Recreational facilities</a>
+                    
                 </div>
             </div>
         ';
@@ -131,7 +206,7 @@ $loop = 1;
 </div>
 
 
-<div class="container">
+<div class="container" id="staffDiv">
 	<div class="container-2">
 		<div class="text-center">
 			<h3>List of Facilites</h3>
@@ -157,7 +232,7 @@ $loop = 1;
 
 		while ($row = mysqli_fetch_assoc($listFacility))
 		{
-			$viewFacility  = $row['facilityID'];
+			$viewFacility = $row['facilityID'];
 
 			echo '<tr>';
 			echo '<th scope="row">' .$loop. '</th>';
@@ -199,9 +274,182 @@ $loop = 1;
 	</div>
 </div>
 
+<div class="container" id="memberDiv">
+    <div class="container-3">
+        <div class="title">
+            <h4>Categories</h4>
+            <p class="text-muted">Sort by categories from our wide range of offerings.</p>
+        </div>
+        <div class="categories">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <form method="get" action="">
+                        <div class="flex1">
+                            <div class="card" style="width: 70vh">
+                                <div class="row no-gutters">
+                                    <div class="col-4">
+                                        <img src="img/bg1.jpg" alt="" class="card-img">
+                                    </div>
+                                    <div class="col-8">
+                                        <button type="submit" name="listAllFacilityBtn" style="text-align: left; border: none; background: none">
+                                            <h5 class="card-title side" style="padding-left: 10px; padding-top: 10px">View All</h5>
+                                            <p class="card-text side text-muted" style="padding-left: 10px">Display all of our offerings.</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex1">
+                            <div class="card" style="width: 70vh">
+                                <div class="row no-gutters">
+                                    <div class="col-4">
+                                        <img src="img/formal.jpg" alt="" class="card-img">
+                                    </div>
+                                    <div class="col-8">
+                                        <button type="submit" name="listFormalFacilityBtn" style="text-align: left; border: none; background: none">
+                                            <h5 class="card-title side" style="padding-left: 10px; padding-top: 10px">Formal Space</h5>
+                                            <p class="card-text side text-muted" style="padding-left: 10px">Unique venue to rent for off-site meeting, product launches, conferences and many more.</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex1" style="padding-bottom: 30px">
+                            <div class="card" style="width: 70vh">
+                                <div class="row no-gutters">
+                                    <div class="col-4">
+                                        <img src="img/rec.jpg" alt="" class="card-img">
+                                    </div>
+                                    <div class="col-8">
+                                        <button type="submit" name="listSportsFacilityBtn" style="text-align: left; border: none; background: none">
+                                            <h5 class="card-title side" style="padding-left: 10px; padding-top: 10px">Recreational Facilities</h5>
+                                            <p class="card-text side text-muted" style="padding-left: 10px">Spaces where you can have an activity of leisure such as swimming or exercising.</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+
+        </div>
+
+        <div class="title2">
+            <h4>List of Rooms and Facilities</h4>
+            <p class="text-muted">Our list of facilities and rooms available for booking.</p>
+        </div>
+
+        <div class="facilities text-center"><?php
+	    $loop2 = 1;
+
+	    while ($row2 = mysqli_fetch_assoc($listFacility2))
+	    {
+	        $viewFacility2 = $row2['facilityID'];
+	        echo '<form action="ProfileFacility.php" method="get">';
+		    echo "<input type='hidden' value='$viewFacility2' name='viewFacility'>";
+		    echo '<img src="img/facility/'.$row2['facilityName'].'/0.jpg" id="imgfac1" style="border-radius: 20px">';
+		    echo '<img src="img/facility/'.$row2['facilityName'].'/1.jpg" id="imgfac1" style="border-radius: 20px">';
+		    echo '<button type="submit" class="btn btn-outline-dark btn-block" name="viewFacilityBtn" style="border: none">';
+		    echo '<h4>'.$row2['facilityName'].'</h4>';
+		    echo '<p>'.$row2['facilityAmenities'].'</p>';
+		    echo '<p class="font-weight-bold">RM'.$row2['facilityRate'].' / day</p>';
+		    echo '</button>';
+	        echo '<hr>';
+		    echo '<br>';
+		    echo '</form>';
+	        $loop2++;
+        }
+        ?>
+        </div>
+    </div>
+</div>
+
+
 <!-- Local JavaScript -->
+<script>
+    const userType = "<?= $_SESSION['userType']; ?>";
+    if (userType === "1" || userType === "2")
+    {
 
+        document.getElementById("memberDiv").style.display = "none";
+    }
+
+    else if (userType === "3")
+    {
+        document.getElementById("staffDiv").style.display = "none";
+    }
+</script>
 <!-- Optional CDN -->
-
+<script>
+    let url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+    var msg = searchParams.get('msg');
+    if(msg === 'sql')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Server connection could not be established.',
+            'error'
+        )
+    }
+    if(msg === 'updated')
+    {
+        Swal.fire
+        (
+            'Success',
+            'Facility information updated.',
+            'success'
+        )
+    }
+    if(msg === 'deleted')
+    {
+        Swal.fire
+        (
+            'Success',
+            'Facility deleted.',
+            'success'
+        )
+    }
+    if(msg === 'empty')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Fields must not be left empty.',
+            'error'
+        )
+    }
+    if(msg === 'taken')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Facility name is in use.',
+            'error'
+        )
+    }
+    if(msg === 'insert')
+    {
+        Swal.fire
+        (
+            'Success',
+            'Facility has been added.',
+            'success'
+        )
+    }
+    if(msg === 'success')
+    {
+        Swal.fire
+        (
+            'Success',
+            'Facility image updated.',
+            'success'
+        )
+    }
+</script>
 </body>
 </html>

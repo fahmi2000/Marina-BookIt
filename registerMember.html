@@ -60,7 +60,8 @@
         <div class="text-center">
             <h3>Register</h3>
             <p>Create a new Marina BookIt account</p>
-            <form class="form-group" action="Handler/signinHandler.php" method="post">
+            <form class="form-group" action="Handler/registerHandler.php" method="post">
+                <input type="hidden" name="userType" value="3">
                 <div class="form-group">
                     <input class="form-class form-control text-center" type="text" name="userName" placeholder="Username">
                 </div>
@@ -74,7 +75,7 @@
                     <input class="form-class form-control text-center" type="password" name="userPwdRepeat" placeholder="Repeat Password">
                 </div>
                 <div class="form-group" style="padding-top: 20px">
-                    <button class="btn btn-primary btn-block" type="submit" name="registerSubmitBtn">Register</button>
+                    <button class="btn btn-dark btn-block" type="submit" name="registerSubmitBtn">Register</button>
                 </div>
             </form>
         </div>
@@ -88,7 +89,74 @@
 
 
 </div>
-
+<script>
+    let url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+    var msg = searchParams.get('msg');
+    if(msg === 'emptyfields')
+    {
+        Swal.fire
+        (
+            'Empty!',
+            'Please fill in all the text boxes.',
+            'error'
+        )
+    }
+    if(msg === 'invalidemail')
+    {
+        Swal.fire
+        (
+            'Invalid Email!',
+            'Your email format is invalid.',
+            'error'
+        )
+    }
+    if(msg === 'invalidusername')
+    {
+        Swal.fire
+        (
+            'Invalid username!',
+            'Your username format is invalid.',
+            'error'
+        )
+    }
+    if(msg === 'pwdnotsame')
+    {
+        Swal.fire
+        (
+            'Invalid password!',
+            'Your entered password does not match.',
+            'error'
+        )
+    }
+    if(msg === 'sql')
+    {
+        Swal.fire
+        (
+            'Server Error!',
+            'Server experiencing some issues, please try again later.',
+            'error'
+        )
+    }
+    if(msg === 'usernametaken')
+    {
+        Swal.fire
+        (
+            'Username Taken!',
+            'The username you entered is already in use.',
+            'error'
+        )
+    }
+    if(msg === 'usernametaken')
+    {
+        Swal.fire
+        (
+            'Username Taken!',
+            'The username you entered is already in use.',
+            'error'
+        )
+    }
+</script>
 <!-- Optional CDN -->
 
 </body>

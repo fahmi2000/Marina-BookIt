@@ -74,7 +74,7 @@ $loop = 1;
                     <a class="dropdown-item" href="Dashboard.php">Home</a>
                     <div class="dropdown-divider"></div>
                     <h6 class="dropdown-header">Booking Management</h6>    
-                        <a class="dropdown-item" href="#">Pending booking</a>
+                        <a class="dropdown-item" href="listOfBooking.php">List of booking</a>
                     <div class="dropdown-divider"></div>
                     
                     <h6 class="dropdown-header">Staff Management</h6>
@@ -195,7 +195,76 @@ $loop = 1;
 </div>
 
 <!-- Local JavaScript -->
+<script>
+    let url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+    var msg = searchParams.get('msg');
 
+    if(msg === 'update')
+    {
+        Swal.fire
+        (
+            'Success',
+            'Staff information updated.',
+            'success'
+        )
+    }
+    if(msg === 'updated')
+    {
+        Swal.fire
+        (
+            'Success',
+            'Staff information updated.',
+            'success'
+        )
+    }
+    if(msg === 'deleted')
+    {
+        Swal.fire
+        (
+            'Success',
+            'Staff account deleted.',
+            'success'
+        )
+    }
+    if(msg === 'passwordnotmatch')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Password does not match.',
+            'error'
+        )
+    }
+    if(msg === 'sql')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Server connection could be established.',
+            'error'
+        )
+    }
+    if(msg === 'pwd')
+    {
+        Swal.fire
+        (
+            'Success',
+            'Password changed.',
+            'success'
+        )
+    }
+    if(msg === 'usernotfound')
+    {
+        Swal.fire
+        (
+            'Error',
+            'User not found in database.',
+            'error'
+        )
+    }
+
+</script>
 </body>
 
 </html>

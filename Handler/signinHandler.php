@@ -8,7 +8,7 @@ if (isset($_POST['loginSubmitBtn']))
 
 	if (empty($userName) || empty($userPwd))
 	{
-		header("Location: ../signinPage.html?error=emptyfields");
+		header("Location: ../signinPage.html?msg=emptyfields");
 		exit();
 	}
 
@@ -19,7 +19,7 @@ if (isset($_POST['loginSubmitBtn']))
 
 		if (!mysqli_stmt_prepare($stmt, $sql))
 		{
-			header("Location: ../signinPage.html?error=sql");
+			header("Location: ../signinPage.html?msg=sql");
 			exit();
 		}
 
@@ -36,7 +36,7 @@ if (isset($_POST['loginSubmitBtn']))
 
 				if ($pwdVerify == false)
 				{
-					header("Location: ../signinPage.html?error=credentials");
+					header("Location: ../signinPage.html?msg=credentials");
 					exit();
 				}
 
@@ -51,11 +51,11 @@ if (isset($_POST['loginSubmitBtn']))
 					switch ($_SESSION['userType'])
 					{
 						case 1:
-							header("Location: ../Dashboard.php?success=login");
+							header("Location: ../Dashboard.php?msg=login");
 							exit();
 
 						case 2:
-							header("Location: ../Dashboard.php?success=login");
+							header("Location: ../Dashboard.php?msg=login");
 							exit();
 
 						case 3:
@@ -66,7 +66,7 @@ if (isset($_POST['loginSubmitBtn']))
 							}
 							else
 							{
-								header("Location: ../Dashboard.php?success=login");
+								header("Location: ../Dashboard.php?msg=login");
 								exit();
 							}
 
@@ -76,14 +76,14 @@ if (isset($_POST['loginSubmitBtn']))
 
 				else
 				{
-					header("Location: ../signinPage.html?error=credentials");
+					header("Location: ../signinPage.html?msg=credentials");
 					exit();
 				}
 			}
 
 			else
 			{
-				header("Location: ../signinPage.html?error=credentials");
+				header("Location: ../signinPage.html?msg=credentials");
 				exit();
 			}
 		}
@@ -157,7 +157,7 @@ if (isset($_POST['OTPSubmitBtn']))
 						mysqli_stmt_execute($stmt);
 					}
 
-					header("Location: ../Dashboard.php?success=OTP");
+					header("Location: ../Dashboard.php?msg=OTP");
 				}
 			}
 

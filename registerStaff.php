@@ -66,7 +66,7 @@ if($_SESSION['userType'] != 1)
                     <a class="dropdown-item" href="Dashboard.php">Home</a>
                     <div class="dropdown-divider"></div>
                     <h6 class="dropdown-header">Booking Management</h6>    
-                        <a class="dropdown-item" href="#">Pending booking</a>
+                        <a class="dropdown-item" href="listOfBooking.php">List of booking</a>
                     <div class="dropdown-divider"></div>
                     
                     <h6 class="dropdown-header">Staff Management</h6>
@@ -131,7 +131,7 @@ if($_SESSION['userType'] != 1)
 
 <div class="container-2">
 <div class="container">
-
+<form action="Handler/registerHandler.php" method="post">
     <div class="row">
         <div class="col text-center">
             <h3>Staff Registration</h3>
@@ -139,60 +139,61 @@ if($_SESSION['userType'] != 1)
         </div>
     </div>
     <hr>
-    <div class="row">
+    <div class="row form-group">
         <div class="col">
-            <label for="userName">Username</label>
+            <label for="userName">USERNAME</label>
             <input class="form-control" type="text" name="userName" id="userName" placeholder="Username">
         </div>
         <div class="col">
-            <label for="userEmail">Email</label>
+            <label for="userEmail">EMAIL</label>
             <input class="form-control" type="email" name="userEmail" id="userEmail" placeholder="Email">
         </div>
     </div>
-    <div class="row">
+    <div class="row form-group">
         <div class="col">
-            <label for="userPwd">Password</label>
+            <label for="userPwd">PASSWORD</label>
             <input class="form-control" type="password" name="userPwd" id="userPwd" placeholder="Password">
         </div>
         <div class="col">
-            <label for="userPwdRepeat">Repeat password</label>
+            <label for="userPwdRepeat">REPEAT PASSWORD</label>
             <input class="form-control" type="password" name="userPwdRepeat" id="userPwdRepeat" placeholder="Repeat password">
         </div>
     </div>
-    <div class="row">
+    <div class="row form-group">
         <div class="col">
-            <label for="fName">First name</label>
+            <label for="fName">FIRST NAME</label>
             <input class="form-control" type="text" name="fName" id="fName" placeholder="First name">
         </div>
         <div class="col">
-            <label for="lName">Last name</label>
+            <label for="lName">LAST NAME</label>
             <input class="form-control" type="text" name="lName" id="lName" placeholder="Last name">
         </div>
     </div>
-    <div class="row">
+    <div class="row form-group">
         <div class="col">
-            <label for="userGender">Gender</label>
+            <label for="userGender">GENDER</label>
             <select class="form-control" id="userGender" name="userGender" required>
                 <option value="maleGender">Male</option>
                 <option value="femaleGender">Female</option>
-                <option value="shyGender">Prefer not to say</option>
+                <option value="shyGender">Undisclosed</option>
             </select>
         </div>
         <div class="col">
-            <label for="userType">Type</label>
+            <label for="userType">ACCOUNT TYPE</label>
             <select class="form-control" id="userType" name="userType" required>
                 <option value="1">Admin</option>
                 <option value="2">Staff</option>
             </select>
         </div>
     </div>
-    <div class="row">
+    <div class="row form-group">
         <div class="col">
         </div>
         <div class="col">
-            <button type="submit" class="btn btn-success" name="registerSubmitBtn" style="float: right">Save</button>
+            <button type="submit" class="btn btn-dark" name="registerSubmitBtn" style="float: right">Save</button>
         </div>
     </div>
+</form>
 </div>
 </div>
 <!-- Local JavaScript -->

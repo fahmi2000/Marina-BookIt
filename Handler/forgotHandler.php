@@ -47,7 +47,7 @@ if (isset($_POST['resetPwdBtn']))
 
 else
 {
-	header("Location: ../index.php?error=access");
+	header("Location: ../index.html?error=access");
 }
 
 $to = $userEmail;
@@ -58,5 +58,5 @@ $headers = "From: Marina BookIt <adelaidemeyrin12343@gmail.com>\r\n";
 $headers .= "Content-type: text/html\r\n";
 
 mail($to, $subject, $message, $headers);
-header("Location: ../signinPage.html?success=reset");
+header("Location: ../signinPage.html?msg=resetted");
 

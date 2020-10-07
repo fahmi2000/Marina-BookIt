@@ -73,7 +73,7 @@ if (empty($selector) || empty($validator)) {
                         </div>
 
                         <div class="form-group" style="padding-top: 20px">
-                            <button type="submit" class="btn btn-primary" name="resetPwdSubmitBtn">Reset Password</button>
+                            <button type="submit" class="btn btn-dark" name="resetPwdSubmitBtn">Reset Password</button>
                         </div>
                     </form>
                 </div>

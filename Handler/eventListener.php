@@ -5,13 +5,13 @@ require 'facilityHandler.php';
 if (isset($_POST['ADMINprofileUpdateBtn']))
 {
 	updateStaff();
-	header("refresh: 0; url=../listOfStaff.php?update=success");
+	header("refresh: 0; url=../listOfStaff.php?msg=updated");
 }
 
 if (isset($_POST['ADMINprofileDeleteBtn']))
 {
 	deleteStaff();
-	header("refresh: 0; url=../listOfStaff.php?delete=success");
+	header("refresh: 0; url=../listOfStaff.php?msg=deleted");
 }
 
 if (isset($_POST['ADMINpwdUpdateBtn']))

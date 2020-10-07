@@ -57,7 +57,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
                     <a class="dropdown-item" href="Dashboard.php">Home</a>
                     <div class="dropdown-divider"></div>
                     <h6 class="dropdown-header">Booking Management</h6>    
-                        <a class="dropdown-item" href="#">Pending booking</a>
+                        <a class="dropdown-item" href="listOfBooking.php">List of booking</a>
                     <div class="dropdown-divider"></div>
                     
                     <h6 class="dropdown-header">Staff Management</h6>
@@ -146,7 +146,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
                     </div>
 
                     <div class="form-group">
-                        <label for="facilityRate">RENTAL RATE PER HOUR</label>
+                        <label for="facilityRate">RENTAL RATE PER DAY</label>
                         <input class="form-control" type="text" name="facilityRate" id="facilityRate">
                     </div>
 
@@ -169,7 +169,6 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
 
                     <div class="form-group">
                         <label for="facilityAmenities">AMENITIES</label>
-                        <input class="form-control" type="text" name="facilityAmenities" id="facilityAmenities">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Pool" id="checkBox1">
                             <label class="form-check-label" for="checkBox1">Pool</label>
@@ -183,7 +182,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
                             <label class="form-check-label" for="checkBox3">Tables</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="Pa" id="checkBox4">
+                            <input class="form-check-input" type="checkbox" name="facilityAmenities[]" value="PA" id="checkBox4">
                             <label class="form-check-label" for="checkBox4">PA System</label>
                         </div>
                         <div class="form-check">
@@ -201,7 +200,19 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
     </div>
 </div>
 <!-- Local JavaScript -->
-
+<script>
+    let url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+    var msg = searchParams.get('msg');
+    if(msg === 'insert')
+    {
+        Swal.fire
+        (
+            'Registered',
+            'New facility has been added.',
+            'success'
+        )
+    }
 <!-- Optional CDN -->
 
 </body>

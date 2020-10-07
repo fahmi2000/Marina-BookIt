@@ -37,7 +37,7 @@ if (isset($_POST['userPicBtn']))
 				$sql = "UPDATE users SET userPic = '".$fileNameNew."' WHERE userID = '".$_SESSION['userID']."' ";
 				$qry = mysqli_query($con, $sql);
 
-				header("Location:../ProfileUser.php?uploadsuccess");
+				header("Location:../ProfileUser.php?msg=uploaded");
 			}
 		}
 		else
@@ -67,7 +67,7 @@ if (isset($_POST['profileUpdateBtn']))
 
 	if (!mysqli_stmt_prepare($stmt, $sql))
 	{
-		header("Location: ../ProfileUser.php?error=SQLError");
+		header("Location: ../ProfileUser.php?msg=sql");
 		exit();
 	}
 
@@ -76,7 +76,7 @@ if (isset($_POST['profileUpdateBtn']))
 		mysqli_stmt_bind_param($stmt, "sssss", $fName,$lName, $userEmail, $phoneNumber, $userGender);
 		mysqli_stmt_execute($stmt);
 
-		header("Location: ../ProfileUser.php?update=success");
+		header("Location: ../ProfileUser.php?msg=updated");
 		exit();
 	}
 	mysqli_stmt_close($stmt);
@@ -94,7 +94,7 @@ if (isset($_POST['pwdUpdateBtn']))
 
 	if ($userPwdNew !== $userPwdNewRepeat)
 	{
-		header("Location: ../ProfilePage.php?error=passwordnotmatch");
+		header("Location: ../ProfilePage.php?msg=passwordnotmatch");
 		exit();
 	}
 
@@ -102,7 +102,7 @@ if (isset($_POST['pwdUpdateBtn']))
 	{
 		if (!mysqli_stmt_prepare($stmt1, $sql1))
 		{
-			header("Location: ../ProfilePage.php?error=sqlerror");
+			header("Location: ../ProfilePage.php?msg=sql");
 			exit();
 		}
 
@@ -119,7 +119,7 @@ if (isset($_POST['pwdUpdateBtn']))
 
 				if ($pwdVerify == false)
 				{
-					header("Location: ../ProfilePage.php?error=wrongpassword");
+					header("Location: ../ProfilePage.php?msg=wrongpassword");
 					exit();
 				}
 
@@ -130,7 +130,7 @@ if (isset($_POST['pwdUpdateBtn']))
 
 					if (!mysqli_stmt_prepare($stmt2, $sql2))
 					{
-						header("Location: ../ProfileUser.php?error=SQLError");
+						header("Location: ../ProfileUser.php?msg=sql");
 						exit();
 					}
 
@@ -141,26 +141,36 @@ if (isset($_POST['pwdUpdateBtn']))
 						mysqli_stmt_bind_param($stmt2, "s", $hashedPwd);
 						mysqli_stmt_execute($stmt2);
 
-						header("Location: ../ProfileUser.php?update=success");
+						header("Location: ../ProfileUser.php?msg=pwdupdated");
 						exit();
 					}
 				}
 
 				else
 				{
-					header("Location: ../ProfileUser.php?error=wrongpassword");
+					header("Location: ../ProfileUser.php?msg=wrongpassword");
 					exit();
 				}
 			}
 
 			else
 			{
-				header("Location: ../ProfileUser.php?error=usernotfound");
+				header("Location: ../ProfileUser.php?msg=usernotfound");
 				exit();
 			}
 
 		}
 	}
+}
+
+if (isset($_POST['deleteAccountBtn']))
+{
+	$userName = $_POST['userName'];
+
+	$sql = "DELETE FROM user WHERE userName = '".$userName."'";
+	mysqli_query($con, $sql);
+	header("Location: signoutHandler.php?user=deleted");
+	exit();
 }
 
 

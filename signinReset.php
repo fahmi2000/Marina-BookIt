@@ -11,7 +11,7 @@ else
 {
 	if (ctype_xdigit($selector) == false && ctype_xdigit($validator) == false)
 	{
-		header("Location: index.php?error=wrongtokenauth");
+		header("Location: index.html?msg=wrongtokenauth");
 	}
 }
 ?>

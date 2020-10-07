@@ -28,7 +28,7 @@ function getDateCount($startDate, $endDate)
 
 function listBooking()
 {
-	require "databaseConnect.php";
+	require 'databaseConnect.php';
 	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
 	if (mysqli_connect_errno())
 	{
@@ -40,6 +40,127 @@ function listBooking()
 	mysqli_close($con);
 	return $qry;
 }
+
+function viewBooking()
+{
+	require 'databaseConnect.php';
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+
+	$bookingID = $_POST['viewBooking'];
+	$sql = "SELECT * FROM booking WHERE bookingID = '".$bookingID ."'";
+	$qry = mysqli_query($con, $sql);
+	mysqli_close($con);
+	return $qry;
+}
+
+function listAllBooking()
+{
+	require 'databaseConnect.php';
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+
+	$sql = "SELECT * FROM booking";
+	$qry = mysqli_query($con, $sql);
+	mysqli_close($con);
+	return $qry;
+}
+
+function listPending()
+{
+	require 'databaseConnect.php';
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+
+	$sql = "SELECT * FROM booking WHERE bookingStatus = '0'";
+	$qry = mysqli_query($con, $sql);
+	mysqli_close($con);
+	return $qry;
+}
+
+function listApproved()
+{
+	require 'databaseConnect.php';
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+
+	$sql = "SELECT * FROM booking WHERE bookingStatus = '1'";
+	$qry = mysqli_query($con, $sql);
+	mysqli_close($con);
+	return $qry;
+}
+
+function listDenied()
+{
+	require 'databaseConnect.php';
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+
+	$sql = "SELECT * FROM booking WHERE bookingStatus = '2'";
+	$qry = mysqli_query($con, $sql);
+	mysqli_close($con);
+	return $qry;
+}
+
+function listCancelled()
+{
+	require 'databaseConnect.php';
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+
+	$sql = "SELECT * FROM booking WHERE bookingStatus = '3'";
+	$qry = mysqli_query($con, $sql);
+	mysqli_close($con);
+	return $qry;
+}
+
+function listRequested()
+{
+	require 'databaseConnect.php';
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+
+	$sql = "SELECT * FROM booking WHERE bookingStatus = '4'";
+	$qry = mysqli_query($con, $sql);
+	mysqli_close($con);
+	return $qry;
+}
+
+function getFacilityName($ID)
+{
+	require 'databaseConnect.php';
+	$con = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+	$facilityID = $ID;
+	$sql = "SELECT facilityName FROM facility WHERE facilityID = '".$facilityID."' ";
+	$qry = mysqli_query($con, $sql);
+	return $qry;
+}
+
 
 if (isset($_POST['checkAvailableFacilityBtn']))
 {
@@ -134,4 +255,96 @@ if (isset($_POST['bookFacilityBtn']))
 //	echo $totalRate;
 //	echo '<br>';
 //	echo $facilityID;
+}
+
+if (isset($_POST['bookingApproveBtn']))
+{
+	$bookingID = $_POST['bookingID'];
+	$facilityName = $_POST['facilityName'];
+	$facilityID = $_POST['facilityID'];
+
+	$sql = "UPDATE booking SET bookingStatus = '1' WHERE bookingID = '".$bookingID."'";
+	$stmt = mysqli_stmt_init($con);
+
+	if (!mysqli_stmt_prepare($stmt, $sql))
+	{
+		header("Location : ../listOfBooking.php?msg=sql");
+		exit();
+	}
+
+	else
+	{
+		mysqli_stmt_execute($stmt);
+		header("Location: ../listOfBooking.php?msg=approved");
+		exit();
+	}
+}
+
+if (isset($_POST['bookingDenyBtn']))
+{
+	$bookingID = $_POST['bookingID'];
+	$facilityName = $_POST['facilityName'];
+	$facilityID = $_POST['facilityID'];
+
+	$sql = "UPDATE booking SET bookingStatus = '2' WHERE bookingID = '".$bookingID."'";
+	$stmt = mysqli_stmt_init($con);
+
+	if (!mysqli_stmt_prepare($stmt, $sql))
+	{
+		header("Location : ../listOfBooking.php?msg=sql");
+		exit();
+	}
+
+	else
+	{
+		mysqli_stmt_execute($stmt);
+		header("Location: ../listOfBooking.php?msg=denied");
+		exit();
+	}
+}
+
+if (isset($_POST['bookingCancelBtn']))
+{
+	$bookingID = $_POST['bookingID'];
+	$facilityName = $_POST['facilityName'];
+	$facilityID = $_POST['facilityID'];
+
+	$sql = "UPDATE booking SET bookingStatus = '3' WHERE bookingID = '".$bookingID."'";
+	$stmt = mysqli_stmt_init($con);
+
+	if (!mysqli_stmt_prepare($stmt, $sql))
+	{
+		header("Location : ../listOfBooking.php?msg=sql");
+		exit();
+	}
+
+	else
+	{
+		mysqli_stmt_execute($stmt);
+		header("Location: ../listOfBooking.php?msg=cancelled");
+		exit();
+	}
+}
+
+if (isset($_POST['bookingCancelRequestBtn']))
+{
+	$bookingID = $_POST['bookingID'];
+	$facilityName = $_POST['facilityName'];
+	$facilityID = $_POST['facilityID'];
+
+	$sql = "UPDATE booking SET bookingStatus = '4' WHERE bookingID = '".$bookingID."'";
+	$stmt = mysqli_stmt_init($con);
+
+	if (!mysqli_stmt_prepare($stmt, $sql))
+	{
+		header("Location : ../listOfBooking.php?msg=sql");
+		exit();
+	}
+
+	else
+	{
+		mysqli_stmt_execute($stmt);
+		header("Location: ../ProfileUser.php?msg=requestcancel");
+		exit();
+	}
 }

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="CSS/bootstrap.css">    <!-- All pages -->
     <link rel="stylesheet" href="CSS/master.css">   <!-- All pages  -->
     <link rel="stylesheet" href="CSS/index.css">
-
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="JavaScript/jquery-3.5.1.min.js" crossorigin="anonymous"></script> <!-- Required by Bootstrap 4 -->
     <script src="JavaScript/popper.min.js" crossorigin="anonymous"></script> <!-- Required by Bootstrap 4 -->
@@ -34,19 +33,17 @@
         <div class="row text-center">
             <div class="col">
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-dark">Home</button>
-                    <button type="button" class="btn btn-dark">About</button>
-                    <button type="button" class="btn btn-dark">Rooms</button>
-                    <button type="button" class="btn btn-dark">Facilities</button>
-                    <button type="button" class="btn btn-dark">Events</button>
-                    <button type="button" class="btn btn-dark">Contacts</button>
+                    <button type="button" class="btn btn-dark" id="button3">Home</button>
+                    <button type="button" class="btn btn-dark">Explore</button>
+                    <button type="button" class="btn btn-dark" id="button1">About Us</button>
+                    <button type="button" class="btn btn-dark" id="button2">Contact Us</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="slide">
+<div class="slide home">
     <div id="slides" class="carousel slide" data-ride="carousel">
         <ul class="carousel-indicators">
             <li data-target="#slides" data-slide-to="0" class="active"></li>
@@ -115,105 +112,170 @@
     </div>
 </div>
 
-<div class="container-fluid text-center" style="padding-top: 50px">
-    <h1 class="display-4">Our Services & Facilities</h1>
-    <hr style="max-width: 50vh">
-</div>
-<section class="basic-grid">
-    <div class="card">
-        <p> Room 1 </p>
-    </div>
-
-    <div class="card">
-        <p> Room 2 </p>
-    </div>
-
-    <div class="card">
-        <p> Room 3 </p>
-    </div>
-
-    <div class="card">
-        <p> Room 4 </p>
-    </div>
-
-    <div class="card">
-        <p> Room 5 </p>
-    </div>
-
-    <div class="card">
-        <p> Room 6 </p>
-    </div>
-</section>
-
-<hr class="my-4">
-
-<div class="container-fluid padding">
-    <div class="row padding">
-        <div class="col-lg-6">
-            <h2>#MONTHLY_EVENT#</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            <br>
-            <a href="#" class="btn btn-dark">#MORE_DETAILS#</a>
-        </div>
-
-        <div class="col-lg-6">
-            <img src="img/bg1.jpg" class="img-fluid">
-        </div>
-    </div>
-</div>
 <hr class="my-4">
 <div class="container-fluid text-center" style="padding-top: 50px; ">
     <h1 class="display-4">Meet the Team</h1>
 </div>
 <section class="about-grid">
     <div class="card">
-        <p> Aliff </p>
-        <img src="img/team/aliff.jpg" class="team-img" alt="">
+        <h3 style="padding-top: 10px"> Aliff </h3>
+        <img src="img/team/aliff.jpg" class="team-img" alt="" style="border-radius: 10px">
+        <h4 style="padding: 10px">Muhamad Aliff Fahmi bin Mohd Asri</h4>
+        <h5 style="padding: 10px">A18DW1066</h5>
+        <h6 class="text-muted">Leader · Main Programmer</h6>
     </div>
 
     <div class="card">
-        <p> Redzuan </p>
-        <img src="img/team/redzuan.jpeg" class="team-img" alt="">
+        <h3 style="padding-top: 10px"> Redzuan </h3>
+        <img src="img/team/redzuan.jpeg" class="team-img" alt="" style="border-radius: 10px">
+        <h4 style="padding: 10px">Ahmad Redzuan</h4>
+        <h5 style="padding: 10px">A18DW1973</h5>
+        <h6 class="text-muted">Tester · Sub Programmer</h6>
     </div>
 
     <div class="card">
-        <p> Ariff </p>
-        <img src="img/team/ariff.jpg" class="team-img" alt="">
+        <h3 style="padding-top: 10px"> Ariff </h3>
+        <img src="img/team/ariff.jpg" class="team-img" alt="" style="border-radius: 10px">
+        <h4 style="padding: 10px">Ariff Iskandar bin Shamsuddin</h4>
+        <h5 style="padding: 10px">A18DW1683</h5>
+        <h6 class="text-muted">Main Technical Writer</h6>
     </div>
 
     <div class="card">
-        <p> Adam </p>
-        <img src="img/team/adam.jpeg" class="team-img" alt="">
+        <h3 style="padding-top: 10px"> Adam </h3>
+        <img src="img/team/adam.jpeg" class="team-img" alt="" style="border-radius: 10px">
+        <h4 style="padding: 10px">Muhammad Adam bin Mohd Shah</h4>
+        <h5 style="padding: 10px">A18DW0359</h5>
+        <h6 class="text-muted">Sub Technical Writer · UI/UX Designer</h6>
     </div>
 </section>
+
+<div class="container-fluid">
+    <div class="row jumbotron about">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-8">
+            <p class="lead">Marina Putrajaya is one of the attractions for leisure and recreation in Putrajaya which offers a wide range of services to public especially communities in Putrajaya and its surrounding. Located on the lakeside of Precinct 5 Putrajaya, this attraction mainly aim to create a healthy lifestyle for everyone that come to use its facilities. With a total space area of 28,530m² (including buildings, promenade and water features), this facility is built in a circular pattern.</p>
+            <p class="lead">From the angle of bird’s eye view, this building uniquely forming the shape of a horseshoe crab. The wonderful design of the complex comes with the purpose to ensure that every part of the complex has a good view of the scenic Putrajaya Lake from all angles.</p>
+            <p class="lead">Marina Putrajaya is the only facilities in Putrajaya that acts as the ‘one-stop recreation center’ that is open for public. Visitors can find facilities such as swimming pool, gymnasium, aerobic studio, steam bath room and sauna room all under one roof. In order to provide the greatest satisfaction for its visitor, Marina Putrajaya also has an exclusive café serving a wide range selection of food and beverages. Visitors will be able to indulge in a wonderful gastronomical experience while enjoying breathtaking view from the café. For a delightful leisure experience, visitors can always enjoy playing snooker or pool which is located on the first floor of the east wing building. Not only that, the snooker lounge is also equipped with dart for its guest to hit the bull’s eye at any time.</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-4">
+            <a href="#">
+                <img src="img/about.jpg" style="max-width: 600px">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row jumbotron contact">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7969.410176579132!2d101.671145!3d2.90105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe500640d509defce!2sMarina%20Putrajaya%20Sdn.%20Bhd.!5e0!3m2!1sen!2smy!4v1571284015185!5m2!1sen!2smy" style="border:0" allowfullscreen="" width="600" height="500" frameborder="0"></iframe>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-8">
+            <p>Address:</p>
+            <p >No 1, Jalan P5/5, Presint 5, 62200 Putrajaya, Wilayah Persekutuan Putrajaya</p>
+            <br>
+            <p>Phone:</p>
+            <p>+(603) 8881 0648</p>
+            <br>
+            <p>Email:</p>
+            <p>sales@cruisetasikputrajaya.com</p>
+        </div>
+    </div>
+</div>
 
 <div class="container-fluid footer" style="padding-top: 20px">
     <section class="footer-grid">
         <div class="footer-card">
             <p>Marina Putrajaya</p>
-            <p>Managed and operated by MARINA PUTRAJAYA SDN. BHD.</p>
+            <p class="text-muted">Managed and operated by MARINA PUTRAJAYA SDN. BHD.</p>
             <br>
             <br>
-            <p>No 1, Jalan P5/5, Presint 5, 62200 Putrajaya, Wilayah Persekutuan Putrajaya</p>
+            <p class="text-muted">No 1, Jalan P5/5, Presint 5, 62200 Putrajaya, Wilayah Persekutuan Putrajaya</p>
             <br>
             <br>
-            <p>Email: sales@cruisetasikputrajaya.com</p>
-            <p>Phone: +(603) 8881 0648</p>
-            <p>Fax: +(603) 8888 3769</p>
+            <p class="text-muted">Email: sales@cruisetasikputrajaya.com</p>
+            <p class="text-muted">Phone: +(603) 8881 0648</p>
+            <p class="text-muted">Fax: +(603) 8888 3769</p>
         </div>
         <div class="footer-card">
-            <p>Col 2</p>
-        </div>
-        <div class="footer-card">
-            <p>Col 3</p>
-        </div>
-        <div class="footer-card">
-            <p>Col 4</p>
+            <p>Social Media</p>
+            <a class="text-muted" href="#">Facebook</a>
+            <br>
+            <a class="text-muted" href="#">Instagram</a>
         </div>
     </section>
 </div>
 <!-- Local JavaScript -->
+<script>
+    $("#button1").click(function() {
+        $('html,body').animate({
+                scrollTop: $(".about").offset().top},
+            'slow');
+    });
 
+    $("#button2").click(function() {
+        $('html,body').animate({
+                scrollTop: $(".contact").offset().top},
+            'slow');
+    });
+
+    $("#button3").click(function() {
+        $('html,body').animate({
+                scrollTop: $(".home").offset().top},
+            'slow');
+    });
+</script>
+
+<script>
+    let url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+    var msg = searchParams.get('msg');
+    if(msg === 'success')
+    {
+        Swal.fire
+        (
+            'Registered!',
+            'You have registered an account. Please check your email.',
+            'success'
+        )
+    }
+    if(msg === 'signout')
+    {
+        Swal.fire
+        (
+            'Signed Out',
+            'You have successfully signed out of Marina BookIt.',
+            'success'
+        )
+    }
+    if(msg === 'emptypassword')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Fields must not be left empty.',
+            'error'
+        )
+    }
+    if(msg === 'passwordnotsame')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Password does not match.',
+            'error'
+        )
+    }
+    if(msg === 'sql')
+    {
+        Swal.fire
+        (
+            'Error',
+            'Server connection could not be established.',
+            'error'
+        )
+    }
+</script>
 <!-- Optional CDN -->
 
 </body>

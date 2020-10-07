@@ -59,7 +59,7 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 <div class="container-signin">
 
     <div class="box" id="signinBox1">
-        <a href="index.php"><img src="img/logo.png" alt=""></a>
+        <a href="index.html"><img src="img/logo.png" alt=""></a>
     </div>
 
     <div class="box" id="signinBox2">
@@ -70,11 +70,8 @@ if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
                 <div class="form-group">
                     <input class="form-class form-control text-center" type="password" name="oneTimePwd" placeholder="One Time Password">
                 </div>
-                <div class="form-group" style="padding-top: 20px">
-                    <button class="btn btn-outline-primary btn-block" type="submit" name="OTPResendBtn">Resend OTP</button>
-                </div>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block" type="submit" name="OTPSubmitBtn">Next</button>
+                    <button class="btn btn-dark" type="submit" name="OTPSubmitBtn">Next</button>
                 </div>
             </form>
         </div>

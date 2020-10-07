@@ -85,10 +85,9 @@
 <script>
 let url = new URL(window.location.href);
 let searchParams = new URLSearchParams(url.search);
-var error = searchParams.get('error');
-var success = searchParams.get('success');
+var msg = searchParams.get('msg');
 
-if(error === 'emptyfields')
+if(msg === 'emptyfields')
 {
     Swal.fire
     (
@@ -98,43 +97,41 @@ if(error === 'emptyfields')
     )
 }
 
-else if (error === 'sql')
+if(msg === 'sql')
 {
     Swal.fire
     (
-        'Error',
-        'Database connection could not be established.',
+        'Server Error',
+        'Cannot connect to the database, please try again later.',
         'error'
     )
 }
 
-else if (error === 'credentials')
+if(msg === 'credentials')
 {
     Swal.fire
     (
-        'Error',
-        'Incorrect credentials!',
+        'Wrong Credentials',
+        'The credentials are incorrect.',
         'error'
     )
 }
-
-else if (error === 'invalid')
-{
-    Swal.fire
-    (
-        'Error',
-        'Invalid link!',
-        'error'
-    )
-}
-
-if(success === 'reset')
+if(msg === 'resetted')
 {
     Swal.fire
     (
         'Success',
-        'Your password has been reset!',
-        'error'
+        'Please check your email',
+        'success'
+    )
+}
+if(msg === 'resetpwd')
+{
+    Swal.fire
+    (
+        'Success',
+        'Password changed.',
+        'success'
     )
 }
 

@@ -15,6 +15,36 @@ function listFacility()
 	return $qry;
 }
 
+function listFormalFacility()
+{
+	$con = mysqli_connect('localhost', 'web39', 'web39', 'mbisdb');
+
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+
+	$sqlStr = "SELECT * FROM facility WHERE facilityType = 'Formal'";
+	$qry = mysqli_query($con, $sqlStr);
+	mysqli_close($con);
+	return $qry;
+}
+
+function listSportsFacility()
+{
+	$con = mysqli_connect('localhost', 'web39', 'web39', 'mbisdb');
+
+	if (mysqli_connect_errno())
+	{
+		die("FAIL TO CONNECT: " . mysqli_connect_error());
+	}
+
+	$sqlStr = "SELECT * FROM facility WHERE facilityType = 'Sports'";
+	$qry = mysqli_query($con, $sqlStr);
+	mysqli_close($con);
+	return $qry;
+}
+
 function viewFacility()
 {
 	$con = mysqli_connect('localhost', 'web39', 'web39', 'mbisdb');
@@ -54,7 +84,7 @@ function updateFacility()
 
 	if (!mysqli_stmt_prepare($stmt, $sql))
 	{
-		header("Location : ../listOfFacility.php?error=SQL");
+		header("Location : ../listOfFacility.php?msg=sql");
 		exit();
 	}
 
@@ -68,7 +98,7 @@ function updateFacility()
 //		print_r($_POST);
 //		echo '<br>';
 //		echo $facilityAmenitiesSQL;
-		header("Location: ../listOfFacility.php?success=updated");
+		header("Location: ../listOfFacility.php?msg=updated");
 		exit();
 	}
 }
@@ -89,7 +119,7 @@ function deleteFacility()
 	mysqli_query($con, $sql);
 	mysqli_close($con);
 
-	header('Location:../listOfFacility.php?delete=success');
+	header('Location:../listOfFacility.php?msg=deleted');
 
 }
 
@@ -109,7 +139,7 @@ if (isset($_POST['facilitySubmitBtn']))
 
 	if (empty($facilityName) || empty($facilityCapacity) || empty($facilityRate) || empty($facilityAmenities))
 	{
-		header("Location: ../registerFacility.php?error=empty");
+		header("Location: ../registerFacility.php?msg=empty");
 		exit();
 	}
 
@@ -120,7 +150,7 @@ if (isset($_POST['facilitySubmitBtn']))
 
 		if (!mysqli_stmt_prepare($stmt, $sql))
 		{
-			header("Location: ../registerFacility.php?error=SQL");
+			header("Location: ../registerFacility.php?msg=sql");
 			exit();
 		}
 
@@ -133,7 +163,7 @@ if (isset($_POST['facilitySubmitBtn']))
 
 			if ($resultCheck > 0)
 			{
-				header("Location: ../registerFacility.php?error=taken");
+				header("Location: ../registerFacility.php?msg=taken");
 				exit();
 			}
 
@@ -144,7 +174,7 @@ if (isset($_POST['facilitySubmitBtn']))
 
 				if (!mysqli_stmt_prepare($stmt, $sql))
 				{
-					header("Location: ../registerFacility.php?error=SQL");
+					header("Location: ../registerFacility.php?msg=sql");
 					exit();
 				}
 
@@ -167,10 +197,10 @@ if (isset($_POST['facilitySubmitBtn']))
 						        (SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) a
 						       ,(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) b
 						       ,(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4) c ORDER BY n) t   
-								WHERE t.n <= TIMESTAMPDIFF(DAY, '2020-01-01', '2020-12-31');";
+								WHERE t.n <= TIMESTAMPDIFF(DAY, '2020-01-01', '2021-12-31');";
 					mysqli_query($con, $sql2);
 
-					header("Location: ../registerFacility.php?success=insert");
+					header("Location: ../registerFacility.php?msg=insert");
 					exit();
 				}
 			}
@@ -182,47 +212,29 @@ if (isset($_POST['facilitySubmitBtn']))
 
 if (isset($_POST['facilityPicBtn1']))
 {
-	$facilityImg1 = $_FILES['facilityImg1'];
 	$facilityName = $_POST['facilityName'];
+	$facilityID = $_POST['facilityID'];
+	$fileDestination = '../img/facility/'.$facilityName.'/';
 
-	$fileName = $_FILES['facilityImg1']['name'];
-	$fileTmpName = $_FILES['facilityImg1']['tmp_name'];
-	$fileSize = $_FILES['facilityImg1']['size'];
-	$fileError = $_FILES['facilityImg1']['error'];
-	$fileType = $_FILES['facilityImg1']['type'];
 
-	$fileExt = explode('.', $fileName);
-	$fileActualExt = strtolower(end($fileExt));
-
-	$allowed = array('jpg', 'jpeg', 'png');
-
-	if (in_array($fileActualExt, $allowed))
+	for ($loop = 0; $loop < ($_FILES['facilityImg']['name']); $loop++)
 	{
-		if ($fileError === 0)
+		$name = $_FILES['facilityImg']['name'][$loop];
+		$size = $_FILES['facilityImg']['size'][$loop];
+		$type = $_FILES['facilityImg']['type'][$loop];
+		$tmp_name = $_FILES['facilityImg']['tmp_name'][$loop];
+
+		$accepted = array('jpg');
+
+		if ($size < 99999999)
 		{
-			if ($fileSize < 99999999)
+			if (in_array(pathinfo($name, PATHINFO_EXTENSION), $accepted))
 			{
-				$fileNameNew = "1.".$fileActualExt;
-				$fileDestination = '../img/facility/'.$facilityName.'/'.$fileNameNew;
-				move_uploaded_file($fileTmpName, $fileDestination);
-				header("Location: ../listOfFacility.php?success=upload");
-				exit();
+				$fileNameNew = $loop.".jpg";
+				move_uploaded_file($tmp_name, $fileDestination.$fileNameNew);
+				header("Location: ../ProfileFacility.php?viewFacility=".$facilityID."&viewFacilityBtn=View&msg=success");
 			}
 		}
 
-		else
-		{
-			echo "Error file";
-			print_r($_FILES);
-		}
-
-	}
-	else
-	{
-		echo "Error type";
-		print_r($_FILES);
-		echo '<br>';
-		echo $fileActualExt;
-		print_r($fileExt);
 	}
 }

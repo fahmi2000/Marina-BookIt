@@ -54,7 +54,7 @@ function updateStaff()
 	mysqli_query($con, $sql);
 	mysqli_close($con);
 
-	header('Location:../listOfStaff.php?update=success');
+	header('Location:../listOfStaff.php?msg=updated');
 }
 
 function deleteStaff()
@@ -73,7 +73,7 @@ function deleteStaff()
 	mysqli_query($con, $sql);
 	mysqli_close($con);
 
-	header('Location:../listOfStaff.php?delete=success');
+	header('Location:../listOfStaff.php?msg=deleted');
 }
 
 function changePwdStaff()
@@ -95,7 +95,7 @@ function changePwdStaff()
 
 	if ($userPwdNew !== $userPwdNewRepeat)
 	{
-		header("Location: ../listOfStaff.php?error=passwordnotmatch");
+		header("Location: ../listOfStaff.php?msg=passwordnotmatch");
 		exit();
 	}
 
@@ -103,7 +103,7 @@ function changePwdStaff()
 	{
 		if (!mysqli_stmt_prepare($stmt1, $sql1))
 		{
-			header("Location: ../listOfStaff.php?error=sqlerror");
+			header("Location: ../listOfStaff.php?msg=sql");
 			exit();
 		}
 
@@ -121,7 +121,7 @@ function changePwdStaff()
 
 				if (!mysqli_stmt_prepare($stmt2, $sql2))
 				{
-					header("Location: ../listOfStaff.php?error=SQLError");
+					header("Location: ../listOfStaff.php?msg=sql");
 					exit();
 				}
 
@@ -132,14 +132,14 @@ function changePwdStaff()
 					mysqli_stmt_bind_param($stmt2, "s", $hashedPwd);
 					mysqli_stmt_execute($stmt2);
 
-					header('Location:../listOfStaff.php?password=success');
+					header('Location:../listOfStaff.php?msg=pwd');
 					exit();
 				}
 			}
 
 			else
 			{
-				header("Location: ../listOfStaff.php?error=usernotfound");
+				header("Location: ../listOfStaff.php?msg=usernotfound");
 				exit();
 			}
 		}

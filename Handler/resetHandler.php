@@ -12,13 +12,13 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 	if (empty($userPwd) || empty($userPwdRepeat))
 	{
-		header("Location: ../index.php?error=emptypasword");
+		header("Location: ../index.html?msg=emptypassword");
 		exit();
 	}
 
 	elseif ($userPwd != $userPwdRepeat)
 	{
-		header("Location: ../index.php?error=passwordnotsame");
+		header("Location: ../index.html?msg=passwordnotsame");
 		exit();
 	}
 
@@ -31,7 +31,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 	if (!mysqli_stmt_prepare($stmt, $sql))
 	{
-		header("Location: ../index.php?error=sql");
+		header("Location: ../index.html?msg=sql");
 		exit();
 	}
 
@@ -44,7 +44,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 		if (!$row = mysqli_fetch_assoc($result))
 		{
-			header("Location: ../signinPage.html?error=invalid");
+			header("Location: ../signinPage.html?msg=credentials");
 			exit();
 		}
 
@@ -55,7 +55,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 			if($tokenCheck === false)
 			{
-				header("Location: ../signinPage.html?error=invalid");
+				header("Location: ../signinPage.html?msg=credentials");
 				exit();
 			}
 
@@ -68,7 +68,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 				if(!mysqli_stmt_prepare($stmt, $sql))
 				{
-					header("Location: ../signinPage.html?error=sql");
+					header("Location: ../signinPage.html?msg=sql");
 					exit();
 				}
 
@@ -81,7 +81,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 					if(!$row = mysqli_fetch_assoc($result))
 					{
-						header("Location: ../signinPage.html?error=credentials");
+						header("Location: ../signinPage.html?msg=credentials");
 						exit();
 					}
 
@@ -92,7 +92,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 						if(!mysqli_stmt_prepare($stmt, $sql))
 						{
-							header("Location: ../signinPage.html?error=credentials");
+							header("Location: ../signinPage.html?msg=credentials");
 							exit();
 						}
 
@@ -107,7 +107,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 
 							if(!mysqli_stmt_prepare($stmt, $sql))
 							{
-								header("Location: ../signinPage.html?error=credentials");
+								header("Location: ../signinPage.html?msg=credentials");
 								exit();
 							}
 
@@ -115,7 +115,7 @@ if (isset($_POST['resetPwdSubmitBtn']))
 							{
 								mysqli_stmt_bind_param($stmt, "s", $tokenEmail);
 								mysqli_stmt_execute($stmt);
-								header("Location: ../signinPage.html?success=reset");
+								header("Location: ../signinPage.html?msg=resetpwd");
 								exit();
 							}
 						}
