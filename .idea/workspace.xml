@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="368517c7-b87b-4914-b111-43c6c2450776" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/bookingHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/bookingHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Handler/registerHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Handler/registerHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileBooking.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileBooking.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileFacility.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileStaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/explore.php" beforeDir="false" afterPath="$PROJECT_DIR$/explore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/facility/MEETING ROOM 1/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/facility/MEETING ROOM 1/0.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/facility/MEETING ROOM 1/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/facility/MEETING ROOM 1/1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/facility/MEETING ROOM 1/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/facility/MEETING ROOM 1/2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/facility/MEETING ROOM 1/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/facility/MEETING ROOM 1/4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/facility/SWIMMING POOL/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/facility/SWIMMING POOL/0.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/facility/SWIMMING POOL/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/facility/SWIMMING POOL/2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/facility/SWIMMING POOL/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/facility/SWIMMING POOL/3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/facility/SWIMMING POOL/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/facility/SWIMMING POOL/4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listOfBooking.php" beforeDir="false" afterPath="$PROJECT_DIR$/listOfBooking.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listOfFacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/listOfFacility.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registerStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/registerStaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signinOTP.php" beforeDir="false" afterPath="$PROJECT_DIR$/signinOTP.php" afterDir="false" />
-    </list>
+    <list default="true" id="368517c7-b87b-4914-b111-43c6c2450776" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +155,7 @@
       <workItem from="1601867371031" duration="317000" />
       <workItem from="1601949188017" duration="43043000" />
       <workItem from="1602008321164" duration="4916000" />
-      <workItem from="1602013286378" duration="25356000" />
+      <workItem from="1602013286378" duration="26049000" />
     </task>
     <servers />
   </component>
