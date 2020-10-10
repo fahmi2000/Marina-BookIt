@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
+<<<<<<< HEAD
 -- Generation Time: Oct 10, 2020 at 05:30 AM
+=======
+-- Generation Time: Oct 10, 2020 at 05:18 AM
+>>>>>>> dd86c55f51dab6539c1757d070c3392b997b0456
 -- Server version: 8.0.18
 -- PHP Version: 7.4.5
 
@@ -3765,9 +3769,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `userType`, `userName`, `userEmail`, `userPwd`, `fName`, `lName`, `phoneNumber`, `userGender`, `emailVerify`, `forgotPwd`, `oneTimePwd`) VALUES
+<<<<<<< HEAD
 (000001, '1', 'aliff', 'testemail1@gmail.com', '$2y$12$QRajDV2ByAEq495GY84yku/SUnzYRryEigafwQZHuwDkOLtvkh50y', 'Aliff', 'Fahmi', '123213213123', 'shyGender', '1', '0', NULL),
 (000015, '2', 'adelaide', 'test@gmail.com', '$2y$12$QRajDV2ByAEq495GY84yku/SUnzYRryEigafwQZHuwDkOLtvkh50y', 'Adelaide', 'Furuhashi', '0182329739', 'femaleGender', '1', '0', NULL),
 (000026, '3', 'abu123', 'abu@gmail.com', '$2y$12$QRajDV2ByAEq495GY84yku/SUnzYRryEigafwQZHuwDkOLtvkh50y', 'abu', 'uba', NULL, 'maleGender', '0', '0', NULL);
+=======
+(000001, '3', 'aliff', 'fahmialiff00@gmail.com', '$2y$10$yTykICKf7MoIF1YQpzw2u.rBRB2C6JG/TTStQ/3XTTJAhlZGdg.Za', 'Aliff', 'Fahmi', '123213213123', 'shyGender', '1', '0', NULL),
+(000005, '3', 'qwertyqaz', 'qwertyqaz12343@gmail.com', '$2y$10$TpGJIP2O.BPjORwkNiztLer75t4NHTqxZ7NvTSDKsZ2UpLjSzt6Fi', NULL, NULL, NULL, NULL, '0', '0', ''),
+(000015, '3', 'adelaide', 'test@gmail.com', '$2y$10$1YFwvKFI1t0lBn6FIqvi4egyDwRmcDwH0UmpCz30wAsGHpjGCGvOy', 'Adelaide', 'Furuhashi', '0182329739', 'femaleGender', '1', '0', NULL),
+(000018, '3', 'zubir211', 'zubir211@gmail.com', '$2y$10$isG5HxnB3mHmhrBP/wgAsOm805.JhXBeY8NY86kYVpPEKgWCsUbcu', NULL, NULL, NULL, NULL, '1', '0', '0'),
+(000019, '1', 'muhdadam', 'muhdadamshah9600@gmail.com', '$2y$10$MYfrqfuLsertycoMshsmdemBxd1pxn6GiKGijXnNIRcDquozgIFGG', 'Muhd', 'Adam', '0137165797', 'maleGender', '1', '0', '0'),
+(000024, '2', 'mrRed', 'redhunter2357@gmail.com', '$2y$10$Z2b2RbDIR/NQKu80ye0WgOibQlZBB1ChTmMChjlNWGPm1fq079Lki', 'Ahmad', 'Redzuan', '123213123', 'shyGender', '1', '0', '0'),
+(000025, '3', 'adelaide123', 'adelaidemeyrin12343@gmail.com', '$2y$10$Tk33ttVp.13QAlhAYySeR.cgW1my2T3aX.TBvG6g7HwRLnJUOd0w2', 'Aliff', 'Fahmi', '123456', 'shyGender', '1', '0', '0'),
+(000026, '2', 'abu123', 'abu@gmail.com', '$2y$10$vtsq/P2iuKGmxzNT1bKB0eucT65g6Cs6HiJxU6dY1twU8nCOebFmO', 'abu', 'uba', NULL, 'maleGender', '0', '0', NULL);
+>>>>>>> dd86c55f51dab6539c1757d070c3392b997b0456
 
 --
 -- Indexes for dumped tables
