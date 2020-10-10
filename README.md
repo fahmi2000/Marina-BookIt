@@ -24,12 +24,12 @@
 
 ###### ACCOUNTS
 1. Admin
-* Username: aliff
-* Password: 123
+   * Username: aliff
+   * Password: 123
 2. Staff  
-* Username: adelaide
-* Password: 123
+   * Username: adelaide
+   * Password: 123
 3. Member
-* Username: abu123
-* Password: 123
+   * Username: abu123
+   * Password: 123
           
