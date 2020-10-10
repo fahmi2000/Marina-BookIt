@@ -23,10 +23,10 @@
 8. Click the 'Go' button on the bottom left of the page.
 
 -ACCOUNTS-
-Admin -   Username: aliff
+1. Admin -   Username: aliff
           Password: 123
-Staff -   Username: adelaide
+2. Staff -   Username: adelaide
           Password: 123
-Member -  Username: abu123
+3. Member -  Username: abu123
           Password: 123
           
